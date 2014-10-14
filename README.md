@@ -20,11 +20,13 @@ Es soll die Möglichkeit geben, ein Buch einer Vorlesung (eine Vorlesung gehört
 Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor empfohlenen Bücher angezeigt werden. Hier kann der User in Erfahrung bringen, ob dieses Buch von einem anderen User angeboten wird. 
 
 Optional:
-•	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. \\
-•	Wird ein Buch von einem User angeboten, kann der Käufer in Kontakt mit dem Verkäufer treten.\\
-•	Daten zum Buch direkt nach der Eingabe der ISBN automatisch beziehen\\
-•	Bewertungssystem für Verkäufer\\
+•	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. 
+•	Wird ein Buch von einem User angeboten, kann der Käufer in Kontakt mit dem Verkäufer treten.
+•	Daten zum Buch direkt nach der Eingabe der ISBN automatisch beziehen
+•	Bewertungssystem für Verkäufer
 •	Von Usern empfohlene Bücher zu Vorlesungen mit Anzeigen und anbieten
 •	Suchanfrage von Usern die auf der Suche nach einem bestimmten Buch sind
 
+Eingesetzte Technologien:
+ALLE (folgt ...)
  
