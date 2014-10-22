@@ -15,12 +15,24 @@ h1 {
 	width: 100%;
 }
 
-#homepagecontent {
-	width: 60%;
-	margin: 0 auto;
-	border: 1px solid black;
-	background-color: #ffffff;
-	height: 1600px;
+@media only screen and ( min-width: 1150px ) {
+	#homepagecontent {
+		width:1100px;
+		margin: 0 auto;
+		border: 1px solid black;
+		background-color: #ffffff;
+		height: 1600px;
+	}
+}
+
+@media only screen and ( max-width: 1150px ) {
+	#homepagecontent {
+		width: 99%;
+		margin: 0 auto;
+		border: 1px solid black;
+		background-color: #ffffff;
+		height: 1600px;
+	}
 }
 
 #head {
@@ -49,39 +61,6 @@ h1 {
 
 #bildinslider {
 	width: 100%;
-}
-
-@media only screen and ( min-width: 950px ) {
-	#navigation {
-		height: 25px;
-		border-top: 1px solid black;
-		position: relative;
-		text-align: center;
-	}
-	.link {
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-	
-	#respnav {
-		display: none;
-	}
-}
-
-@media only screen and ( max-width: 950px) {
-	.link  {
-		display:none;
-	}
-	
-	.linktrenner {
-		display:none;
-	}
-	
-	#respnav {
-		height: 55px;
-		text-align: center;
-		margin-top:10px;
-	}	
 }
 
 #content {
@@ -126,4 +105,34 @@ h1 {
 	bottom: 0;
 	background: #efefef;
 	z-index: 3;
+}
+
+@media only screen and ( min-width: 950px ) {
+	#navigation {
+		height: 25px;
+		border-top: 1px solid black;
+		position: relative;
+		text-align: center;
+	}
+	.link {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#respnav {
+		display: none;
+	}
+}
+
+@media only screen and ( max-width: 950px) {
+	.link {
+		display: none;
+	}
+	.linktrenner {
+		display: none;
+	}
+	#respnav {
+		height: 55px;
+		text-align: center;
+		margin-top: 10px;
+	}
 }
