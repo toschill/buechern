@@ -68,6 +68,14 @@ h1 {
 	position: relative;
 }
 
+#register {
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
 .buchbild {
 	width: 100%;
 }
