@@ -143,6 +143,19 @@ h1 {
 	height: 800px;
 }
 
+#addBook{
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: left;
+	height: 800px;
+
+}
+
+.addForm{
+	margin-left: 3%;
+
+}
 
 .box {
 	width: 45%;
