@@ -94,7 +94,7 @@ h1 {
 	
 }
 
-.userProfile{
+#userProfile{
 	width: 100%;
 	margin-left: 3%;
 	margin-right: 60%;
@@ -104,6 +104,10 @@ h1 {
 	margin-left: 3%;
 	width:80%;
 }
+
+.linkSlidbar {
+		margin-left: 3%;
+	}
 
 .userData{
 	margin-left: 3%;
@@ -125,6 +129,14 @@ h1 {
 
 .buchtitel {
 	font-size: 120%;
+}
+
+#changeUserData{
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
 }
 
 
