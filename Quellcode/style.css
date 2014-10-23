@@ -86,6 +86,39 @@ h1 {
 	height: 800px;
 }
 
+
+
+#sidebar{
+	float:left;
+	width:20%;
+	
+}
+
+.userProfile{
+	width: 100%;
+	margin-left: 3%;
+	margin-right: 60%;
+}
+
+.userImage{
+	margin-left: 3%;
+	width:80%;
+}
+
+.userData{
+	margin-left: 3%;
+	font-size: 100%;
+}
+
+#userBooks{
+	width: 60%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+
 .buchbild {
 	width: 100%;
 }
@@ -93,6 +126,7 @@ h1 {
 .buchtitel {
 	font-size: 120%;
 }
+
 
 .box {
 	width: 45%;
