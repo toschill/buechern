@@ -227,19 +227,34 @@ h1 {
 }
 
 @media only screen and ( max-width: 1100px) {
+	
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}	
+
 	.userData{
 		display:none;
 	}
-	
+	.icon_tools{
+		width: 40%;
+		margin-left: 20%;
+		margin-top:10%;
+	}
 	.linkSidebar {
-		dilsplay: none;
+		display: none;
 	}
 
 	#userDataNotShown{
 		heigh:5%;
 	}
+
 }
 
+.linkSidebarPic{
+	margin-left: 3%;
+}
 
 @media only screen and ( max-width: 950px) {
 	.link {
