@@ -92,24 +92,24 @@ h1 {
 
 
 
-#sidebar{
+#leftSidebar{
 	float:left;
 	width:20%;
 	
 }
 
-#userProfile{
-	width: 100%;
-	margin-left: 3%;
-	margin-right: 60%;
+#rightSidebar{
+	float:right;
+	width:20%;
 }
+
 
 .userImage{
 	margin-left: 3%;
 	width:80%;
 }
 
-.linkSlidbar {
+.linkSidebar {
 		margin-left: 3%;
 	}
 
@@ -203,6 +203,43 @@ h1 {
 		display: none;
 	}
 }
+
+@media only screen and ( min-width:1100px){
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}
+	
+	
+	.linkSidebar {
+		margin-left: 3%;
+	}
+
+	.userData{
+		margin-left: 3%;
+		font-size: 100%;
+	}
+	
+	#userDataNotShown{
+		display:none;
+	}
+}
+
+@media only screen and ( max-width: 1100px) {
+	.userData{
+		display:none;
+	}
+	
+	.linkSidebar {
+		dilsplay: none;
+	}
+
+	#userDataNotShown{
+		heigh:5%;
+	}
+}
+
 
 @media only screen and ( max-width: 950px) {
 	.link {
