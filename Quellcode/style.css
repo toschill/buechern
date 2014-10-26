@@ -86,6 +86,26 @@ h1 {
 	height: 800px;
 }
 
+#persInfo {
+	text-align: left;
+	margin-left: 10px;
+	width: 80%;	
+}
+
+#landing {
+	width: 80%;
+	margin: 10px auto;
+	height: 800px;
+}
+
+#landingHead {
+	text-align: center;
+}
+
+.subtitle {
+	text-align: center;
+}
+
 .buchbild {
 	width: 100%;
 }
