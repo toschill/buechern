@@ -95,11 +95,17 @@ h1 {
 #landing {
 	width: 80%;
 	margin: 10px auto;
-	height: 800px;
 }
 
 #landingHead {
 	text-align: center;
+}
+
+#comix{
+	text-align: center;
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 70%;
 }
 
 .subtitle {
