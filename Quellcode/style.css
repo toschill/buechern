@@ -151,7 +151,10 @@ h1 {
 	height: 800px;
 }
 
-
+.deleteBook{
+	width:10%;
+	float:right;
+}
 .buchbild {
 	width: 100%;
 }
