@@ -1,7 +1,18 @@
-@(message: String)
-
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
+@()
+@main("Welcome to buechern"){
+			<div id="content">
+				<div id="landingHead">
+					<h1>buechern.de - Die HTWG interne Buchbörse</h1>
+					<a class="subtitle">fair - einfach - gut!</a>
+				</div>
+				<div id="landing">
+					</br>
+					<p>&#10003; Verkaufe FH-Bücher an Kommilitonen</p>
+					<p>&#10003; Kaufe Bücher die dir wirklich helfen</p>
+					<p>&#10003; Bekomme Buchempfehlungen von Kommilitonen aus höheren Semestern</p>
+					<div id="soGehts" align="center">
+					<img id="comix" src=@routes.Assets.at("images/comix.jpg") name="Comic">
+					</div>
+				</div>
+			</div>
 }
