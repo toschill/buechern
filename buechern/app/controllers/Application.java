@@ -11,8 +11,8 @@ public class Application extends Controller {
         return ok(index.render());
     }
     
-    public static Result profile() {
-		return ok(profile.render());
-	}
+//    public static Result profile() {
+//		return ok(profile.render());
+//	}
 
 }
