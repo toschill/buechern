@@ -40,33 +40,44 @@
 				</div>
 			</div>
 
+			<div class="clear"></div>
 			<div id="slider">
 				<div id="bilderslider">
-					<img id="bildinslider" src=@routes.Assets.at("images/slider.jpg") />
+					<img id="bildinslider" src=@routes.Assets.at("images/slider2.jpg") />
 				</div>
 			</div>
 
-			<div id="navigation">
-				<div id="respnav">
-					<img src=@routes.Assets.at("images/navi.png") />
-				</div>
-				<span class="link"><a href="index.html">Startseite</a></span> <span
-					class="linktrenner"> | </span> <span class="link"><a
-					href="einkaufen.html">Einkaufen</a></span> <span class="linktrenner"> | </span> <span
-					class="link"><a href="verkaufen.html">Verkaufen</a></span> <span
-					class="linktrenner"> | </span> <span class="link"><a
-					href="index.html">Bestseller</a></span> <span class="linktrenner"> | </span> <span
-					class="link"><a href="profile.html">Profil</a></span>
-
+			<div id="navigation">		
+				
+					<div id="respnav">
+						<img src=@routes.Assets.at("images/navi.png") />
+					</div>
+					<div class="navlinks">
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href="index.html">Startseite</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href="einkaufen.html">Einkaufen</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href="verkaufen.html">Verkaufen</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href="index.html">Bestseller</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href="profile.html">Profil</a></div>
+						</div> 
+					</div>
 			</div>
-			
+			<div class="clear"></div>
 			@content
-
+			<div class="clear"></div>
 			<div id="footer_container">
 				<div id="footer">
-					<span class="link"><a href="#">Telefonnummer</a></span> <span
-						class="linktrenner"> | </span> <span class="link"><a
-						href="#">E-Mail Nachricht</a></span>
+					<span class="footerlink"><a href="#">Telefonnummer</a> </span>
+					<span class="footerlink">| </span>
+					<span class="footerlink"><a href="#">E-Mail Nachricht</a> </span>
 				</div>
 			</div>
 
