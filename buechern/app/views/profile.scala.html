@@ -1,5 +1,5 @@
 @()
-@main(title = "Profile"){
+@main("Profile"){
 			
 			<div id="content">
 				<div id="leftSidebar">
@@ -7,20 +7,20 @@
 						<h1>USER PROFILE</h1>
 						
 						<div id="userDataShown">
-							<img class="userImage" src="Profile_Image.jpg" /></br>
+							<img class="userImage" src=@routes.Assets.at("images/Profile_Image.jpg") /></br>
 							<div id="userDataNotShown">
-								<span class="linkSidebarPic"><a href="userDatenÄndern.html"><img class="icon_tools" src="icon_tools.png" /></a></span>
+								<span class="linkSidebarPic"><a href=@routes.Application.changeUserData()><img class="icon_tools" src=@routes.Assets.at("images/icon_tools.png") /></a></span>
 							</div>
 							
 							<span class="userData">Mustermann</span><br/>
 							<span class="userData">mustermann@@muster.com</span><br/>
-							<span class="linkSidebar"><a href="userDatenAendern.html">Change Passwort</a></span> </br>
-							<span class="linkSidebar"><a href="userDatenAendern.html">Change Email</a></span></br>
+							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Passwort</a></span> </br>
+							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Email</a></span></br>
 						</div>		
 					</div>	
 				</div>	
 				<div id="rightSidebar">
-					<span class="linkSidebarPic"><a href="verkaufen.html"><img class="userImage" src="book_add.png" /></a></span>
+					<span class="linkSidebarPic"><a href=@routes.Application.verkaufen()><img class="userImage" src=@routes.Assets.at("images/book_add.png") /></a></span>
 				</div>
 			
 			
@@ -29,23 +29,23 @@
 						<div id="boxen">
 						
 							<div class="box">
-								<img class="buchbild" src="bucheinzel.jpg" /> <span
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 								class="buchtitel">Buch - Titel 1 </span><br> Fach
 								Empfehleung
-								<a href="#"><img class="deleteBook" src="Delete_icon.png"/></a>
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
 							</div>
 							<div class="box">
-								<img class="buchbild" src="bucheinzel.jpg" /> <span
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 								class="buchtitel">Buch - Titel 2 </span><br> Fach
 								Empfehleung
-								<a href="#"><img class="deleteBook" src="Delete_icon.png"/></a>
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
 							</div>
 							<div class="clear"></div>	
 							<div class="box">
-								<img class="buchbild" src="bucheinzel.jpg" /> <span
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 								class="buchtitel">Buch - Titel 3 </span><br> Fach
 								Empfehleung
-								<a href="#"><img class="deleteBook" src="Delete_icon.png"/></a>
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
 							</div>
 						</div>
 				</div>
