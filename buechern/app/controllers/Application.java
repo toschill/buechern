@@ -21,4 +21,12 @@ public class Application extends Controller {
 	public static Result verkaufen(){
 		return ok(verkaufen.render());
    }
+	
+	public static Result einkaufen(){
+		return ok(einkaufen.render());
+   }
+	
+	public static Result registrierung(){
+		return ok(registrierung.render());
+	}
 }

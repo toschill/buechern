@@ -8,7 +8,9 @@ GET     /                           controllers.Application.index()
 GET		/profile					controllers.Application.profile()
 GET		/userDatenAendern			controllers.Application.changeUserData()
 GET		/verkaufen					controllers.Application.verkaufen()
-
+GET		/einkaufen					controllers.Application.einkaufen()
+GET		/einkaufen					controllers.Application.einkaufen()
+GET		/registrierung				controllers.Application.registrierung()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
