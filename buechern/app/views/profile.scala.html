@@ -1,0 +1,54 @@
+@()
+@main("Profile"){
+			
+			<div id="content">
+				<div id="leftSidebar">
+					<div id="userProfile">
+						
+						<div id="userDataShown">
+							<img class="userImage" src=@routes.Assets.at("images/Profile_Image.jpg") /></br>
+							<div id="userDataNotShown">
+								<span class="linkSidebarPic"><a href=@routes.Application.changeUserData()><img class="icon_tools" src=@routes.Assets.at("images/icon_tools.png") /></a></span>
+							</div>
+							
+							<span class="userData">Mustermann</span><br/>
+							<span class="userData">mustermann@@muster.com</span><br/>
+							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Passwort</a></span> </br>
+							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Email</a></span></br>
+						</div>		
+					</div>	
+				</div>	
+				<div id="rightSidebar">
+					<span class="linkSidebarPic"><a href=@routes.Application.verkaufen()><img class="userImage" src=@routes.Assets.at("images/book_add.png") /></a></span>
+				</div>
+			
+				
+				
+				<div id="userBooks">
+					<h1>Eigene Bücher:</h1>
+						<div id="boxen">
+						
+							<div class="box">
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+								class="buchtitel">Buch - Titel 1 </span><br> <span class="buchtitel"> Fach
+								Empfehlung</span>
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+							</div>
+							<div class="box">
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+								class="buchtitel">Buch - Titel 2 </span><br> <span class="buchtitel">Fach
+								Empfehlung</span>
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+							</div>
+							<!--  <div class="clear"></div>	-->
+							<div class="box">
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+								class="buchtitel">Buch - Titel 3 </span><br><span class="buchtitel">Fach
+								Empfehlung</span> 
+								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+							</div>
+						</div>
+				</div>
+			</div>
+
+}

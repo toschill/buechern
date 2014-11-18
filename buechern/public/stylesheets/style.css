@@ -1,0 +1,390 @@
+/* CSS for buechern.de Webtech Project */
+
+/* statics for whole page */
+
+body {
+	background-color: #EEEEEE;
+}
+
+h1 {
+	margin-left: 3%;
+	font-size: 120%;
+}
+
+#homepage {
+	width: 100%;
+}
+
+.clear {
+	clear: both;
+}
+
+/* top box logo, register and sign in */
+
+#head {
+	position: relative;
+	height: auto;
+}
+
+#logo {
+	float: left;
+}
+
+.loginform {
+	float:right
+}
+
+#logobild {
+	width: 100%;
+}
+
+#login {
+	float: right;
+	position: relative;
+}
+
+#registerlink {
+	float: left;
+	margin-top:24px;
+	margin-right: 10px;
+}
+
+#headerrechts {
+	padding-top:22px;
+	padding-right: 2px;
+}
+
+#login form input{
+	box-shadow: 0 0 3px 0 #959595;
+}
+
+/* slider */
+
+#slider {
+	height: auto;
+	position: relative;
+	margin: 0 auto;
+}
+
+#bildinslider {
+	width: 100%;
+}
+
+#bilderslider{
+	height:auto;
+}
+
+/* navigation */
+
+.linkbox {
+	position: relative;
+	float: left;
+	margin-left: 5px;
+}
+
+.linklinkbox:a{
+	margin-left:5px;
+}
+
+.linkboxlink:hover{
+	background-color: #5D5D5D;
+	-moz-box-shadow:    inset 0 0 2px #000000;
+    -webkit-box-shadow: inset 0 0 2px #000000;
+	box-shadow:         inset 0 0 2px #000000;
+}
+
+.navlinks{
+    height: 34px;
+    margin: 0 auto;
+	margin-top: -6px;
+	margin-bottom: 4px;
+	width: 520px;
+}
+
+.linkboxlink {
+	padding: 5px 20px;
+}
+
+.navlinks{
+	height:34px;
+}
+
+#navigation a:link {
+	font-size:15px;
+	color: #E9E9E9;
+	font-family: sans-serif;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+}
+
+#navigation a:visited {
+	font-size:15px;
+	color: #E9E9E9;
+	font-family: sans-serif;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+}
+
+/* content */
+
+#content {
+	position: relative;
+}
+
+
+/* User Profil */
+
+/* footer */
+
+/* special */
+
+#register {
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+#persInfo {
+	text-align: left;
+	margin-left: 10px;
+	width: 80%;	
+}
+
+#landing {
+	width: 80%;
+	margin: 10px auto;
+}
+
+#landingHead {
+	text-align: center;
+}
+
+#comix{
+	text-align: center;
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 70%;
+}
+
+.subtitle {
+	text-align: center;
+	text-align: center;
+}
+
+
+#leftSidebar{
+	float:left;
+	width:20%;
+	
+}
+
+#rightSidebar{
+	float:right;
+	width:20%;
+}
+
+
+.userImage{
+	margin-left: 3%;
+	width:80%;
+}
+
+.linkSidebar {
+		margin-left: 3%;
+	}
+
+.userData{
+	margin-left: 3%;
+	font-size: 100%;
+}
+
+#userBooks{
+	width: 60%;
+	box-shadow: 0 0 3px 0 #959595;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+.deleteBook{
+	width:10%;
+	float:right;
+}
+.buchbild {
+	width: 100%;
+}
+
+.buchtitel {
+	font-size: 120%;
+}
+
+#changeUserData{
+	width: 80%;
+	box-shadow: 0 0 3px 0 #959595;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+#addBook{
+	width: 80%;
+	box-shadow: 0 0 3px 0 #959595;
+	margin: 10px auto;
+	text-align: left;
+	height: 800px;
+
+}
+
+.addForm{
+	margin-left: 3%;
+
+}
+
+.box {
+	width: 45%;
+	margin-left: 3%;
+	margin-top: 10px;
+	box-shadow: 0 0 3px 0 #959595;
+	float: left;
+}
+
+#footer_container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	margin: 0 auto;
+	height: 22px;
+	z-index: 3;
+	
+}
+
+.footerlink {
+	padding-left:15px;
+	font-size: 12px;
+}
+
+#footer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #2f2f2f;
+	z-index: 3;
+
+}
+
+#footer a:link{
+	font-size:15px;
+	color: #E9E9E9;
+	font-family: sans-serif;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+@media only screen and ( min-width: 950px ) {
+	#navigation {
+		height: 30px;
+		position: relative;
+		text-align: center;
+		background-color:#2F2F2F;
+		box-shadow: 0 0 2px 1px #6e6e6e;
+	}
+	
+	#respnav {
+		display: none;
+	}
+}
+
+@media only screen and ( min-width:1100px){
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}
+	
+	
+	.linkSidebar {
+		margin-left: 3%;
+	}
+
+	.userData{
+		margin-left: 3%;
+		font-size: 100%;
+	}
+	
+	#userDataNotShown{
+		display:none;
+	}
+}
+
+@media only screen and ( max-width: 1100px) {
+	
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}	
+
+	.userData{
+		display:none;
+	}
+	.icon_tools{
+		width: 40%;
+		margin-left: 20%;
+		margin-top:10%;
+	}
+	.linkSidebar {
+		display: none;
+	}
+
+	#userDataNotShown{
+		heigh:5%;
+	}
+
+}
+
+.linkSidebarPic{
+	margin-left: 3%;
+}
+
+@media only screen and ( max-width: 950px) {
+	.link {
+		display: none;
+	}
+	.linktrenner {
+		display: none;
+	}
+	#respnav {
+		height: 55px;
+		text-align: center;
+		margin-top: 10px;
+	}
+}
+
+/* media query for viewsize check */
+
+@media only screen and ( min-width: 1147px ) {
+	#homepagecontent {
+		width:1100px;
+		margin: 0 auto;
+		box-shadow: 0 0 2px 1px #6e6e6e;
+		background-color: #ffffff;
+		height: auto;
+	}
+}
+
+@media only screen and ( max-width: 1147px ) {
+	#homepagecontent {
+		width: 99%;
+		margin: 0 auto;
+		box-shadow: 0 0 2px 1px #6e6e6e;
+		background-color: #ffffff;
+		height: 1600px;
+	}
+}
+

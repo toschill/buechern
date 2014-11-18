@@ -1,0 +1,50 @@
+@()
+@main("Registrierung"){
+			<div id="content">
+
+				<div id="register">
+					<h1>Herzlich Willkommen bei buechern</h1>
+					<h2>...nur noch wenige Schritte bis du los buechern kannst</h2>
+					<div id="persInfo">
+						<form>
+							<fieldset>
+								<legend>Persönliche Informationen</legend>
+								<label for="Plus">Um ein Bild von dir hoch zu laden, klicke auf das "Plus"</label>
+								<img id="picUpl" src=@routes.Assets.at("images/AddUser.png") name"Plus"></br>
+								<label for="Name">Dein Name</label>
+								<input name="Name" maxlength="30" type="text"> </br>
+								<label for="Email">Deine E-mail Adresse</label>
+								<input name="Email" maxlength="30" type="text"> </br>
+								<label for="EmailBest">Gib zur Sicherheit bitte nochmal die E-mail Adresse ein</label>
+								<input name="EmailBest" maxlength="30" type="text"> </br>
+							</fieldset>
+							<fieldset>
+							<legend>Informationen zu deinem Studium</legend>
+							<label for="Fakultaet">In welcher Fakultät studierst du?</label>
+							<select required name="Fakultaet"> 
+								<option value="">wählen...</option>
+								<option value="in">Informatik</option>
+								<option value="ar" >Architektur</option>
+								<option value="ei" >Elektrotechnik</option>
+							</select> </br>
+							<label for="Studiengang">Wie lautet dein Studiengang?</label>
+							<select name="Studiengang">
+								<option value="">wählen...</option>
+								<option value="WIN">Wirtschaftsinformatik</option>
+							<option value="AIN">Angewante Informatik</option>
+							</select> </br>
+							<label for="Semester">In welchem Semester bist du?</label>
+							<select name="Semester">
+								<option value="">wählen...</option>
+								<option value="1">Erstes</option>
+								<option value="2">Zweites</option>
+							</select> </br>
+							</fieldset>
+							<input type="reset" value="reset" id="reButton">
+							<input type="submit" value="weiter" id="subButton"/>
+						</form>
+					</div>
+				</div>
+			</div>
+
+}
