@@ -1,4 +1,5 @@
-@()
+@(Booktitel:String,Autor:String, ISBN:String, showBooks:Boolean)
+
 @main("Profile"){
 			
 			<div id="content">
@@ -22,33 +23,28 @@
 					<span class="linkSidebarPic"><a href=@routes.Application.verkaufen()><img class="userImage" src=@routes.Assets.at("images/book_add.png") /></a></span>
 				</div>
 			
+				@if(showBooks) {
 				
+				<script type="text/javascript">
+					$(function() {
+					  $('#userBooks').modal("show")
+					});
+				</script>
+									
+					<div id="userBooks">
+						<h1>Eigene Bücher:</h1>
+							<div id="boxen">
+							
+								<div class="box">
+									<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+									class="buchtitel"><p>@Booktitel</p> </span> <span class="buchtitel"><p>@Autor</p></span> 
+									<span class="buchtitel"><p>@ISBN</p></span>
+									<a href=@routes.Application.deleteBook()><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+								</div>
+							</div>
+					</div>
 				
-				<div id="userBooks">
-					<h1>Eigene Bücher:</h1>
-						<div id="boxen">
-						
-							<div class="box">
-								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-								class="buchtitel">Buch - Titel 1 </span><br> <span class="buchtitel"> Fach
-								Empfehlung</span>
-								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-							</div>
-							<div class="box">
-								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-								class="buchtitel">Buch - Titel 2 </span><br> <span class="buchtitel">Fach
-								Empfehlung</span>
-								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-							</div>
-							<!--  <div class="clear"></div>	-->
-							<div class="box">
-								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-								class="buchtitel">Buch - Titel 3 </span><br><span class="buchtitel">Fach
-								Empfehlung</span> 
-								<a href="#"><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-							</div>
-						</div>
-				</div>
+				}
 			</div>
 
 }

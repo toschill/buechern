@@ -9,7 +9,7 @@ public class Book {
 	private String Layer;
 	private String Condition;
 	private String ISBN;
-	private double Price; 	
+	private String Price; 	
 
 	public String getBookName() {
 		return BookName;
@@ -67,11 +67,11 @@ public class Book {
 		ISBN = iSBN;
 	}
 
-	public double getPrice() {
+	public String getPrice() {
 		return Price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		Price = price;
 	}
 	
