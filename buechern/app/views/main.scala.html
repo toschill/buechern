@@ -11,8 +11,27 @@
 <meta name="description"
 	content="Büchern - Das Portal um gebrauchte Bücher zu Vorlesungen zu kaufen und zu verkaufen">
 <meta name="author" content="Gruppe 6">
-<meta name="keywords"
-	content="WebtechWS14, Webtech, Büchern, Büchern Konstanz, Büchern HTWG, HTWG Konstanz, HTWG, Konstanz">
+<meta name="keywords" content="WebtechWS14, Webtech, Büchern, Büchern Konstanz, Büchern HTWG, HTWG Konstanz, HTWG, Konstanz">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	
+<script>
+$(function() {
+  var menuVisible = false;
+  $('#menuBtn').click(function() {
+    if (menuVisible) {
+      $('#myMenu').css({'display':'none'});
+      menuVisible = false;
+      return;
+    }
+    $('#myMenu').css({'display':'block'});
+    menuVisible = true;
+  });
+  $('#myMenu').click(function() {
+    $(this).css({'display':'none'});
+    menuVisible = false;
+  });
+});
+
+</script>
 </head>
 <body>
 	<div id="homepage">
@@ -46,11 +65,21 @@
 					<img id="bildinslider" src=@routes.Assets.at("images/slider2.jpg") />
 				</div>
 			</div>
-
+			
 			<div id="navigation">		
-				
 					<div id="respnav">
-						<img src=@routes.Assets.at("images/navi.png") />
+						<div id="wrapper">
+							<div id="menuBtn"><img src=@routes.Assets.at("images/navi.png")/></div>
+							<nav id="myMenu">
+								<ul>
+									<li><p><a class="respnavlink" href=@routes.Application.index()>Startseite</a></li>
+									<li><p><a class="respnavlink" href=@routes.Application.einkaufen()>Einkaufen</a></p></li>
+									<li><p><a class="respnavlink" href=@routes.Application.verkaufen()>Verkaufen</a></p></li>
+									<li><p><a class="respnavlink" href=@routes.Application.index()>Bestseller</a></p></li>
+									<li><p><a class="respnavlink" href=@routes.Application.profile()>Profil</a></p></li>
+								</ul>
+							</nav>
+						</div>	
 					</div>
 					<div class="navlinks">
 						<div class="linkbox link">
@@ -73,6 +102,7 @@
 			<div class="clear"></div>
 			@content
 			<div class="clear"></div>
+			<div class="buttonspacer"></div>
 			<div id="footer_container">
 				<div id="footer">
 					<span class="footerlink"><a href="#">Telefonnummer</a> </span>

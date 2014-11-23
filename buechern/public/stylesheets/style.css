@@ -1,14 +1,79 @@
 /* CSS for buechern.de Webtech Project */
 
+/*responsive nav mit js script im header --> main*/
+
+
+
+#myMenu { 
+	display: none;  
+}
+
+#myMenu ul { width: 97.5%; 
+	padding: 0; 
+	margin: 0; 
+	position: absolute; 
+	top: 60px; left: 1%; 
+	top:1px; 
+}
+	
+#myMenu li { 
+	text-align: center; 
+	background: #ffffff; 
+	width: 100%; 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+	border: 1px solid #6e6e6e; 
+	margin-bottom:-1px; 
+}
+
+#myMenu a:link {
+	color: #000000;
+}
+
+#myMenu a:visited {
+	color: #000000;
+}
+
+
+@media only screen and ( max-width: 515px) {
+	
+#myMenu li { 
+height: 40px;
+line-height: 5px;
+}
+
+}
+
+
 /* statics for whole page */
 
 body {
 	background-color: #EEEEEE;
 }
 
+.comic {
+	width: 100%;
+}
+
 h1 {
-	margin-left: 3%;
-	font-size: 120%;
+	font-size: 130%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: center;
+}
+
+h2 {
+	font-size: 100%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: center;
+}
+
+p {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.center {
+		text-align: center;
 }
 
 #homepage {
@@ -45,8 +110,21 @@ h1 {
 
 #registerlink {
 	float: left;
-	margin-top:24px;
+	margin-top:28px;
 	margin-right: 10px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+	
+}
+
+#registerlink a:link {
+    color: #000000;
+	text-decoration: none;
+}
+
+#registerlink a:visited {
+    color: #000000;
+	text-decoration: none;
 }
 
 #headerrechts {
@@ -117,7 +195,7 @@ h1 {
 	text-decoration: none;
 }
 
-#navigation a:visited {
+a:visited  {
 	font-size:15px;
 	color: #E9E9E9;
 	font-family: sans-serif;
@@ -127,12 +205,8 @@ h1 {
 
 /* content */
 
-#content {
-	position: relative;
-}
-
-
 /* User Profil */
+
 
 /* footer */
 
@@ -140,7 +214,6 @@ h1 {
 
 #register {
 	width: 80%;
-	border: 1px solid black;
 	margin: 10px auto;
 	text-align: center;
 	height: 800px;
@@ -259,12 +332,15 @@ h1 {
 	margin: 0 auto;
 	height: 22px;
 	z-index: 3;
-	
 }
 
 .footerlink {
 	padding-left:15px;
 	font-size: 12px;
+}
+
+.buttonspacer {
+	height: 20px;
 }
 
 #footer {
@@ -275,7 +351,6 @@ h1 {
 	bottom: 0;
 	background-color: #2f2f2f;
 	z-index: 3;
-
 }
 
 #footer a:link{
@@ -286,7 +361,7 @@ h1 {
 }
 
 
-@media only screen and ( min-width: 950px ) {
+@media only screen and ( min-width: 750px ) {
 	#navigation {
 		height: 30px;
 		position: relative;
@@ -301,12 +376,15 @@ h1 {
 }
 
 @media only screen and ( min-width:1100px){
+	#content {
+		position: relative;
+	}
+
 	#userProfile{
 		width: 100%;
 		margin-left: 3%;
 		margin-right: 60%;
 	}
-	
 	
 	.linkSidebar {
 		margin-left: 3%;
@@ -322,7 +400,10 @@ h1 {
 	}
 }
 
-@media only screen and ( max-width: 1100px) {
+@media only screen and ( max-width: 110px) {
+	#content {
+		position: relative;
+	}
 	
 	#userProfile{
 		width: 100%;
@@ -352,7 +433,13 @@ h1 {
 	margin-left: 3%;
 }
 
-@media only screen and ( max-width: 950px) {
+
+
+@media only screen and ( max-width: 750px) {	
+	#navigation {
+		height: 50px;
+	}
+
 	.link {
 		display: none;
 	}
@@ -360,10 +447,14 @@ h1 {
 		display: none;
 	}
 	#respnav {
-		height: 55px;
 		text-align: center;
 		margin-top: 10px;
 	}
+	
+	.navlinks{
+	width: 0px;
+    }
+	
 }
 
 /* media query for viewsize check */
@@ -375,6 +466,7 @@ h1 {
 		box-shadow: 0 0 2px 1px #6e6e6e;
 		background-color: #ffffff;
 		height: auto;
+
 	}
 }
 
@@ -384,7 +476,7 @@ h1 {
 		margin: 0 auto;
 		box-shadow: 0 0 2px 1px #6e6e6e;
 		background-color: #ffffff;
-		height: 1600px;
+		height: auto;
 	}
 }
 
