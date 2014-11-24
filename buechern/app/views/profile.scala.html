@@ -1,4 +1,4 @@
-@(BookList :List[Book], ActualUser :List[User])
+@(BookList :List[Book], ActualUser :User)
 
 @main("Profile"){
 			
@@ -12,10 +12,13 @@
 								<span class="linkSidebarPic"><a href=@routes.Application.changeUserData()><img class="icon_tools" src=@routes.Assets.at("images/icon_tools.png") /></a></span>
 							</div>
 							
-							<span class="userData">@ActualUser.get(0).getFirstName()</span><br/>
-							<span class="userData">@ActualUser.get(0).getEmail()</span><br/>
+							<span class="userData">@ActualUser.getFirstName()</span><br/>
+							<span class="userData">@ActualUser.getEmail()</span><br/>
 							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Passwort</a></span> </br>
 							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Email</a></span></br>
+							<form action="logOut" method="Get">
+								<input type="submit" value="Logout"/>
+							</form>
 						</div>		
 					</div>	
 				</div>	

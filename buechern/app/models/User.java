@@ -1,11 +1,14 @@
 package models;
 
+import java.util.ArrayList;
+
 public class User {
 	private String FirstName; 
 	private String SecoundName;
 	private String Email;
 	private String Password;
-	private Book UserBook = new Book();
+
+	private static ArrayList <Book> UserBook = new ArrayList<Book>();
 	
 	
 	public String getFirstName() {
@@ -32,11 +35,12 @@ public class User {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	public Book getUserBook() {
+	public ArrayList <Book> getUserBook() {
 		return UserBook;
 	}
-	public void setUserBook(Book userBook) {
+	public static void setUserBook(ArrayList <Book> userBook) {
 		UserBook = userBook;
 	}
+	
 	 
 }

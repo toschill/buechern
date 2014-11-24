@@ -12,6 +12,8 @@ GET		/einkaufen					controllers.Application.einkaufen()
 GET		/einkaufen					controllers.Application.einkaufen()
 GET		/registrierung				controllers.Application.registrierung()
 
+GET 	/logOut						controllers.Application.logOut()
+GET		/logIn						controllers.Application.logIn(benutzername,passwort)
 GET 	/addBook					controllers.Application.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis)
 GET		/deleteBook					controllers.Application.deleteBook(ISBN)
 GET 	/addUser					controllers.Application.addUser(FirstName,Email)

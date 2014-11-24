@@ -10,6 +10,7 @@ public class Book {
 	private String Condition;
 	private String ISBN;
 	private String Price; 	
+	private User user;
 
 	public String getBookName() {
 		return BookName;
@@ -73,6 +74,14 @@ public class Book {
 
 	public void setPrice(String price) {
 		Price = price;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	
