@@ -1,4 +1,4 @@
-@(Booktitel:String,Autor:String, ISBN:String, showBooks:Boolean)
+@(BookList :List[Book], ActualUser :List[User])
 
 @main("Profile"){
 			
@@ -12,8 +12,8 @@
 								<span class="linkSidebarPic"><a href=@routes.Application.changeUserData()><img class="icon_tools" src=@routes.Assets.at("images/icon_tools.png") /></a></span>
 							</div>
 							
-							<span class="userData">Mustermann</span><br/>
-							<span class="userData">mustermann@@muster.com</span><br/>
+							<span class="userData">@ActualUser.get(0).getFirstName()</span><br/>
+							<span class="userData">@ActualUser.get(0).getEmail()</span><br/>
 							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Passwort</a></span> </br>
 							<span class="linkSidebar"><a href=@routes.Application.changeUserData()>Change Email</a></span></br>
 						</div>		
@@ -23,27 +23,28 @@
 					<span class="linkSidebarPic"><a href=@routes.Application.verkaufen()><img class="userImage" src=@routes.Assets.at("images/book_add.png") /></a></span>
 				</div>
 			
-				@if(showBooks) {
+				@if(!BookList.isEmpty()) {
 				
 				<script type="text/javascript">
 					$(function() {
 					  $('#userBooks').modal("show")
 					});
 				</script>
-									
+								
 					<div id="userBooks">
 						<h1>Eigene Bücher:</h1>
 							<div id="boxen">
-							
-								<div class="box">
-									<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-									class="buchtitel"><p>@Booktitel</p> </span> <span class="buchtitel"><p>@Autor</p></span> 
-									<span class="buchtitel"><p>@ISBN</p></span>
-									<a href=@routes.Application.deleteBook()><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-								</div>
+								@for(book <- BookList){	
+									<div class="box">
+										<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+										class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+										<span class="buchtitel"><p>@book.getISBN()</p></span>
+										<a href=@routes.Application.deleteBook(book.getISBN())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+									</div>
+								}
 							</div>
 					</div>
-				
+					
 				}
 			</div>
 

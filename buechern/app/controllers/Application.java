@@ -4,7 +4,13 @@ import java.util.ArrayList;
 
 
 
+
+
+
+
+
 import models.Book;
+import models.User;
 import play.*;
 import play.mvc.*;
 import views.html.*;
@@ -13,19 +19,24 @@ public class Application extends Controller {
 	
 	
 	static ArrayList <Book> BookList = new ArrayList<Book>();
+	static ArrayList <User> UserList = new ArrayList<User>();
+	static Boolean isLogged = false;
 	
     public static Result index() {
         return ok(index.render());
     }
     public static Result  profile() {
-    	
-    	if(BookList.isEmpty()){
-    		
-    		return ok(profile.render("","","",false));
-    		
+    	if(isLogged == true){
+	    	if(BookList.isEmpty()){
+	    		
+	    		return ok(profile.render(BookList,UserList));
+	    		
+	    	}else{
+	    		
+	    		return ok(profile.render(BookList,UserList));
+	    	}
     	}else{
-    		
-    		return ok(profile.render(BookList.get(0).getBookName(),BookList.get(0).getAuther(),BookList.get(0).getISBN(),true));
+    		return ok(registrierung.render());	
     	}
     	
 		
@@ -40,7 +51,7 @@ public class Application extends Controller {
    }
 	
 	public static Result einkaufen(){
-		return ok(einkaufen.render());
+		return ok(einkaufen.render(BookList));
    }
 	
 	public static Result registrierung(){
@@ -68,16 +79,32 @@ public class Application extends Controller {
 		
 		BookList.add(newBook);
 		
-		return ok(index.render());
+		return ok(profile.render(BookList,UserList));
 	}
 
 	
-	public static Result deleteBook(){
-		
-		BookList.remove(0);
-		
-		return ok(index.render());
+	public static Result deleteBook(String deleteBookISBN){
+		Book deleteBook=null;
+		for(Book book: BookList){
+			if(book.getISBN().equals(deleteBookISBN)){
+				deleteBook=book;
+			}
+		}
+		BookList.remove(deleteBook);
+		return ok(profile.render(BookList,UserList));
 	}
-
+	
+	public static Result addUser(String FirstName, 							  
+								  String Email){
+		User newUser = new User();
+		
+		newUser.setFirstName(FirstName);
+		newUser.setEmail(Email);
+		
+		UserList.add(newUser);
+		isLogged = true;
+		return ok(profile.render(BookList,UserList));
+		
+	}
 	
 }

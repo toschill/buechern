@@ -6,13 +6,13 @@
 					<h1>Herzlich Willkommen bei buechern</h1>
 					<h2>...nur noch wenige Schritte bis du los buechern kannst</h2>
 					<div id="persInfo">
-						<form>
+						<form action="addUser" method="Get">
 							<fieldset>
 								<legend>Persönliche Informationen</legend>
 								<label for="Plus">Um ein Bild von dir hoch zu laden, klicke auf das "Plus"</label>
 								<img id="picUpl" src=@routes.Assets.at("images/AddUser.png") name"Plus"></br>
 								<label for="Name">Dein Name</label>
-								<input name="Name" maxlength="30" type="text"> </br>
+								<input name="FirstName" maxlength="30" type="text"> </br>
 								<label for="Email">Deine E-mail Adresse</label>
 								<input name="Email" maxlength="30" type="text"> </br>
 								<label for="EmailBest">Gib zur Sicherheit bitte nochmal die E-mail Adresse ein</label>
