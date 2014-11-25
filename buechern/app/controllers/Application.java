@@ -41,6 +41,7 @@ public class Application extends Controller {
 	    		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
 	    	}
     	}else{
+    		
     		return ok(registrierung.render());	
     	}
     	
@@ -134,6 +135,7 @@ public class Application extends Controller {
 	public static Result logOut(){
 		
 		Model.setActivUser(null);
+		isLogged = false;
 		
 		return ok(index.render());
 	}
