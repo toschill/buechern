@@ -44,11 +44,12 @@ $(function() {
 				<div id="headerrechts">
 					<div class="loginform">
 						<div id="login">
-							<form>
-								<input name="benutzername" type="text" value="benutzername"
-									size="30" maxlength="30"><br> <input
-									name="passwort" type="text" value="passwort" size="30"
+							<form action="logIn" method="Get">
+								<input name="benutzername" type="text" placeholder="benutzername"
+									size="30" maxlength="30"> <br> <input
+									name="passwort" type="password" placeholder="passwort" size="30"
 									maxlength="40">
+								<input type="submit" value="Login" id="subButton"/>
 							</form>	
 					</div>
 
