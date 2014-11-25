@@ -1,12 +1,13 @@
-@()
+@(fehler:Boolean)
 @main("Registrierung"){
+	<script src=@routes.Assets.at("javascripts/registration.js")></script>
 			<div id="content">
 
 				<div id="register">
 					<h1>Herzlich Willkommen bei buechern.de</h1>
 					<h2>...nur noch wenige Schritte bis du los buechern kannst</h2>
 					<div id="persInfo">
-						<form action="addUser" method="Get">
+						<form id="reg" onsubmit="return checkReg();" onreset="resetAll()" action="addUser" method="Get">
 							<fieldset class="reg_fs">
 								<legend>Persönliche Informationen</legend>
 								<div id="pic_div">
@@ -18,27 +19,27 @@
 									</li>
 									<li>
 										<label for="FirstName">Dein Vorname</label>
-										<input name="FirstName" maxlength="30" type="text">
+										<input id="FirstName" name="FirstName" maxlength="30" type="text">
 									</li>
 									<li>
 										<label for="LastName">Dein Nachname</label>
-										<input name="LastName" maxlength="30" type="text">
+										<input id="LastName" name="LastName" maxlength="30" type="text">
 									</li>
 									<li>
 										<label for="Email">Deine E-mail Adresse</label>
-										<input name="Email" maxlength="30" type="text">
+										<input id="Email" name="Email" maxlength="30" type="text">
 									</li>
 									<li>
-										<label for="EmailBest">Gib zur Sicherheit bitte nochmal die E-mail Adresse ein</label>
-										<input name="EmailBest" maxlength="30" type="text"> </br>
+										<label for="EmailRep">Gib zur Sicherheit bitte nochmal die E-mail Adresse ein</label>
+										<input id="EmailRep" name="EmailRep" maxlength="30" type="text"> </br>
 									</li>
 									<li>
 										<label for="Passwort">Bitte gib ein Passwort ein</label>
-										<input name="Passwort" maxlength="30" type="password">
+										<input id="Passwort" name="Passwort" maxlength="30" type="password">
 									</li>
 									<li>
 										<label for="PasswortRep">Gib dein Passwort bitte erneut ein</label>
-										<input name="PasswortRep" maxlength="30" type="password">
+										<input id="PasswortRep" name="PasswortRep" maxlength="30" type="password">
 									</li>
 								</ol>
 							</fieldset>

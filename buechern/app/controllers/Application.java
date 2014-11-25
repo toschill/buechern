@@ -18,66 +18,66 @@ public class Application extends Controller {
 	static Boolean dummySet = false;
 	
 	
-    public static Result index() {
+	public static Result index() {
     	//load dummy objects 
-    	if(dummySet == false){
-    		Model.addDummy();
-    		
-    		dummySet=true;
-    	}
-    	
-        return ok(index.render());
-    }
-    
-    public static Result  profile() {
-    	if(isLogged == true){
-    		
-	    	if(Model.getBookList().isEmpty()){
-	    
-	    		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
-	    		
-	    	}else{
-	    		
-	    		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
-	    	}
-    	}else{
-    		
-    		return ok(registrierung.render());	
-    	}
-    	
+		if(dummySet == false){
+			Model.addDummy();
+
+			dummySet=true;
+		}
+
+		return ok(index.render());
+	}
+
+	public static Result  profile() {
+		if(isLogged == true){
+
+			if(Model.getBookList().isEmpty()){
+
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+
+			}else{
+
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+			}
+		}else{
+
+			return ok(registrierung.render(false));	
+		}
+
 		
 	}
-    
-    public static Result changeUserData(){
-    	return ok(userDatenAendern.render());
-    }
-    
+
+	public static Result changeUserData(){
+		return ok(userDatenAendern.render());
+	}
+
 	public static Result verkaufen(){
 		
 		if(isLogged==true){
-		return ok(verkaufen.render());
+			return ok(verkaufen.render());
 		}else{
-			return ok(registrierung.render());
+			return ok(registrierung.render(false));
 		}
-   }
+	}
 	
 	public static Result einkaufen(){
 		return ok(einkaufen.render(Model.getBookList()));
-   }
+	}
 	
 	public static Result registrierung(){
-		return ok(registrierung.render());
+		return ok(registrierung.render(false));
 	}
 	
 	public static Result addBook(String Booktitel, 
-								 String Autor, 
-								 String Erscheinungsjahr, 
-								 String ISBN , 
-								 String Auflage, 
-								 String Zustand, 
-								 String Preis, 
-								 String BoolFestpreis){
-	    Book newBook = new Book();
+		String Autor, 
+		String Erscheinungsjahr, 
+		String ISBN , 
+		String Auflage, 
+		String Zustand, 
+		String Preis, 
+		String BoolFestpreis){
+		Book newBook = new Book();
 		
 		
 		newBook.setBookName(Booktitel);
@@ -109,19 +109,19 @@ public class Application extends Controller {
 	}
 	
 	public static Result addUser(String FirstName,
-								 String LastName,
-								 String Email,
-								 String Passwort){
+		String LastName,
+		String Email, String EmailRep, 
+		String Passwort, String PasswortRep){
+
 		User newUser = new User();
 		
-		newUser.setFirstName(FirstName);
-		newUser.setEmail(Email);
-		newUser.setPassword(Passwort);
-		Model.getUserList().add(newUser);
-		Model.setActivUser(newUser);
-		isLogged = true;
-		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
-		
+				newUser.setFirstName(FirstName);
+				newUser.setEmail(Email);
+				newUser.setPassword(Passwort);
+				Model.getUserList().add(newUser);
+				Model.setActivUser(newUser);
+				isLogged = true;
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
 	}
 	
 	public static Result logIn(String benutzername, String passwort){
@@ -133,7 +133,7 @@ public class Application extends Controller {
 				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
 			}
 		}
-		return ok(registrierung.render());
+		return ok(registrierung.render(false));
 	}
 	
 	public static Result logOut(){
@@ -145,3 +145,4 @@ public class Application extends Controller {
 	}
 	
 }
+
