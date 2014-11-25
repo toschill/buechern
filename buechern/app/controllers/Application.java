@@ -114,7 +114,9 @@ public class Application extends Controller {
 		
 		newUser.setFirstName(FirstName);
 		newUser.setEmail(Email);
+		newUser.setPassword("0");
 		Model.getUserList().add(newUser);
+		Model.setActivUser(newUser);
 		isLogged = true;
 		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
 		
