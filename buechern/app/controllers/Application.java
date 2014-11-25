@@ -108,13 +108,15 @@ public class Application extends Controller {
 		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
 	}
 	
-	public static Result addUser(String FirstName, 							  
-								  String Email){
+	public static Result addUser(String FirstName,
+								 String LastName,
+								 String Email,
+								 String Passwort){
 		User newUser = new User();
 		
 		newUser.setFirstName(FirstName);
 		newUser.setEmail(Email);
-		newUser.setPassword("0");
+		newUser.setPassword(Passwort);
 		Model.getUserList().add(newUser);
 		Model.setActivUser(newUser);
 		isLogged = true;
