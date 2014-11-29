@@ -9,6 +9,7 @@ public class User {
 	private String Password;
 
 	private static ArrayList <Book> UserBook = new ArrayList<Book>();
+	private static ArrayList <Book> MarketBasket = new ArrayList<Book>();
 	
 	
 	public String getFirstName() {
@@ -40,6 +41,12 @@ public class User {
 	}
 	public static void setUserBook(ArrayList <Book> userBook) {
 		UserBook = userBook;
+	}
+	public  ArrayList <Book> getMarketBasket() {
+		return MarketBasket;
+	}
+	public static void setMarketBasket(ArrayList <Book> marketBasket) {
+		MarketBasket = marketBasket;
 	}
 	
 	 

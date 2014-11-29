@@ -11,6 +11,10 @@ public class Book {
 	private String ISBN;
 	private String Price; 	
 	private User user;
+	private User buyer;
+	private int id;
+	//status: verfügbar =0 ; verhauft = 1
+	private int status = 0;
 
 	public String getBookName() {
 		return BookName;
@@ -82,6 +86,30 @@ public class Book {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	

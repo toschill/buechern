@@ -34,11 +34,11 @@ public class Application extends Controller {
 
 			if(Model.getBookList().isEmpty()){
 
-				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 
 			}else{
 
-				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 			}
 		}else{
 
@@ -62,7 +62,14 @@ public class Application extends Controller {
 	}
 	
 	public static Result einkaufen(){
-		return ok(einkaufen.render(Model.getBookList()));
+		ArrayList<Book> returnBook = new ArrayList<Book>();
+		for(Book book : Model.getBookList()){
+			if(book.getStatus()==0){
+				returnBook.add(book);
+			}
+		}
+		
+		return ok(einkaufen.render(returnBook));
 	}
 	
 	public static Result registrierung(){
@@ -88,11 +95,13 @@ public class Application extends Controller {
 		newBook.setCondition(Zustand);
 		newBook.setPrice(Preis);
 		newBook.setUser(Model.getActivUser());
+		newBook.setId(Model.getBookNumber());
+		Model.setBookNumber(+1);
 		
 		Model.getActivUser().getUserBook().add(newBook);
 		Model.getBookList().add(newBook);
 		
-		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 
 	
@@ -105,7 +114,7 @@ public class Application extends Controller {
 		}
 		Model.getBookList().remove(deleteBook);
 		Model.getActivUser().getUserBook().remove(deleteBook);
-		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 	
 	public static Result addUser(String FirstName,
@@ -121,16 +130,31 @@ public class Application extends Controller {
 				Model.getUserList().add(newUser);
 				Model.setActivUser(newUser);
 				isLogged = true;
-				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 	
 	public static Result logIn(String benutzername, String passwort){
 		
 		for(User user : Model.getUserList()){
+			
 			if(benutzername.equals(user.getFirstName()) && passwort.equals(user.getPassword()) ){
 				isLogged = true;
 				Model.setActivUser(user);
-				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser()));
+				Model.getActivUser().getUserBook().clear();
+				Model.getActivUser().getMarketBasket().clear();
+				for(Book book : Model.getBookList()){
+					if(book.getUser().equals(user)){
+						Model.getActivUser().getUserBook().add(book);
+					}
+					if(!(book.getBuyer()==null)){
+						
+						if(book.getBuyer().equals(user)){
+							Model.getActivUser().getMarketBasket().add(book);
+						}
+					}
+				}
+			
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 			}
 		}
 		return ok(registrierung.render(false));
@@ -142,6 +166,22 @@ public class Application extends Controller {
 		isLogged = false;
 		
 		return ok(index.render());
+	}
+	public static Result buyBook(int id){
+		
+		for(Book book : Model.getBookList()){
+			if(book.getId()==id){
+				for(User user: Model.getUserList()){
+					if(user.equals(book.getUser())){
+						book.setStatus(1);
+						book.setBuyer(Model.getActivUser());
+						Model.getActivUser().getMarketBasket().add(book);
+					}
+				}
+			}
+		}
+		
+		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 	
 }

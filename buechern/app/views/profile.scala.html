@@ -1,4 +1,4 @@
-@(BookList :List[Book], ActualUser :User)
+@(BookList :List[Book], ActualUser :User, MarketBasket :List[Book])
 
 @main("Profile"){
 			
@@ -48,6 +48,27 @@
 							</div>
 					</div>
 					
+				}
+				
+				@if(!MarketBasket.isEmpty()) {
+				
+					<script type="text/javascript">
+						$(function() {
+						  $('#userBooks').modal("show")
+						});
+					</script>
+					@for(book <- MarketBasket){	
+						<div id="userBooks">
+							<div id="boxen">
+								<h1>Einkäufe:</h1>
+									<div calss="box">
+										<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+										class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+										<span class="buchtitel"><p>@book.getISBN()</p></span>
+									</div>
+							</div>
+						</div>
+					}
 				}
 			</div>
 

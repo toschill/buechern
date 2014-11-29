@@ -18,6 +18,7 @@
 								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 								class="buchtitel">@book.getBookName() <span>: </span> </span> <span class="buchtitel">@book.getAuther()</span><br> 
 								<span class="buchtitel">@book.getISBN()</span>
+								<a href=@routes.Application.buyBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/shopping.png")/></a>
 							
 							</div>
 						}
