@@ -42,7 +42,7 @@
 										<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 										class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
 										<span class="buchtitel"><p>@book.getISBN()</p></span>
-										<a href=@routes.Application.deleteBook(book.getISBN())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+										<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
 									</div>
 								}
 							</div>

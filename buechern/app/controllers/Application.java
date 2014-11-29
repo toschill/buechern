@@ -84,36 +84,15 @@ public class Application extends Controller {
 		String Zustand, 
 		String Preis, 
 		String BoolFestpreis){
-		Book newBook = new Book();
 		
-		
-		newBook.setBookName(Booktitel);
-		newBook.setAuther(Autor);
-		newBook.setDate(Erscheinungsjahr);
-		newBook.setISBN(ISBN);
-		newBook.setLayer(Auflage);
-		newBook.setCondition(Zustand);
-		newBook.setPrice(Preis);
-		newBook.setUser(Model.getActivUser());
-		newBook.setId(Model.getBookNumber());
-		Model.setBookNumber(+1);
-		
-		Model.getActivUser().getUserBook().add(newBook);
-		Model.getBookList().add(newBook);
+		AppBookOptions.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis);
 		
 		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 
 	
-	public static Result deleteBook(String deleteBookISBN){
-		Book deleteBook=null;
-		for(Book book: Model.getBookList()){
-			if(book.getISBN().equals(deleteBookISBN)){
-				deleteBook=book;
-			}
-		}
-		Model.getBookList().remove(deleteBook);
-		Model.getActivUser().getUserBook().remove(deleteBook);
+	public static Result deleteBook(int id){
+		AppBookOptions.deleteBook(id);
 		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 	
@@ -128,8 +107,11 @@ public class Application extends Controller {
 				newUser.setEmail(Email);
 				newUser.setPassword(Passwort);
 				Model.getUserList().add(newUser);
+				Model.getActivUser().getUserBook().clear();
+				Model.getActivUser().getMarketBasket().clear();
 				Model.setActivUser(newUser);
 				isLogged = true;
+				
 				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
 	}
 	
@@ -168,20 +150,47 @@ public class Application extends Controller {
 		return ok(index.render());
 	}
 	public static Result buyBook(int id){
+			
+		if(isLogged==false){
+			return redirect("/profile");
+		}else{
+			
 		
-		for(Book book : Model.getBookList()){
-			if(book.getId()==id){
-				for(User user: Model.getUserList()){
-					if(user.equals(book.getUser())){
-						book.setStatus(1);
-						book.setBuyer(Model.getActivUser());
-						Model.getActivUser().getMarketBasket().add(book);
+			for(Book book : Model.getBookList()){
+				if(book.getId()==id){
+					for(User user: Model.getUserList()){
+						if(user.equals(book.getUser())){
+							book.setStatus(1);
+							book.setBuyer(Model.getActivUser());
+							Model.getActivUser().getMarketBasket().add(book);
+						}
 					}
 				}
 			}
-		}
 		
-		return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
+			//return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
+			return redirect("/profile");
+		}
+	}
+	
+	public static Result changePass(String oldPass, String newPass ){
+			
+			if(Model.getActivUser().getPassword().equals(oldPass)){
+				Model.getActivUser().setPassword(newPass);
+				return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
+			}else{
+				return ok(userDatenAendern.render());
+			}
+	}
+	
+	public static Result changeEmail(String oldEmail, String newEmail ){
+		
+		if(Model.getActivUser().getEmail().equals(oldEmail)){
+			Model.getActivUser().setEmail(newEmail);
+			return ok(profile.render(Model.getActivUser().getUserBook(),Model.getActivUser(),Model.getActivUser().getMarketBasket()));
+		}else{
+			return ok(userDatenAendern.render());
+		}
 	}
 	
 }
