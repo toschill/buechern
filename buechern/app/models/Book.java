@@ -13,7 +13,7 @@ public class Book {
 	private User user;
 	private User buyer;
 	private int id;
-	//status: verfügbar =0 ; verhauft = 1
+	//status: verfügbar =0 ; verkauft = 1
 	private int status = 0;
 
 	public String getBookName() {

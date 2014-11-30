@@ -38,12 +38,23 @@
 						<h1>Eigene Bücher:</h1>
 							<div id="boxen">
 								@for(book <- BookList){	
-									<div class="box">
-										<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-										class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
-										<span class="buchtitel"><p>@book.getISBN()</p></span>
-										<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-									</div>
+									@if(book.getStatus() == 0){
+										<div class="box">
+											<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+											<span class="buchtitel"><p>@book.getISBN()</p></span>
+											<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+										</div>
+									}else{
+										<div class="box">
+											<img class="buchbild" src=@routes.Assets.at("images/verkauft.gif") /> <span
+											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+											<span class="buchtitel"><p>@book.getISBN()</p></span>
+											<span class="buchtitel"><p>Email an: @book.getBuyer().getEmail()</span>
+											<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+										</div>
+									
+									}
 								}
 							</div>
 					</div>
