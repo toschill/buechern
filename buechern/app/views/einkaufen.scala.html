@@ -13,16 +13,16 @@
 				
 					<div id="boxen">
 						<h1>Buchangebote für Sie:</h1>
-						<form action="">
+						<form id="verkaufenForm" action="">
 							<input type="text" placeholder="Titel /ISBN /Autor.." name="suche" id="suche">
 							<input type="submit" value="Suchen">
 						</form>
 						
 						@for(book <- BookList){	
-							<div class="box">
-								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-								class="buchtitel">@book.getBookName() <span>: </span> </span> <span class="buchtitel">@book.getAuther()</span><br> 
-								<span class="buchtitel">@book.getISBN()</span>
+							<div class="buchbox">
+								<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <p
+								class="buchtitel">@book.getBookName(): </p> <p class="buchtitel">@book.getAuther()</p>
+								<p class="buchtitel">@book.getISBN()</p>
 								<a href=@routes.Application.buyBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/shopping.png")/></a>
 							
 							</div>

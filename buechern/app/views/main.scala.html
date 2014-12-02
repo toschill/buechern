@@ -34,9 +34,9 @@ $(function() {
 </script>
 </head>
 <body>
-	<div id="homepage">
+	<section id="homepage">
 		<div id="homepagecontent">
-
+			<header>
 				<div id="logo">
 					<img id="logobild" src=@routes.Assets.at("images/logo.jpg") name="büchernlogo" />
 				</div>
@@ -49,13 +49,10 @@ $(function() {
 									size="30" maxlength="30"> <br> <input
 									name="passwort" type="password" placeholder="passwort" size="30"
 									maxlength="40">
+	
 								<input type="submit" value="Login" id="subButton"/>
 							</form>	
 					</div>
-
-						<div id="registerlink">
-							<a href=@routes.Application.registrierung()>Registrieren</a>
-						</div>
 
 					</div>
 				</div>
@@ -67,7 +64,9 @@ $(function() {
 				</div>
 			</div>
 			
-			<div id="navigation">		
+			</header>
+			
+			<nav id="navigation">		
 					<div id="respnav">
 						<div id="wrapper">
 							<div id="menuBtn"><img src=@routes.Assets.at("images/navi.png")/></div>
@@ -99,20 +98,20 @@ $(function() {
 							<div class="linkboxlink"><a href=@routes.Application.profile()>Profil</a></div>
 						</div> 
 					</div>
-			</div>
-			<div class="clear"></div>
+			</nav>
+			<article>
 			@content
-			<div class="clear"></div>
+			</article>
 			<div class="buttonspacer"></div>
-			<div id="footer_container">
+			<aside id="footer_container">
 				<div id="footer">
 					<span class="footerlink"><a href="#">Telefonnummer</a> </span>
 					<span class="footerlink">| </span>
 					<span class="footerlink"><a href="#">E-Mail Nachricht</a> </span>
 				</div>
-			</div>
+			</aside>
 
 		</div>
-	</div>
+	</section>
 </body>
 </html>
