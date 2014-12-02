@@ -28,7 +28,7 @@ public class AppBookOptions {
 		Model.setBookNumber(+1);
 		
 		Model.getActivUser().getUserBook().add(newBook);
-		Model.getBookList().add(newBook);
+		Model.addBook(newBook);
 							
 	}
 	
@@ -39,7 +39,7 @@ public class AppBookOptions {
 				deleteBook=book;
 			}
 		}
-		Model.getBookList().remove(deleteBook);
+		Model.deleteBook(deleteBook);
 		Model.getActivUser().getUserBook().remove(deleteBook);
 	}
 
