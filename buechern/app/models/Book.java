@@ -10,11 +10,14 @@ public class Book {
 	private String Condition;
 	private String ISBN;
 	private String Price; 	
-	private User user;
-	private User buyer;
 	private int id;
 	//status: verfügbar =0 ; verkauft = 1
 	private int status = 0;
+		
+	private User user;
+	private User buyer;
+	
+	
 
 	public String getBookName() {
 		return BookName;

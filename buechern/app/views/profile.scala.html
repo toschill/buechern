@@ -1,4 +1,4 @@
-@(BookList :List[Book], ActualUser :User, MarketBasket :List[Book])
+@(BookList :List[Book], ActualUser :User)
 
 @main("Profile"){
 			
@@ -38,22 +38,24 @@
 						<h1>Eigene Bücher:</h1>
 							<div id="boxen">
 								@for(book <- BookList){	
-									@if(book.getStatus() == 0){
-										<div class="box">
-											<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
-											<span class="buchtitel"><p>@book.getISBN()</p></span>
-											<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-										</div>
-									}else{
-										<div class="box">
-											<img class="buchbild" src=@routes.Assets.at("images/verkauft.gif") /> <span
-											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
-											<span class="buchtitel"><p>@book.getISBN()</p></span>
-											<span class="buchtitel"><p>Email an: @book.getBuyer().getEmail()</span>
-											<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
-										</div>
-									
+									@if(book.getUser().equals(ActualUser)){
+										@if(book.getStatus() == 0){
+											<div class="box">
+												<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+												class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+												<span class="buchtitel"><p>@book.getISBN()</p></span>
+												<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+											</div>
+										}else{
+											<div class="box">
+												<img class="buchbild" src=@routes.Assets.at("images/verkauft.gif") /> <span
+												class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+												<span class="buchtitel"><p>@book.getISBN()</p></span>
+												<span class="buchtitel"><p>Email an: @book.getBuyer().getEmail()</span>
+												<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
+											</div>
+										
+										}
 									}
 								}
 							</div>
@@ -61,24 +63,27 @@
 					
 				}
 				
-				@if(!MarketBasket.isEmpty()) {
+				@if(!BookList.isEmpty()) {
 				
 					<script type="text/javascript">
 						$(function() {
 						  $('#userBooks').modal("show")
 						});
 					</script>
-					@for(book <- MarketBasket){	
-						<div id="userBooks">
-							<div id="boxen">
-								<h1>Einkäufe:</h1>
-									<div calss="box">
-										<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
-										class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
-										<span class="buchtitel"><p>@book.getISBN()</p></span>
-									</div>
+					
+					@for(book <- BookList){	
+						@if((book.getStatus() == 1)&&(book.getBuyer().equals(ActualUser))){
+							<div id="userBooks">
+								<div id="boxen">
+									<h1>Einkäufe:</h1>
+										<div calss="box">
+											<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
+											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
+											<span class="buchtitel"><p>@book.getISBN()</p></span>
+										</div>
+								</div>
 							</div>
-						</div>
+						}
 					}
 				}
 			</div>
