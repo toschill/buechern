@@ -10,10 +10,6 @@ body {
 	width: 100%;
 }
 
-.comic {
-	width: 100%;
-}
-
 h1 {
 	font-size: 130%;
 	text-align: center;
@@ -91,7 +87,6 @@ h2 {
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
-	height: auto;
 }
 
 /* navigation for big displays*/
@@ -228,15 +223,15 @@ h2 {
 
 /* special */
 #register {
-	width: 80%;
+	width: 100%;
 	margin: 10px auto;
 	text-align: center;
-	height: 800px;
+	height: auto;
 }
 
 #persInfo {
 	text-align: left;
-	margin-left: 10px;
+	margin-left: 8%;
 	width: 80%;
 }
 
@@ -289,7 +284,8 @@ h2 {
 	width: 60%;
 	margin: 10px auto;
 	text-align: center;
-	height: 800px;
+	height: auto;
+	min-height:500px;
 }
 
 #verkaufenForm {
@@ -313,7 +309,7 @@ h2 {
 	width: 80%;
 	margin: 10px auto;
 	text-align: center;
-	height: 800px;
+	height: auto;
 }
 
 #leftSidebar a:link, #leftSidebar a:visited {
@@ -324,7 +320,7 @@ h2 {
 	width: 80%;
 	margin: 10px auto;
 	text-align: left;
-	height: 800px;
+	height: auto;
 }
 
 .addForm {
@@ -338,6 +334,7 @@ h2 {
 	box-shadow: 0 0 3px 0 #959595;
 	float: left;
 	text-align: center;
+	min-height: 375px;
 }
 
 /* Fixed Footer */
@@ -394,6 +391,10 @@ h2 {
 	#respProfil {
 		display: none;
 	}
+	
+	.comic {
+		width: 60%;
+	}
 }
 
 @media only screen and ( min-width: 1147px ) {
@@ -406,9 +407,10 @@ h2 {
 	}
 }
 
-@media only screen and ( min-width:1100px) {
+@media only screen and ( min-width:1099px) {
 	#content {
 		position: relative;
+		text-align: center;
 	}
 	#userProfile {
 		margin-left: 3%;
@@ -424,9 +426,10 @@ h2 {
 }
 
 /*Min Media Query for small Displays*/
-@media only screen and ( max-width: 110px) {
+@media only screen and ( max-width: 1100px) {
 	#content {
 		position: relative;
+		text-align: center;
 	}
 	#userProfile {
 		width: 100%;
@@ -504,6 +507,11 @@ h2 {
 	.respUserChangeLink {
 		float: right;
 		margin-top: -40px;
+	}
+	
+	
+	.comic {
+		width: 100%;
 	}
 }
 

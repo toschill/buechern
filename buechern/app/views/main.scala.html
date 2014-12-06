@@ -38,7 +38,7 @@ $(function() {
 		<div id="homepagecontent">
 			<header>
 				<div id="logo">
-					<img id="logobild" src=@routes.Assets.at("images/logo.jpg") name="büchernlogo" />
+					<a href=@routes.Application.index()><img id="logobild" src=@routes.Assets.at("images/logo.jpg") name="büchernlogo" /></a>
 				</div>
 
 				<div id="headerrechts">
@@ -102,12 +102,11 @@ $(function() {
 			<article>
 			@content
 			</article>
+			<div style="clear:both"></div>
 			<div class="buttonspacer"></div>
 			<aside id="footer_container">
 				<div id="footer">
-					<span class="footerlink"><a href="#">Telefonnummer</a> </span>
-					<span class="footerlink">| </span>
-					<span class="footerlink"><a href="#">E-Mail Nachricht</a> </span>
+					<span class="footerlink"><a href="#">Support Anfrage per E-Mail</a> </span>
 				</div>
 			</aside>
 
