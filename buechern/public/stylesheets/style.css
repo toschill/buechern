@@ -32,7 +32,7 @@ h2 {
 	clear: both;
 }
 
-/* top box logo, register and sign in */
+/* top HEADER oberer Bereich über Bild */
 #head {
 	position: relative;
 	height: auto;
@@ -55,18 +55,6 @@ h2 {
 	position: relative;
 }
 
-#registerlink {
-	float: left;
-	margin-top: 28px;
-	margin-right: 10px;
-	font-size: 15px;
-}
-
-#registerlink a:link, #registerlink a:visited {
-	color: #000000;
-	text-decoration: none;
-}
-
 #headerrechts {
 	padding-top: 22px;
 	padding-right: 2px;
@@ -81,11 +69,15 @@ h2 {
 	width: 60px !important;
 }
 
-/* slider */
+/* Bilderslider */
 #slider {
 	height: auto;
 	position: relative;
 	margin: 0 auto;
+	width: 100%;
+}
+
+#bildinslider {
 	width: 100%;
 }
 
@@ -96,10 +88,6 @@ h2 {
 	margin-left: 5px;
 	margin-left: 5px;
 	height: 34px;
-}
-
-#bildinslider {
-	width: 100%;
 }
 
 .linkboxlink:hover {
@@ -121,7 +109,9 @@ h2 {
 	padding: 5px 20px;
 }
 
-#navigation a:link, a:visited {
+/* Allgemeines Link Styling muss überschrieben werden bei Links auf Seiten */
+
+a:link, a:visited {
 	font-size: 15px;
 	color: #E9E9E9;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -219,8 +209,6 @@ h2 {
 
 /* User Profil */
 
-/* footer */
-
 /* special */
 #register {
 	width: 100%;
@@ -285,7 +273,7 @@ h2 {
 	margin: 10px auto;
 	text-align: center;
 	height: auto;
-	min-height:500px;
+	max-height:500px;
 }
 
 #verkaufenForm {
@@ -335,6 +323,11 @@ h2 {
 	float: left;
 	text-align: center;
 	min-height: 375px;
+	max-height: 370px;
+}
+
+.buttonspacer {
+	height: 20px;
 }
 
 /* Fixed Footer */
@@ -354,10 +347,6 @@ h2 {
 	font-size: 12px;
 }
 
-.buttonspacer {
-	height: 20px;
-}
-
 #footer {
 	position: absolute;
 	top: 0;
@@ -370,8 +359,6 @@ h2 {
 
 #footer a:link {
 	font-size: 15px;
-	color: #E9E9E9;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* media query for viewsize check */
@@ -411,6 +398,7 @@ h2 {
 	#content {
 		position: relative;
 		text-align: center;
+		min-height: 470px;
 	}
 	#userProfile {
 		margin-left: 3%;
@@ -430,6 +418,7 @@ h2 {
 	#content {
 		position: relative;
 		text-align: center;
+		min-height: 470px;
 	}
 	#userProfile {
 		width: 100%;
@@ -463,6 +452,7 @@ h2 {
 @media only screen and ( max-width: 400px) {
 	.buchbox {
 		width: 94%;
+		
 	}
 }
 
@@ -508,7 +498,6 @@ h2 {
 		float: right;
 		margin-top: -40px;
 	}
-	
 	
 	.comic {
 		width: 100%;
