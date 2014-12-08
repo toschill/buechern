@@ -61,15 +61,9 @@ public class Application extends Controller {
 		}
 	}
 	
-	public static Result einkaufen(){
-		ArrayList<Book> returnBook = new ArrayList<Book>();
-		for(Book book : Model.getBookList()){
-			if(book.getStatus()==0){
-				returnBook.add(book);
-			}
-		}
-		
-		return ok(einkaufen.render(returnBook));
+	public static Result einkaufen(){		
+		//KONSTANTE hinzufügen
+		return ok(einkaufen.render(Model.getBooks(0)));
 	}
 	
 	public static Result registrierung(){
@@ -147,17 +141,16 @@ public class Application extends Controller {
 		return ok(index.render());
 	}
 	public static Result buyBook(int id){
-			
+		System.out.println(id + " wird gekauft");
 		if(isLogged==false){
 			return redirect("/profile");
 		}else{
-			
-		
 			for(Book book : Model.getBookList()){
 				if(book.getId()==id){
-		
-					book.setStatus(1);
-					book.setBuyer(Model.getActivUser());
+					System.out.println("Buch " + book.getBookName()+ " gekauft");
+					Model.buyBook(Model.getActivUser(), book);
+					//book.setStatus(1);
+					//book.setBuyer(Model.getActivUser());
 
 				}
 			}

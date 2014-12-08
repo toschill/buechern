@@ -163,6 +163,20 @@ public class Model {
 		}
 	}
 	
+	public static ArrayList<Book> getBooks(int status){
+		try{
+			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books WHERE State=?");
+			pstmt.setInt(1, status);
+			return doBookResult(pstmt.executeQuery());
+		}
+		
+		catch(SQLException e){
+			System.out.println("Error find Seller Book");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static ArrayList<Book> getBuyerBooks(User user){
 		try{
 			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books WHERE BuyerId=?");
@@ -174,6 +188,21 @@ public class Model {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static void buyBook(User user, Book book){
+		try{
+			PreparedStatement pstmt = connection.prepareStatement("UPDATE Books SET Buyer=?, State=? WHERE BookId=?");
+			pstmt.setInt(1, user.getId());
+			pstmt.setInt(2, 1);
+			pstmt.setInt(3, book.getId());
+			pstmt.executeUpdate();
+		}
+		catch(SQLException e){
+			System.out.println("Error Buy Book");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static ArrayList<Book> doBookResult(ResultSet rs) throws SQLException{
@@ -189,7 +218,7 @@ public class Model {
 			book.setCondition(rs.getString("Condition"));
 			book.setISBN(rs.getString("ISBN"));
 			book.setPrice(rs.getString("Price"));
-			book.setStatus(0);
+			book.setStatus(rs.getInt("State"));
 			book.setBuyer(findUser(rs.getInt("Buyer")));
 			book.setUser(findUser(rs.getInt("Seller")));
 			books.add(book);
