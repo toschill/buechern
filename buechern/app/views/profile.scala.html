@@ -46,11 +46,13 @@
 	</div>
 
 
-
-	@for(book <- BookList){ @if(book.getUser().equals(ActualUser)){
-	<div id="userBooks">
 		<h1>Eigene Bücher:</h1>
-		<div id="boxen">
+			<div id="userBooks">
+				<div id="boxen">
+	@for(book <- BookList){ @if(book.getUser().equals(ActualUser)){
+
+
+		
 
 			@if(book.getStatus() == 0){
 			<div class="buchbox">
@@ -74,9 +76,9 @@
 			</div>
 
 			}
-
-		</div>
-	</div>
+		<br><br>
+		
+	
 	} } } @if(!BookList.isEmpty()) {
 
 	<script type="text/javascript">
@@ -87,18 +89,18 @@
 
 	@for(book <- BookList){ @if((book.getStatus() ==
 	1)&&(book.getBuyer().equals(ActualUser))){
-	<div id="userBooks">
-		<div id="boxen">
-			<h1>Einkäufe:</h1>
-			<div calss="box">
+			
+			<div class="boughtBooks"><h1>Einkäufe:</h1></div>
+			<div class="buchbox">
 				<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
 				<span class="buchtitel"><p>@book.getBookName()</p> </span> <span
 					class="buchtitel"><p>@book.getAuther()</p></span> <span
 					class="buchtitel"><p>@book.getISBN()</p></span>
 			</div>
+	} } }
 		</div>
 	</div>
-	} } }
+	<div style="clear:both"></div>
 </div>
 
 }

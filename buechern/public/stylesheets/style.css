@@ -322,8 +322,6 @@ a:link, a:visited {
 	box-shadow: 0 0 3px 0 #959595;
 	float: left;
 	text-align: center;
-	min-height: 375px;
-	max-height: 370px;
 }
 
 .buttonspacer {
@@ -452,8 +450,13 @@ a:link, a:visited {
 @media only screen and ( max-width: 400px) {
 	.buchbox {
 		width: 94%;
-		
 	}
+	
+	.buchbild {
+		width:65%;
+	}
+	
+	
 }
 
 @media only screen and ( max-width: 750px) {
@@ -477,6 +480,12 @@ a:link, a:visited {
 		font-size: 14px;
 		width: 100%;
 	}
+	
+	.boughtBooks {
+		position:relative; 
+		top:16px;
+	}
+	
 	#userBooks {
 		width: 100%;
 	}
