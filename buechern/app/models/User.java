@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class User {
+	private int id; 
 	private String FirstName; 
 	private String SecoundName;
 	private String Email;
@@ -47,6 +48,12 @@ public class User {
 	}
 	public static void setMarketBasket(ArrayList <Book> marketBasket) {
 		MarketBasket = marketBasket;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	 

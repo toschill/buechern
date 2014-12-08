@@ -22,7 +22,7 @@ public class Application extends Controller {
     	//load dummy objects 
 		if(dummySet == false){
 			Model.addDummy();
-
+		
 			dummySet=true;
 		}
 
@@ -84,7 +84,6 @@ public class Application extends Controller {
 		String Zustand, 
 		String Preis, 
 		String BoolFestpreis){
-		
 		AppBookOptions.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis);
 		
 		return ok(profile.render(Model.getBookList(),Model.getActivUser()));
@@ -106,7 +105,11 @@ public class Application extends Controller {
 				newUser.setFirstName(FirstName);
 				newUser.setEmail(Email);
 				newUser.setPassword(Passwort);
-				Model.getUserList().add(newUser);
+
+				Model.addUser(newUser);
+				Model.getActivUser().getUserBook().clear();
+				Model.getActivUser().getMarketBasket().clear();
+
 				Model.setActivUser(newUser);
 				isLogged = true;
 				
@@ -123,7 +126,8 @@ public class Application extends Controller {
 				Model.getActivUser().getUserBook().clear();
 				
 				for(Book book : Model.getBookList()){
-					if(book.getUser().equals(user)){
+					System.out.println(book.getUser());
+					if(user.equals(book.getUser())){
 						Model.getActivUser().getUserBook().add(book);
 					}
 					
