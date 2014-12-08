@@ -5,12 +5,8 @@
 			<div id="content">
 				<div id="leftSidebar">
 					<div id="userProfile">
-						
 						<div id="userDataShown">
 							<img class="userImage" src=@routes.Assets.at("images/Profile_Image.jpg") /></br>
-							<div id="userDataNotShown">
-								<span class="linkSidebarPic"><a href=@routes.Application.changeUserData()><img class="icon_tools" src=@routes.Assets.at("images/icon_tools.png") /></a></span>
-							</div>
 							
 							<span class="userData">@ActualUser.getFirstName()</span><br/>
 							<span class="userData">@ActualUser.getEmail()</span><br/>
@@ -22,6 +18,7 @@
 						</div>		
 					</div>	
 				</div>	
+				
 				<div id="rightSidebar">
 					<span class="linkSidebarPic"><a href=@routes.Application.verkaufen()><img class="userImage" src=@routes.Assets.at("images/book_add.png") /></a></span>
 				</div>
@@ -33,20 +30,29 @@
 					  $('#userBooks').modal("show")
 					});
 				</script>
+				
+										
+								<div id="respProfil">
+									<div class="respUserProfilLink"><a href=@routes.Application.profile()><img src=@routes.Assets.at("images/Profile_Image.jpg") /></a></div>
+									<div class="respUserChangeLink"><a href=@routes.Application.changeUserData()><img src=@routes.Assets.at("images/icon_tools.png") /></a></div>
+								</div>
+								
+					
 								
 					<div id="userBooks">
 						<h1>Eigene Bücher:</h1>
+												
 							<div id="boxen">
 								@for(book <- BookList){	
 									@if(book.getStatus() == 0){
-										<div class="box">
+										<div class="buchbox">
 											<img class="buchbild" src=@routes.Assets.at("images/bucheinzel.jpg") /> <span
 											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
 											<span class="buchtitel"><p>@book.getISBN()</p></span>
 											<a href=@routes.Application.deleteBook(book.getId())><img class="deleteBook" src=@routes.Assets.at("images/Delete_icon.png")/></a>
 										</div>
 									}else{
-										<div class="box">
+										<div class="buchbox">
 											<img class="buchbild" src=@routes.Assets.at("images/verkauft.gif") /> <span
 											class="buchtitel"><p>@book.getBookName()</p> </span> <span class="buchtitel"><p>@book.getAuther()</p></span> 
 											<span class="buchtitel"><p>@book.getISBN()</p></span>
