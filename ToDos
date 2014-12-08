@@ -1,0 +1,6 @@
+ToDo:
+-Es kann sich immer nur einer Anmelden - nicht mit activeUser sondern Sessions arbeiten
+-Bücher des aktuellen Benutzers mit getSellerBooks & getBuyerBooks Methode holen - nicht ArrayList<Books> auf User 
+-Im Profil kann der User die von ihm selbst eingestellten Bücher löschen (ändern?)
+-Wenn Buch gekauft - die aktuelle BenutzerId in Books(BuyerId) schreiben
+-MVC Paradigma implementieren
