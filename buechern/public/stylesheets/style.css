@@ -285,8 +285,13 @@ a:link, a:visited {
 	float: right;
 }
 
+.boughtBooks {
+	position:relative; 
+	top:16px;
+}
+
 .buchbild {
-	width: 100%;
+	width: 80%;
 }
 
 .buchtitel {
@@ -455,8 +460,6 @@ a:link, a:visited {
 	.buchbild {
 		width:65%;
 	}
-	
-	
 }
 
 @media only screen and ( max-width: 750px) {
@@ -479,11 +482,6 @@ a:link, a:visited {
 	.buchtitel {
 		font-size: 14px;
 		width: 100%;
-	}
-	
-	.boughtBooks {
-		position:relative; 
-		top:16px;
 	}
 	
 	#userBooks {
