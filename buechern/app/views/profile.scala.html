@@ -76,7 +76,7 @@
 			</div>
 
 			}
-		<br><br>
+		
 		
 	
 	} } } @if(!BookList.isEmpty()) {
@@ -87,10 +87,12 @@
 						});
 					</script>
 
+	<div class="boughtBooks"><h1>Einkäufe:</h1></div>				
+					
 	@for(book <- BookList){ @if((book.getStatus() ==
 	1)&&(book.getBuyer().equals(ActualUser))){
 			
-			<div class="boughtBooks"><h1>Einkäufe:</h1></div>
+			
 			<div class="buchbox">
 				<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
 				<span class="buchtitel"><p>@book.getBookName()</p> </span> <span
