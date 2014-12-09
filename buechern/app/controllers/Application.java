@@ -6,6 +6,8 @@ import models.Book;
 import models.Model;
 import models.User;
 import play.*;
+import play.data.DynamicForm;
+import play.data.Form;
 import play.mvc.*;
 import views.html.*;
 
@@ -110,8 +112,14 @@ public class Application extends Controller {
 				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
 	}
 	
-	public static Result logIn(String benutzername, String passwort){
+	public static Result logIn(){
 		
+		DynamicForm dynamicForm = Form.form().bindFromRequest();
+		
+		String benutzername = dynamicForm.get("benutzername");
+		String passwort= dynamicForm.get("passwort");
+		System.out.println(benutzername);
+		System.out.println(passwort);
 		for(User user : Model.getUserList()){
 			
 			if(benutzername.equals(user.getFirstName()) && passwort.equals(user.getPassword()) ){

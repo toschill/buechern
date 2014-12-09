@@ -13,7 +13,7 @@ GET		/einkaufen					controllers.Application.einkaufen()
 GET		/registrierung				controllers.Application.registrierung()
 
 GET 	/logOut						controllers.Application.logOut()
-GET		/logIn						controllers.Application.logIn(benutzername,passwort)
+POST	/logIn						controllers.Application.logIn()
 GET 	/addBook					controllers.Application.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis)
 GET		/deleteBook					controllers.Application.deleteBook(id:Integer)
 GET		/buyBook/					controllers.Application.buyBook(id:Integer)
