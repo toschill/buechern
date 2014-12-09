@@ -131,6 +131,7 @@ a:link, a:visited {
 	top: 60px;
 	left: 1%;
 	top: 1px;
+	z-index: 999;
 }
 
 #myMenu li {
