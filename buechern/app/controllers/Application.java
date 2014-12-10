@@ -17,17 +17,11 @@ public class Application extends Controller {
 	
 	
 	static Boolean isLogged = false;
-	static Boolean dummySet = false;
+	
 	
 	
 	public static Result index() {
-    	//load dummy objects 
-		if(dummySet == false){
-			Model.addDummy();
 		
-			dummySet=true;
-		}
-
 		return ok(index.render());
 	}
 
@@ -72,15 +66,19 @@ public class Application extends Controller {
 		return ok(registrierung.render(false));
 	}
 	
-	public static Result addBook(String Booktitel, 
-		String Autor, 
-		String Erscheinungsjahr, 
-		String ISBN , 
-		String Auflage, 
-		String Zustand, 
-		String Preis, 
-		String BoolFestpreis){
-		AppBookOptions.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis);
+	public static Result addBook(){
+		
+		DynamicForm dynamicForm = Form.form().bindFromRequest();
+		
+		String Booktitel = dynamicForm.get("Booktitel");
+		String Autor = dynamicForm.get("Autor");
+		String Erscheinungsjahr = dynamicForm.get("Erscheinungsjahr");
+		String ISBN =dynamicForm.get("ISBN");
+		String Auflage = dynamicForm.get("Auflage");
+		String Zustand = dynamicForm.get("Zustand");
+		String Preis = dynamicForm.get("Preis");
+	
+		AppBookOptions.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis);
 		
 		return ok(profile.render(Model.getBookList(),Model.getActivUser()));
 	}
@@ -88,6 +86,7 @@ public class Application extends Controller {
 	
 	public static Result deleteBook(int id){
 		AppBookOptions.deleteBook(id);
+		System.out.println("Delete Book with ID: "+ id);
 		return ok(profile.render(Model.getBookList(),Model.getActivUser()));
 	}
 	
@@ -103,13 +102,15 @@ public class Application extends Controller {
 				newUser.setPassword(Passwort);
 
 				Model.addUser(newUser);
-				Model.getActivUser().getUserBook().clear();
-				Model.getActivUser().getMarketBasket().clear();
+				//Model.getActivUser().getUserBook().clear();
 
 				Model.setActivUser(newUser);
 				isLogged = true;
 				
-				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+				System.out.println("Add User: "+Model.getActivUser().getFirstName());
+			
+				
+				return ok(profile.render(Model.getBookList(), Model.getActivUser()));
 	}
 	
 	public static Result logIn(){

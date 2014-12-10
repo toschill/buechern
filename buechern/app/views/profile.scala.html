@@ -49,10 +49,8 @@
 		<h1>Eigene Bücher:</h1>
 			<div id="userBooks">
 				<div id="boxen">
-	@for(book <- BookList){ @if(book.getUser().equals(ActualUser)){
-
-
-		
+	@for(book <- BookList){ 
+	@if(book.getUser().getId().equals(ActualUser.getId())){
 
 			@if(book.getStatus() == 0){
 			<div class="buchbox">
@@ -63,14 +61,15 @@
 					href=@routes.Application.deleteBook(book.getId())><img
 					class="deleteBook" src=@routes.Assets.at( "images/Delete_icon.png")/></a>
 			</div>
+			
 			}else{
 			<div class="buchbox">
 				<img class="buchbild" src=@routes.Assets.at( "images/verkauft.gif") />
 				<span class="buchtitel"><p>@book.getBookName()</p> </span> <span
 					class="buchtitel"><p>@book.getAuther()</p></span> <span
 					class="buchtitel"><p>@book.getISBN()</p></span> <span
-					class="buchtitel"><p>Email an:
-						@book.getBuyer().getEmail()</span> <a
+					class="buchtitel"><p>Email an: 
+						@book.getBuyer().getEmail() </p></span> <a
 					href=@routes.Application.deleteBook(book.getId())><img
 					class="deleteBook" src=@routes.Assets.at( "images/Delete_icon.png")/></a>
 			</div>
@@ -79,7 +78,8 @@
 		
 		
 	
-	} } } @if(!BookList.isEmpty()) {
+	} } } 
+	@if(!BookList.isEmpty()) {
 
 	<script type="text/javascript">
 						$(function() {
@@ -90,7 +90,7 @@
 	<div class="boughtBooks"><h1>Einkäufe:</h1></div>				
 					
 	@for(book <- BookList){ @if((book.getStatus() ==
-	1)&&(book.getBuyer().equals(ActualUser))){
+	1)&&(book.getBuyer().getId().equals(ActualUser.getId()))){
 			
 			
 			<div class="buchbox">

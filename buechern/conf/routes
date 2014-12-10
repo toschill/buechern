@@ -14,7 +14,7 @@ GET		/registrierung				controllers.Application.registrierung()
 
 GET 	/logOut						controllers.Application.logOut()
 POST	/logIn						controllers.Application.logIn()
-GET 	/addBook					controllers.Application.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis, BoolFestpreis)
+POST	/addBook					controllers.Application.addBook()
 GET		/deleteBook					controllers.Application.deleteBook(id:Integer)
 GET		/buyBook/					controllers.Application.buyBook(id:Integer)
 GET 	/addUser					controllers.Application.addUser(FirstName,LastName,Email,EmailRep,Passwort,PasswortRep)

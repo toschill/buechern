@@ -11,8 +11,7 @@ public class AppBookOptions {
 								String ISBN , 
 								String Auflage, 
 								String Zustand, 
-								String Preis, 
-								String BoolFestpreis){
+								String Preis){
 		Book newBook = new Book();
 		
 		
