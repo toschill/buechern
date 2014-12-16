@@ -119,7 +119,7 @@ public class Application extends Controller {
 		
 				newUser.setFirstName(FirstName);
 				newUser.setEmail(Email);
-				newUser.setPassword(Passwort);
+				newUser.setPassword(Passwort.hashCode());
 
 				Model.addUser(newUser);
 				//Model.getActivUser().getUserBook().clear();
@@ -144,7 +144,7 @@ public class Application extends Controller {
 		
 		for(User user : Model.getUserList()){
 			
-			if(benutzername.equals(user.getFirstName()) && passwort.equals(user.getPassword()) ){
+			if(benutzername.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
 				
 				isLogged = true;
 				
@@ -201,8 +201,8 @@ public class Application extends Controller {
 	
 	public static Result changePass(String oldPass, String newPass ){
 			
-			if(Model.getActivUser().getPassword().equals(oldPass)){
-				Model.getActivUser().setPassword(newPass);
+			if(Model.getActivUser().getPassword().hashCode()==oldPass.hashCode()){
+				Model.getActivUser().setPassword(newPass.hashCode());
 				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
 			}else{
 				return ok(userDatenAendern.render());

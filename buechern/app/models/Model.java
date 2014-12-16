@@ -54,7 +54,7 @@ public class Model {
 					user.setFirstName(rs.getString("FirstName"));
 					user.setSecoundName(rs.getString("SecondName"));
 					user.setEmail(rs.getString("Email"));
-					user.setPassword(rs.getString("Password"));
+					user.setPassword(rs.getInt("Password"));
 					System.out.println("User: " +user.getFirstName());
 					users.add(user);
 				}
@@ -87,7 +87,7 @@ public class Model {
 				pstmt.setString(1, user.getFirstName());
 				pstmt.setString(2, user.getSecoundName());
 				pstmt.setString(3, user.getEmail());
-				pstmt.setString(4, user.getPassword());
+				pstmt.setInt(4, user.getPassword());
 				pstmt.executeUpdate();
 			}catch(SQLException e){
 				System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
@@ -108,7 +108,7 @@ public class Model {
 			pstmt.setString(1, user.getFirstName());
 			pstmt.setString(2, user.getSecoundName());
 			pstmt.setString(3, user.getEmail());
-			pstmt.setString(4, user.getPassword());
+			pstmt.setInt(4, user.getPassword());
 			pstmt.executeUpdate();
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
