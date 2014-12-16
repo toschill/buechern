@@ -31,10 +31,10 @@ public class User {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public Integer getPassword() {
+	public int getPassword() {
 		return Password;
 	}
-	public void setPassword(Integer password) {
+	public void setPassword(int password) {
 		Password = password;
 	}
 	public ArrayList <Book> getUserBook() {

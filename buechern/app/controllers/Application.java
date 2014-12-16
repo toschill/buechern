@@ -19,58 +19,63 @@ public class Application extends Controller {
 	
 	static Boolean isLogged = false;
 	
+	public static User getUserFromSession(){
+		String userCode ="";
+		userCode = session("USER");
+		try {
+			if(userCode.equals("")){
+				return null;
+			}else{
+				Integer userid = new Integer(userCode);
+				
+				for(User user : Model.getUserList()){
+					if(user.getId()==userid){
+						System.out.println("getUserFromSession: get "+user.getFirstName()+" User from Session");
+						return user;
+					}
+				}
+			}
+		} catch (NullPointerException e) {
+			System.out.println("getUserFromSession: " +e+" because of no User loged in");
+		}
+		
+		return null;
+	}
+	
+	public static void addUserToSession(User user){
+		Integer userid = new Integer(user.getId());
+		System.out.println("addUserToSession: Add User "+userid+" to session");
+		session("USER", userid.toString());
+	}
 	
 	
 	public static Result index() {
-		
 		return ok(index.render());
 	}
 
-	public static Result  profile() {
-		User returnUser = new User();
-	
-		String userCode = session().get("USER");
+	public static Result profile() {
+		String userCode ="";
+		userCode = session().get("USER");
 		
-		for(User user : Model.getUserList()){
-			if(user.toString().equals(userCode)){
-				
-				returnUser=user;
-			}
-		}
-		
-		if(returnUser.equals(null)){
-			
+		System.out.println("Profile: "+userCode+" Result from session");
+		User user = getUserFromSession();
+		if (user == null) {
 			return ok(registrierung.render(false));
-		}else{
-			System.out.println("Profile: "+returnUser.getFirstName()+" Profile");
-			return ok(profile.render(Model.getBookList(),returnUser));
+		} else {
+
+			System.out.println("Profile: " + user.getFirstName()+ " User to Session");
+			return ok(profile.render(Model.getBookList(), user));
 		}
-		
-		//if(isLogged == true){
-
-			//if(Model.getBookList().isEmpty()){
-
-				//return ok(profile.render(Model.getBookList(),Model.getActivUser()));
-
-			//}else{
-
-				//return ok(profile.render(Model.getBookList(),Model.getActivUser()));
-			//}
-		//}else{
-
-			
-		//}
-
-		
 	}
 
+	
 	public static Result changeUserData(){
 		return ok(userDatenAendern.render());
 	}
 
 	public static Result verkaufen(){
 		
-		if(isLogged==true){
+		if(!(getUserFromSession()==null)){
 			return ok(verkaufen.render());
 		}else{
 			return ok(registrierung.render(false));
@@ -100,14 +105,17 @@ public class Application extends Controller {
 	
 		AppBookOptions.addBook(Booktitel, Autor, Erscheinungsjahr, ISBN, Auflage, Zustand, Preis);
 		
-		return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+		User returnUser = getUserFromSession();
+		
+		return ok(profile.render(Model.getBookList(),returnUser));
 	}
 
 	
 	public static Result deleteBook(int id){
 		AppBookOptions.deleteBook(id);
+		User returnUser = getUserFromSession();
 		System.out.println("Delete Book with ID: "+ id);
-		return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+		return ok(profile.render(Model.getBookList(),returnUser));
 	}
 	
 	public static Result addUser(String FirstName,
@@ -120,17 +128,23 @@ public class Application extends Controller {
 				newUser.setFirstName(FirstName);
 				newUser.setEmail(Email);
 				newUser.setPassword(Passwort.hashCode());
-
+				
 				Model.addUser(newUser);
 				//Model.getActivUser().getUserBook().clear();
-
-				Model.setActivUser(newUser);
-				isLogged = true;
 				
-				System.out.println("Add User: "+Model.getActivUser().getFirstName());
+				for(User user: Model.getUserList()){
+					if(FirstName.equals(user.getFirstName()) && Passwort.hashCode()==user.getPassword() ){
+					
+						addUserToSession(user);
+						System.out.println("addUser: "+session().get("USER")+ " User from Session");
 			
-				
-				return ok(profile.render(Model.getBookList(), Model.getActivUser()));
+					
+						return ok(profile.render(Model.getBookList(), user));
+						
+					}
+				}
+			
+				return ok(profile.render(Model.getBookList(), newUser));
 	}
 	
 	public static Result logIn(){
@@ -147,34 +161,19 @@ public class Application extends Controller {
 			if(benutzername.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
 				
 				isLogged = true;
-				
-				Integer userid = new Integer(user.getId());
-				
-				session("USER", userid.toString());
-				
+				addUserToSession(user);
 				System.out.println("LogIn: "+session().get("USER")+ " User from Session");
 				returnUser = user;
-				
-				//Model.setActivUser(user);
-				//.getActivUser().getUserBook().clear();
-				
-				//for(Book book : Model.getBookList()){
-					
-					//if(user.equals(book.getUser())){
-						
-						//Model.getActivUser().getUserBook().add(book);
-					//}
-					
-				//}
 			
 				return ok(profile.render(Model.getBookList(), returnUser));
+				
 			}
 		}
 		return ok(registrierung.render(false));
 	}
 	
 	public static Result logOut(){
-		
+		session().clear();
 		Model.setActivUser(null);
 		isLogged = false;
 		
@@ -201,7 +200,7 @@ public class Application extends Controller {
 	
 	public static Result changePass(String oldPass, String newPass ){
 			
-			if(Model.getActivUser().getPassword().hashCode()==oldPass.hashCode()){
+			if(Model.getActivUser().getPassword() ==oldPass.hashCode()){
 				Model.getActivUser().setPassword(newPass.hashCode());
 				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
 			}else{

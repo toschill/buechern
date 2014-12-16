@@ -2,6 +2,7 @@ package controllers;
 
 import models.Book;
 import models.Model;
+import models.User;
 
 public class AppBookOptions {
 	
@@ -22,9 +23,10 @@ public class AppBookOptions {
 		newBook.setLayer(Auflage);
 		newBook.setCondition(Zustand);
 		newBook.setPrice(Preis);
-		newBook.setUser(Model.getActivUser());
+		newBook.setUser(Application.getUserFromSession());
 		newBook.setId(Model.getBookNumber());
 		Model.setBookNumber(+1);
+	
 		
 		Model.getActivUser().getUserBook().add(newBook);
 		Model.addBook(newBook);
