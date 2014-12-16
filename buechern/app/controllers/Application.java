@@ -27,20 +27,39 @@ public class Application extends Controller {
 	}
 
 	public static Result  profile() {
-		if(isLogged == true){
-
-			if(Model.getBookList().isEmpty()){
-
-				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
-
-			}else{
-
-				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+		User returnUser = new User();
+	
+		String userCode = session().get("USER");
+		
+		for(User user : Model.getUserList()){
+			if(user.toString().equals(userCode)){
+				
+				returnUser=user;
 			}
-		}else{
-
-			return ok(registrierung.render(false));	
 		}
+		
+		if(returnUser.equals(null)){
+			
+			return ok(registrierung.render(false));
+		}else{
+			System.out.println("Profile: "+returnUser.getFirstName()+" Profile");
+			return ok(profile.render(Model.getBookList(),returnUser));
+		}
+		
+		//if(isLogged == true){
+
+			//if(Model.getBookList().isEmpty()){
+
+				//return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+
+			//}else{
+
+				//return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+			//}
+		//}else{
+
+			
+		//}
 
 		
 	}
@@ -120,24 +139,35 @@ public class Application extends Controller {
 		
 		String benutzername = dynamicForm.get("benutzername");
 		String passwort= dynamicForm.get("passwort");
-		System.out.println(benutzername);
-		System.out.println(passwort);
+		
+		User returnUser = new User();
+		
 		for(User user : Model.getUserList()){
 			
 			if(benutzername.equals(user.getFirstName()) && passwort.equals(user.getPassword()) ){
-				isLogged = true;
-				Model.setActivUser(user);
-				Model.getActivUser().getUserBook().clear();
 				
-				for(Book book : Model.getBookList()){
-					System.out.println(book.getUser());
-					if(user.equals(book.getUser())){
-						Model.getActivUser().getUserBook().add(book);
-					}
+				isLogged = true;
+				
+				Integer userid = new Integer(user.getId());
+				
+				session("USER", userid.toString());
+				
+				System.out.println("LogIn: "+session().get("USER")+ " User from Session");
+				returnUser = user;
+				
+				//Model.setActivUser(user);
+				//.getActivUser().getUserBook().clear();
+				
+				//for(Book book : Model.getBookList()){
 					
-				}
+					//if(user.equals(book.getUser())){
+						
+						//Model.getActivUser().getUserBook().add(book);
+					//}
+					
+				//}
 			
-				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+				return ok(profile.render(Model.getBookList(), returnUser));
 			}
 		}
 		return ok(registrierung.render(false));
