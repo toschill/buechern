@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 
+import org.mindrot.jbcrypt.*;
+
 import models.Book;
 import models.Model;
 import models.User;
@@ -119,22 +121,22 @@ public class Application extends Controller {
 		return ok(profile.render(Model.getBookList(),returnUser));
 	}
 	
-	public static Result addUser(String FirstName,
+	public static Result addUser(String firstName,
 		String LastName,
-		String Email, String EmailRep, 
-		String Passwort, String PasswortRep){
+		String email, String emailRep, 
+		String passwort, String PasswortRep){
 
 		User newUser = new User();
-		
-				newUser.setFirstName(FirstName);
-				newUser.setEmail(Email);
-				newUser.setPassword(Passwort.hashCode());
+				passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
+				newUser.setFirstName(firstName);
+				newUser.setEmail(email);
+				newUser.setPassword(passwort.hashCode());
 				
 				Model.addUser(newUser);
 				//Model.getActivUser().getUserBook().clear();
 				
 				for(User user: Model.getUserList()){
-					if(FirstName.equals(user.getFirstName()) && Passwort.hashCode()==user.getPassword() ){
+					if(firstName.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
 					
 						addUserToSession(user);
 						System.out.println("addUser: "+session().get("USER")+ " User from Session");
@@ -156,8 +158,12 @@ public class Application extends Controller {
 		String passwort= dynamicForm.get("passwort");
 		
 		User returnUser = new User();
+		//toDo change password from int to string
+	//	passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
+	//	System.out.println("logIn : new Hash code:" +passwort);
 		
 		for(User user : Model.getUserList()){
+			
 			
 			if(benutzername.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
 				
