@@ -50,6 +50,7 @@ public class Application extends Controller {
 	
 	
 	public static Result index() {
+		
 		return ok(index.render());
 	}
 
@@ -162,21 +163,20 @@ public class Application extends Controller {
 				
 				isLogged = true;
 				addUserToSession(user);
-				System.out.println("LogIn: "+session().get("USER")+ " User from Session");
+				System.out.println("LogIn: "+session().get("USER")+ " User");
 				returnUser = user;
 			
 				return ok(profile.render(Model.getBookList(), returnUser));
 				
 			}
 		}
+		System.out.println("logIn: wrong Password or Username!");
 		return ok(registrierung.render(false));
 	}
 	
 	public static Result logOut(){
+		System.out.println("LogOut: delete User "+getUserFromSession().getId()+" from Session");
 		session().clear();
-		Model.setActivUser(null);
-		isLogged = false;
-		
 		return ok(index.render());
 	}
 	public static Result buyBook(int id){
@@ -186,8 +186,8 @@ public class Application extends Controller {
 		}else{
 			for(Book book : Model.getBookList()){
 				if(book.getId()==id){
-					System.out.println("Buch " + book.getBookName()+ " gekauft");
-					Model.buyBook(Model.getActivUser(), book);
+					System.out.println("buyBook: "+"Buch " + book.getBookName()+ " gekauft");
+					Model.buyBook(getUserFromSession(), book);
 					//book.setStatus(1);
 					//book.setBuyer(Model.getActivUser());
 
@@ -200,9 +200,11 @@ public class Application extends Controller {
 	
 	public static Result changePass(String oldPass, String newPass ){
 			
-			if(Model.getActivUser().getPassword() ==oldPass.hashCode()){
-				Model.getActivUser().setPassword(newPass.hashCode());
-				return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+			if((getUserFromSession().getPassword()) ==(oldPass.hashCode())){
+				Model.changePassword(newPass.hashCode(), getUserFromSession());
+				System.out.println("changePass: Password changed form "+oldPass+" to "+ newPass);
+				return ok(profile.render(Model.getBookList(),getUserFromSession()));
+				
 			}else{
 				return ok(userDatenAendern.render());
 			}
@@ -210,9 +212,9 @@ public class Application extends Controller {
 	
 	public static Result changeEmail(String oldEmail, String newEmail ){
 		
-		if(Model.getActivUser().getEmail().equals(oldEmail)){
-			Model.getActivUser().setEmail(newEmail);
-			return ok(profile.render(Model.getBookList(),Model.getActivUser()));
+		if(getUserFromSession().getEmail().equals(oldEmail)){
+			getUserFromSession().setEmail(newEmail);
+			return ok(profile.render(Model.getBookList(),getUserFromSession()));
 		}else{
 			return ok(userDatenAendern.render());
 		}

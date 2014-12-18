@@ -197,6 +197,18 @@ public class Model {
 		}
 		
 	}
+	public static void changePassword(int newPass, User user){
+		try{
+			PreparedStatement pstmt = connection.prepareStatement("UPDATE User SET Password=? WHERE UserId=?");
+			pstmt.setInt(1, newPass);
+			pstmt.setInt(2, user.getId());
+			pstmt.executeUpdate();
+		}
+		catch(SQLException e){
+			System.out.println("Error changePassword");
+			e.printStackTrace();
+		}
+	}
 	
 	public static ArrayList<Book> doBookResult(ResultSet rs) throws SQLException{
 		ArrayList<Book> books = new ArrayList<Book>();

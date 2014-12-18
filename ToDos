@@ -1,6 +1,9 @@
 ToDo:
--Es kann sich immer nur einer Anmelden - nicht mit activeUser sondern Sessions arbeiten
+-Es kann sich immer nur einer Anmelden - nicht mit activeUser sondern Sessions arbeiten.... Erledigt! Fabian(18.12.2014)
+-Im Profil kann der User die von ihm selbst eingestellten Bücher löschen (ändern?) Muss so....man soll eigene bücher löschen können
+-Wenn Buch gekauft - die aktuelle BenutzerId in Books(BuyerId) schreiben Erledigt! Fabian(18.12.2014)
+
 -Bücher des aktuellen Benutzers mit getSellerBooks & getBuyerBooks Methode holen - nicht ArrayList<Books> auf User 
--Im Profil kann der User die von ihm selbst eingestellten Bücher löschen (ändern?)
--Wenn Buch gekauft - die aktuelle BenutzerId in Books(BuyerId) schreiben
 -MVC Paradigma implementieren
+-UserDaten änder neues Password wird nicht in die DB geschrieben..Fehler in Model funktion?
+- wenn keine Bücher vorhanden dann CSS Fehler auf der Profil Seite
