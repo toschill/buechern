@@ -16,12 +16,7 @@ import views.html.*;
 
 
 public class Application extends Controller {
-	
-	
-	
-	
-	
-	
+
 	public static User getUserFromSession(){
 		String userCode ="";
 		userCode = session("USER");
@@ -53,7 +48,6 @@ public class Application extends Controller {
 	
 	
 	public static Result index() {
-		
 		return ok(index.render());
 	}
 
