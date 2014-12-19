@@ -66,7 +66,20 @@ public class Model {
 		UserList=users;
 		return UserList;
 	}
-
+	
+	public static void deleteAllUser(){
+		try{
+			//alle Benutzer in DB Löschen 
+			PreparedStatement pstmtDelete = connection.prepareStatement("DELETE FROM Users");
+			pstmtDelete.executeUpdate();
+			System.out.println("Delete User OK!");
+		}catch(SQLException e){
+			System.out.println("Fehler beim löschen der User");
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void setUserList(ArrayList <User> userList) {
 		try{
 			//alle Benutzer in DB Löschen 
@@ -196,6 +209,18 @@ public class Model {
 			e.printStackTrace();
 		}
 		
+	}
+	public static void changePassword(String newPass, User user){
+		try{
+			PreparedStatement pstmt = connection.prepareStatement("UPDATE User SET Password=? WHERE UserId=?");
+			pstmt.setString(1, newPass);
+			pstmt.setInt(2, user.getId());
+			pstmt.executeUpdate();
+		}
+		catch(SQLException e){
+			System.out.println("Error changePassword");
+			e.printStackTrace();
+		}
 	}
 	
 	public static ArrayList<Book> doBookResult(ResultSet rs) throws SQLException{
