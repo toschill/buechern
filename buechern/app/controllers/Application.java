@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 
+import org.h2.constant.SysProperties;
 import org.mindrot.jbcrypt.*;
 
 import models.Book;
@@ -19,7 +20,7 @@ public class Application extends Controller {
 	
 	
 	
-	static Boolean isLogged = false;
+	
 	
 	public static User getUserFromSession(){
 		String userCode ="";
@@ -66,7 +67,7 @@ public class Application extends Controller {
 			return ok(registrierung.render(false));
 		} else {
 
-			System.out.println("Profile: " + user.getFirstName()+ " User to Session");
+			System.out.println("Profile: " + user.getFirstName()+ " User Profile");
 			return ok(profile.render(Model.getBookList(), user));
 		}
 	}
@@ -127,16 +128,16 @@ public class Application extends Controller {
 		String passwort, String PasswortRep){
 
 		User newUser = new User();
-				passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
 				newUser.setFirstName(firstName);
 				newUser.setEmail(email);
-				newUser.setPassword(passwort.hashCode());
 				
+				newUser.setPassword(BCrypt.hashpw(passwort, BCrypt.gensalt()));
+				System.out.println("addUser: create hach pass. "+ BCrypt.hashpw(passwort, BCrypt.gensalt()) +" for NewUser");
 				Model.addUser(newUser);
 				//Model.getActivUser().getUserBook().clear();
 				
 				for(User user: Model.getUserList()){
-					if(firstName.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
+					if(firstName.equals(user.getFirstName()) && BCrypt.checkpw(passwort, user.getPassword())){
 					
 						addUserToSession(user);
 						System.out.println("addUser: "+session().get("USER")+ " User from Session");
@@ -159,15 +160,16 @@ public class Application extends Controller {
 		
 		User returnUser = new User();
 		//toDo change password from int to string
-	//	passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
-	//	System.out.println("logIn : new Hash code:" +passwort);
+		//passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
+		//System.out.println("logIn : new Hash code:" +passwort);
 		
 		for(User user : Model.getUserList()){
 			
+			System.out.println("logIn : Password from User "+ user.getFirstName()+" is: "+user.getPassword());
+			System.out.println("logIn : Password ok: "+(BCrypt.checkpw(passwort, user.getPassword())));
 			
-			if(benutzername.equals(user.getFirstName()) && passwort.hashCode()==user.getPassword() ){
-				
-				isLogged = true;
+			if(benutzername.equals(user.getFirstName()) && (BCrypt.checkpw(passwort, user.getPassword()))){
+								
 				addUserToSession(user);
 				System.out.println("LogIn: "+session().get("USER")+ " User");
 				returnUser = user;
@@ -187,7 +189,7 @@ public class Application extends Controller {
 	}
 	public static Result buyBook(int id){
 		System.out.println(id + " wird gekauft");
-		if(isLogged==false){
+		if(getUserFromSession()==null){
 			return redirect("/profile");
 		}else{
 			for(Book book : Model.getBookList()){
@@ -206,8 +208,9 @@ public class Application extends Controller {
 	
 	public static Result changePass(String oldPass, String newPass ){
 			
-			if((getUserFromSession().getPassword()) ==(oldPass.hashCode())){
-				Model.changePassword(newPass.hashCode(), getUserFromSession());
+			if(BCrypt.checkpw(oldPass, getUserFromSession().getPassword())){
+				
+				Model.changePassword((BCrypt.hashpw(newPass, BCrypt.gensalt())), getUserFromSession());
 				System.out.println("changePass: Password changed form "+oldPass+" to "+ newPass);
 				return ok(profile.render(Model.getBookList(),getUserFromSession()));
 				

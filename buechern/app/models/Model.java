@@ -54,7 +54,7 @@ public class Model {
 					user.setFirstName(rs.getString("FirstName"));
 					user.setSecoundName(rs.getString("SecondName"));
 					user.setEmail(rs.getString("Email"));
-					user.setPassword(rs.getInt("Password"));
+					user.setPassword(rs.getString("Password"));
 					System.out.println("User: " +user.getFirstName());
 					users.add(user);
 				}
@@ -66,7 +66,20 @@ public class Model {
 		UserList=users;
 		return UserList;
 	}
-
+	
+	public static void deleteAllUser(){
+		try{
+			//alle Benutzer in DB Löschen 
+			PreparedStatement pstmtDelete = connection.prepareStatement("DELETE FROM Users");
+			pstmtDelete.executeUpdate();
+			System.out.println("Delete User OK!");
+		}catch(SQLException e){
+			System.out.println("Fehler beim löschen der User");
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public static void setUserList(ArrayList <User> userList) {
 		try{
 			//alle Benutzer in DB Löschen 
@@ -87,7 +100,7 @@ public class Model {
 				pstmt.setString(1, user.getFirstName());
 				pstmt.setString(2, user.getSecoundName());
 				pstmt.setString(3, user.getEmail());
-				pstmt.setInt(4, user.getPassword());
+				pstmt.setString(4, user.getPassword());
 				pstmt.executeUpdate();
 			}catch(SQLException e){
 				System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
@@ -108,7 +121,7 @@ public class Model {
 			pstmt.setString(1, user.getFirstName());
 			pstmt.setString(2, user.getSecoundName());
 			pstmt.setString(3, user.getEmail());
-			pstmt.setInt(4, user.getPassword());
+			pstmt.setString(4, user.getPassword());
 			pstmt.executeUpdate();
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
@@ -197,10 +210,10 @@ public class Model {
 		}
 		
 	}
-	public static void changePassword(int newPass, User user){
+	public static void changePassword(String newPass, User user){
 		try{
 			PreparedStatement pstmt = connection.prepareStatement("UPDATE User SET Password=? WHERE UserId=?");
-			pstmt.setInt(1, newPass);
+			pstmt.setString(1, newPass);
 			pstmt.setInt(2, user.getId());
 			pstmt.executeUpdate();
 		}

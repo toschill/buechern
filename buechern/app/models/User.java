@@ -7,7 +7,7 @@ public class User {
 	private String FirstName; 
 	private String SecoundName;
 	private String Email;
-	private Integer Password;
+	private String Password;
 
 	private static ArrayList <Book> UserBook = new ArrayList<Book>();
 
@@ -31,10 +31,10 @@ public class User {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public int getPassword() {
+	public String getPassword() {
 		return Password;
 	}
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		Password = password;
 	}
 	public ArrayList <Book> getUserBook() {
