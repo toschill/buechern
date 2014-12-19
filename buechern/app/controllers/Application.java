@@ -16,7 +16,11 @@ import views.html.*;
 
 
 public class Application extends Controller {
-
+	
+	/**
+	 * Get the active User from session
+	 * @return User active User			
+	 */
 	public static User getUserFromSession(){
 		String userCode ="";
 		userCode = session("USER");
@@ -40,17 +44,33 @@ public class Application extends Controller {
 		return null;
 	}
 	
+	/**
+	 *Add User to Session
+	 * 
+	 * @param user 
+	 * 			active User for adding to session
+	 */
+	
 	public static void addUserToSession(User user){
 		Integer userid = new Integer(user.getId());
 		System.out.println("addUserToSession: Add User "+userid+" to session");
 		session("USER", userid.toString());
 	}
 	
-	
+	/**
+	 * Go to Index Page
+	 * @return Index Page
+	 */
 	public static Result index() {
 		return ok(index.render());
 	}
-
+	
+	/**
+	 * Go to Profile Page
+	 * 
+	 * @return Resgistrieren Page if User is not logged in
+	 * @return Profile Page if User is logged in
+	 */
 	public static Result profile() {
 		String userCode ="";
 		userCode = session().get("USER");
@@ -66,7 +86,10 @@ public class Application extends Controller {
 		}
 	}
 
-	
+	/**
+	 * Go to ChangeUserData Page
+	 * @return UserDatenAendern Page
+	 */
 	public static Result changeUserData(){
 		return ok(userDatenAendern.render());
 	}
@@ -89,6 +112,12 @@ public class Application extends Controller {
 		return ok(registrierung.render(false));
 	}
 	
+	/**
+	 * add new Book
+	 * - get book details (dynamicForm.get())
+	 * 
+	 * @return Go to Profile Page
+	 */
 	public static Result addBook(){
 		
 		DynamicForm dynamicForm = Form.form().bindFromRequest();
@@ -116,6 +145,24 @@ public class Application extends Controller {
 		return ok(profile.render(Model.getBookList(),returnUser));
 	}
 	
+	/**
+	 * add new User to DB
+	 * create new Hash Password 
+	 * add new User to session
+	 * @param firstName 
+	 * 				get firstName (dynamicForm.get())
+	 * @param LastName 
+	 * 				get LastName (dynamicForm.get())
+	 * @param email 
+	 * 				get email (dynamicForm.get())
+	 * @param emailRep 
+	 * 				get emailRep (dynamicForm.get())
+	 * @param passwort 
+	 * 				get passwort (dynamicForm.get())
+	 * @param PasswortRep 
+	 * 				get PasswortRep (dynamicForm.get())
+	 * @return Profile Page
+	 */
 	public static Result addUser(String firstName,
 		String LastName,
 		String email, String emailRep, 
@@ -145,6 +192,14 @@ public class Application extends Controller {
 				return ok(profile.render(Model.getBookList(), newUser));
 	}
 	
+	/**
+	 * Log in User
+	 * check password an User Name (Model.getUserList() and check each User)
+	 * 
+	 * @return if Login Data ok, Profile Page
+	 * @return if Login Error, Registrieren Page
+	 */
+	
 	public static Result logIn(){
 		
 		DynamicForm dynamicForm = Form.form().bindFromRequest();
@@ -153,10 +208,6 @@ public class Application extends Controller {
 		String passwort= dynamicForm.get("passwort");
 		
 		User returnUser = new User();
-		//toDo change password from int to string
-		//passwort = BCrypt.hashpw(passwort, BCrypt.gensalt());
-		//System.out.println("logIn : new Hash code:" +passwort);
-		
 		for(User user : Model.getUserList()){
 			
 			System.out.println("logIn : Password from User "+ user.getFirstName()+" is: "+user.getPassword());
@@ -176,11 +227,24 @@ public class Application extends Controller {
 		return ok(registrierung.render(false));
 	}
 	
+	/**
+	 * Log out User
+	 * - get user from Session
+	 * - clear Session
+	 * @return
+	 */
 	public static Result logOut(){
 		System.out.println("LogOut: delete User "+getUserFromSession().getId()+" from Session");
 		session().clear();
 		return ok(index.render());
 	}
+	
+	/**
+	 * Buy Book
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public static Result buyBook(int id){
 		System.out.println(id + " wird gekauft");
 		if(getUserFromSession()==null){

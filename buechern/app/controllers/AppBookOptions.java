@@ -5,7 +5,17 @@ import models.Model;
 import models.User;
 
 public class AppBookOptions {
-	
+	/**
+	 * Add Book to DB
+	 * 
+	 * @param Booktitel 
+	 * @param Autor
+	 * @param Erscheinungsjahr
+	 * @param ISBN
+	 * @param Auflage
+	 * @param Zustand
+	 * @param Preis
+	 */
 	public static void addBook(	String Booktitel, 
 								String Autor, 
 								String Erscheinungsjahr, 
@@ -28,7 +38,7 @@ public class AppBookOptions {
 		Model.setBookNumber(+1);
 	
 		
-		Model.getActivUser().getUserBook().add(newBook);
+		//Model.getActivUser().getUserBook().add(newBook);
 		Model.addBook(newBook);
 							
 	}
