@@ -1,22 +1,35 @@
 @(BookList :List[Book]) @main("einkaufen"){
 
 <div id="content">
+	
+	<script type="text/javascript">
+		function suche(){
+			if(document.getElementById("sucheBook").value.length >=2){
+				var sText = document.getElementById("sucheBook").value;
+				alert("Function "+ sText);
+				var requestObj = new XMLHttpRequest();
+				
+				
+			}
+		}
 
+	</script>
+	
 	@if(!BookList.isEmpty()) {
 
 	<script type="text/javascript">
 					$(function() {
 					  $('#userBooks').modal("show")
 					});
-				</script>
+	</script>
 
 	<div id="boxen">
 		<h1>Buchangebote für Sie:</h1>
 
 		<form action="searchBook">
 			<input type="text" placeholder="Titel /ISBN /Autor.."
-				name="sucheBook" id="sucheBook"> <input type="submit"
-				value="Suchen">
+				name="sucheBook" id="sucheBook" onkeyup="suche()"> 
+			
 		</form>
 
 		@for(book <- BookList){
