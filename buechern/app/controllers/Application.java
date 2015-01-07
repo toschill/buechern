@@ -1,6 +1,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 import org.h2.constant.SysProperties;
 import org.mindrot.jbcrypt.*;
@@ -15,8 +17,9 @@ import play.mvc.*;
 import views.html.*;
 
 
-public class Application extends Controller {
+public class Application extends Controller implements Observer {
 	
+
 	/**
 	 * Get the active User from session
 	 * @return User active User			
@@ -62,6 +65,7 @@ public class Application extends Controller {
 	 * @return Index Page
 	 */
 	public static Result index() {
+		Model.addObserver(new Application());
 		return ok(index.render());
 	}
 	
@@ -307,6 +311,18 @@ public class Application extends Controller {
 		}
 		
 		return ok(einkaufen.render(foundBooks));
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if(arg instanceof User){
+			User user = (User) arg;
+			System.out.println("Wir haben einen neuen Benutzer: " +user.getFirstName());
+		}
+		if(arg instanceof Book){
+			Book book = (Book) arg;
+			System.out.println("Es wurde ein neues Buch erstellt: " +book.getBookName());
+		}
 	}
 }
 

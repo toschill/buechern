@@ -5,10 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Observable;
 
 import play.db.DB;
 
-public class Model {
+public class Model extends StaticObservable{
 	
 	private static Connection connection = DB.getConnection();
 	
@@ -18,6 +19,8 @@ public class Model {
 	
 	private static User activUser = new User();
 
+
+	
 	public static ArrayList <Book> getBookList() {
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books");
@@ -123,11 +126,13 @@ public class Model {
 			pstmt.setString(3, user.getEmail());
 			pstmt.setString(4, user.getPassword());
 			pstmt.executeUpdate();
+			notifyObservers(user);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
 			e.printStackTrace();
 		}
 	}
+
 	
 	public static void addBook(Book book){
 		//UserList hinzufuegen
@@ -148,8 +153,8 @@ public class Model {
 			pstmt.setInt(9, book.getStatus());
 			//pstmt.setInt(10, book.getBuyer().getId());
 			pstmt.setInt(11, book.getUser().getId());
-			
 			pstmt.executeUpdate();
+			notifyObservers(book);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Buches: "+ book.getBookName());
 			e.printStackTrace();
