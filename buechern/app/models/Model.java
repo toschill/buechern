@@ -126,6 +126,7 @@ public class Model extends StaticObservable{
 			pstmt.setString(3, user.getEmail());
 			pstmt.setString(4, user.getPassword());
 			pstmt.executeUpdate();
+			Model.schreibeStatus("Wir haben einen neuen Benutzer: " +user.getFirstName());
 			notifyObservers(user);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
@@ -154,6 +155,7 @@ public class Model extends StaticObservable{
 			//pstmt.setInt(10, book.getBuyer().getId());
 			pstmt.setInt(11, book.getUser().getId());
 			pstmt.executeUpdate();
+			Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
 			notifyObservers(book);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Buches: "+ book.getBookName());
@@ -283,7 +285,33 @@ public class Model extends StaticObservable{
 			e.printStackTrace();
 		}
 	}
+	
+	public static void schreibeStatus(String status){
+		try {
+			PreparedStatement pstmt = connection.prepareStatement("UPDATE Status SET State=? WHERE StateId=1");
+			pstmt.setString(1, status);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Fehler beim Setzten des Status: "+ status);
+			e.printStackTrace();
+		}
+	}
 
+	public static String leseStatus(){
+		String status=null;
+		try {
+			PreparedStatement pstmt = connection.prepareStatement("SELECT State FROM Status WHERE StateId=1");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				status = rs.getString("State");
+			}
+		} catch (SQLException e) {
+			System.out.println("Fehler beim lesen des Status");
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
 	public static User getActivUser() {
 		return activUser;
 	}

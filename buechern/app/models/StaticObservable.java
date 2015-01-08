@@ -11,6 +11,8 @@ public class StaticObservable{
 	public static Collection<Observer> observers = new HashSet<Observer>();
 	
 	public static void addObserver(Observer o){
+		if(!observers.contains(o))
+		System.out.println("Observer added");
 		observers.add(o);
 	}
 	
@@ -19,7 +21,9 @@ public class StaticObservable{
 	}
 
 	public static void notifyObservers(Object obj){
+		System.out.println("notify");
 		for(Observer o : observers){
+			System.out.println("Observer notified");
 			o.update(new Observable(), obj);
 		}
 	}

@@ -22,7 +22,10 @@ GET     /changePass					controllers.Application.changePass(oldPasswort,newPasswo
 GET		/changeEmail				controllers.Application.changeEmail(oldEmail,newEmail)
 GET		/searchBook						controllers.Application.searchBook(sucheBook)
 
+GET     /statusWs                     controllers.Application.statusWs()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET 	/assets/WebSocket			controllers.Assets.at(path="/public", ws)
 
  	
