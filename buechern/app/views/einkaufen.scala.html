@@ -1,51 +1,35 @@
-@(BookList :List[Book]) @main("einkaufen"){
+@() @main("einkaufen"){
 
 <div id="content">
 	
 	<script type="text/javascript">
+	
 		function suche(){
+			
 			if(document.getElementById("sucheBook").value.length >=2){
 				var sText = document.getElementById("sucheBook").value;
-				alert("Function "+ sText);
 				var requestObj = new XMLHttpRequest();
-				
-				
+				requestObj.onreadystatechange = function(){
+					if (requestObj.readyState == 4 && requestObj.status == 200){
+						document.getElementById("buch").innerHTML = requestObj.responseText;
+						requestObj = null;
+						
+					}
+				}
+				requestObj.open("GET","searchBook?sucheBook="+sText, true);
+				requestObj.send();
 			}
 		}
+		
 
 	</script>
 	
-	@if(!BookList.isEmpty()) {
 
-	<script type="text/javascript">
-					$(function() {
-					  $('#userBooks').modal("show")
-					});
-	</script>
+	<input type="text" placeholder="Titel /ISBN /Autor.."
+				name="sucheBook" id="sucheBook" onkeyup="suche()">
 
-	<div id="boxen">
-		<h1>Buchangebote für Sie:</h1>
-
-		<form action="searchBook">
-			<input type="text" placeholder="Titel /ISBN /Autor.."
-				name="sucheBook" id="sucheBook" onkeyup="suche()"> 
-			
-		</form>
-
-		@for(book <- BookList){
-		<div class="buchbox">
-			<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
-			<p class="buchtitel">@book.getBookName():</p>
-			<p class="buchtitel">@book.getAuther()</p>
-			<p class="buchtitel">@book.getISBN()</p>
-			<a href=@routes.Application.buyBook(book.getId())><img
-				class="deleteBook" src=@routes.Assets.at( "images/shopping.png")/></a>
-
-		</div>
-		}
-		<div class="clear"></div>
-	</div>
-	}
+		<span class="buch" id=buch> </span> 
+	
 </div>
 
 }

@@ -1,0 +1,23 @@
+@(BookList :List[Book]) {
+	<div id="content">
+	
+			
+		@if(!BookList.isEmpty()) {
+	
+		<script type="text/javascript">
+						$(function() {
+						  $('#buchbox').modal("show")
+						});
+					</script>
+			@for(book <- BookList){ 
+		
+				<div class="buchbox">
+						<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
+						<span class="buchtitel"><p>@book.getBookName()</p> </span> <span
+							class="buchtitel"><p>@book.getAuther()</p></span> <span
+							class="buchtitel"><p>@book.getISBN()</p></span>
+				</div>
+			}
+		}
+	</div>
+}

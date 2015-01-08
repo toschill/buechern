@@ -13,6 +13,7 @@ import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.*;
 import views.html.*;
+import views.html.play20.book;
 
 
 public class Application extends Controller {
@@ -105,7 +106,7 @@ public class Application extends Controller {
 	
 	public static Result einkaufen(){		
 		//KONSTANTE hinzufügen
-		return ok(einkaufen.render(Model.getBooks(0)));
+		return ok(einkaufen.render());
 	}
 	
 	public static Result registrierung(){
@@ -289,6 +290,7 @@ public class Application extends Controller {
 	
 	public static Result searchBook(String suche){
 		ArrayList<Book> foundBooks = new ArrayList<Book>();
+		System.out.println("searchBook: enter");
 		for(Book book :Model.getBookList()){
 			if(book.getStatus()==0){
 				
@@ -300,13 +302,12 @@ public class Application extends Controller {
 						||suche.contains(book.getISBN().toLowerCase().replaceAll(" ", ""))
 						||suche.contains(book.getAuther().toLowerCase().replaceAll(" ", ""))
 						||suche.contains(book.getBookName().toLowerCase().replaceAll(" ", ""))){
-					
 					foundBooks.add(book);
 				}
 			}
 		}
 		
-		return ok(einkaufen.render(foundBooks));
+		return ok(searchBookShow.render(foundBooks));
 	}
 }
 
