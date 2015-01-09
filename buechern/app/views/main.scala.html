@@ -37,7 +37,7 @@ $(function() {
     var dateSocket = new WS("@routes.Application.statusWs().webSocketURL(request)")
 
     var receiveEvent = function(event) {
-        $("#output").html("Last ping: "+event.data);
+        $("#output").html("Status: "+event.data);
     }
 
     dateSocket.onmessage = receiveEvent
@@ -118,7 +118,7 @@ $(function() {
 			<div class="buttonspacer"></div>
 			<aside id="footer_container">
 				<div id="footer">
-					<span class="footerlink"><a href=mailto:bakopf@@htwg-konstanz.de>Support Anfrage per E-Mail</a> <span id="output"><a>geht nicht</a></span></span>
+					<span class="footerlink"><a href=mailto:bakopf@@htwg-konstanz.de>Support Anfrage per E-Mail</a> <span id="output"><a>kein Status vorhanden</a></span></span>
 				</div>
 			</aside>
 

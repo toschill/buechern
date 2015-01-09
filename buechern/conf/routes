@@ -21,11 +21,12 @@ GET 	/addUser					controllers.Application.addUser(FirstName,LastName,Email,Email
 GET     /changePass					controllers.Application.changePass(oldPasswort,newPasswort) 
 GET		/changeEmail				controllers.Application.changeEmail(oldEmail,newEmail)
 GET		/searchBook						controllers.Application.searchBook(sucheBook)
-
+#Socket
 GET     /statusWs                     controllers.Application.statusWs()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
-GET 	/assets/WebSocket			controllers.Assets.at(path="/public", ws)
+
+#GET 	/assets/WebSocket			controllers.Assets.at(path="/public", ws)
 
  	
