@@ -3,10 +3,12 @@
 <div id="content">
 	
 	<script type="text/javascript">
+		$(document).ready(function() {
+			suche();
+		});	
 	
 		function suche(){
-			
-			if(document.getElementById("sucheBook").value.length >=2){
+			if((document.getElementById("sucheBook").value.length >=1) ||(document.getElementById("sucheBook").value ==0)){
 				var sText = document.getElementById("sucheBook").value;
 				var requestObj = new XMLHttpRequest();
 				requestObj.onreadystatechange = function(){
@@ -20,15 +22,20 @@
 				requestObj.send();
 			}
 		}
+
+		
 		
 
 	</script>
 	
-
-	<input type="text" placeholder="Titel /ISBN /Autor.."
-				name="sucheBook" id="sucheBook" onkeyup="suche()">
-
-		<span class="buch" id=buch> </span> 
+	<div id="boxen">
+		<h1>Buchangebote für Sie:</h1>
+		
+		<input type="text" placeholder="SUCHE: Titel /ISBN /Autor.."
+					name="sucheBook" id="sucheBook" onkeyup="suche()">
+	
+			<span class="buch" id=buch> </span> 
+	</div>
 	
 </div>
 

@@ -292,17 +292,22 @@ public class Application extends Controller {
 		ArrayList<Book> foundBooks = new ArrayList<Book>();
 		System.out.println("searchBook: enter");
 		for(Book book :Model.getBookList()){
-			if(book.getStatus()==0){
-				
-				suche = suche.replaceAll(" ", "").replaceAll(":", "").toLowerCase();
-				
-				if(book.getBookName().toLowerCase().replaceAll(" ", "").contains(suche)
-						||book.getAuther().toLowerCase().replaceAll(" ", "").contains(suche)
-						||book.getISBN().toLowerCase().replaceAll(" ", "").contains(suche)
-						||suche.contains(book.getISBN().toLowerCase().replaceAll(" ", ""))
-						||suche.contains(book.getAuther().toLowerCase().replaceAll(" ", ""))
-						||suche.contains(book.getBookName().toLowerCase().replaceAll(" ", ""))){
-					foundBooks.add(book);
+			if(suche.equals("")){
+				foundBooks.add(book);
+			}else{
+			
+				if(book.getStatus()==0){
+					
+					suche = suche.replaceAll(" ", "").replaceAll(":", "").toLowerCase();
+					
+					if(book.getBookName().toLowerCase().replaceAll(" ", "").contains(suche)
+							||book.getAuther().toLowerCase().replaceAll(" ", "").contains(suche)
+							||book.getISBN().toLowerCase().replaceAll(" ", "").contains(suche)
+							||suche.contains(book.getISBN().toLowerCase().replaceAll(" ", ""))
+							||suche.contains(book.getAuther().toLowerCase().replaceAll(" ", ""))
+							||suche.contains(book.getBookName().toLowerCase().replaceAll(" ", ""))){
+						foundBooks.add(book);
+					}
 				}
 			}
 		}

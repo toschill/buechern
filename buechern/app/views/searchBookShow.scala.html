@@ -1,4 +1,4 @@
-@(BookList :List[Book]) {
+@(BookList :List[Book]) 
 	<div id="content">
 	
 			
@@ -8,16 +8,19 @@
 						$(function() {
 						  $('#buchbox').modal("show")
 						});
+						
 					</script>
 			@for(book <- BookList){ 
 		
-				<div class="buchbox">
-						<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
-						<span class="buchtitel"><p>@book.getBookName()</p> </span> <span
-							class="buchtitel"><p>@book.getAuther()</p></span> <span
-							class="buchtitel"><p>@book.getISBN()</p></span>
-				</div>
+			<div class="buchbox">
+				<img class="buchbild" src=@routes.Assets.at( "images/bucheinzel.jpg") />
+				<p class="buchtitel">Buchtitiel: @book.getBookName():</p>
+				<p class="buchtitel">Autor: @book.getAuther()</p>
+				<p class="buchtitel">ISBN: @book.getISBN()</p>
+				<p class="buchtitel">Preis: @book.getPrice()</p>
+				<a href=@routes.Application.buyBook(book.getId())><img
+					class="deleteBook" src=@routes.Assets.at( "images/shopping.png")/></a>
+			</div>
 			}
 		}
 	</div>
-}
