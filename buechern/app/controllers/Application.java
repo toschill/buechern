@@ -13,6 +13,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import play.data.DynamicForm;
 import play.data.Form;
+
 import play.libs.Akka;
 import play.libs.F.Callback0;
 import play.mvc.Controller;
@@ -25,9 +26,13 @@ import views.html.profile;
 import views.html.registrierung;
 import views.html.userDatenAendern;
 import views.html.verkaufen;
+import views.html.searchBookShow;
 import akka.actor.ActorRef;
 import akka.actor.Cancellable;
 import akka.actor.Props;
+
+import views.html.play20.book;
+
 
 
 public class Application extends Controller implements Observer {
@@ -124,7 +129,7 @@ public class Application extends Controller implements Observer {
 	
 	public static Result einkaufen(){		
 		//KONSTANTE hinzufügen
-		return ok(einkaufen.render(Model.getBooks(0)));
+		return ok(einkaufen.render());
 	}
 	
 	public static Result registrierung(){
@@ -308,24 +313,33 @@ public class Application extends Controller implements Observer {
 	
 	public static Result searchBook(String suche){
 		ArrayList<Book> foundBooks = new ArrayList<Book>();
+		System.out.println("searchBook: enter with String: "+suche);
 		for(Book book :Model.getBookList()){
-			if(book.getStatus()==0){
-				
-				suche = suche.replaceAll(" ", "").replaceAll(":", "").toLowerCase();
-				
-				if(book.getBookName().toLowerCase().replaceAll(" ", "").contains(suche)
-						||book.getAuther().toLowerCase().replaceAll(" ", "").contains(suche)
-						||book.getISBN().toLowerCase().replaceAll(" ", "").contains(suche)
-						||suche.contains(book.getISBN().toLowerCase().replaceAll(" ", ""))
-						||suche.contains(book.getAuther().toLowerCase().replaceAll(" ", ""))
-						||suche.contains(book.getBookName().toLowerCase().replaceAll(" ", ""))){
-					
+			if(suche.equals("")){
+				if(book.getStatus()==0){
 					foundBooks.add(book);
+				}
+			}else{
+			
+				if(book.getStatus()==0){
+					
+					suche = suche.replaceAll(" ", "").replaceAll(":", "").toLowerCase();
+					
+					if(book.getBookName().toLowerCase().replaceAll(" ", "").contains(suche)
+							||book.getAuther().toLowerCase().replaceAll(" ", "").contains(suche)
+							||book.getISBN().toLowerCase().replaceAll(" ", "").contains(suche)
+							||book.getPrice().toLowerCase().replaceAll(" ", "").contains(suche)
+							||suche.contains(book.getISBN().toLowerCase().replaceAll(" ", ""))
+							||suche.contains(book.getAuther().toLowerCase().replaceAll(" ", ""))
+							||suche.contains(book.getPrice().toLowerCase().replaceAll(" ", ""))
+							||suche.contains(book.getBookName().toLowerCase().replaceAll(" ", ""))){
+						foundBooks.add(book);
+					}
 				}
 			}
 		}
 		
-		return ok(einkaufen.render(foundBooks));
+		return ok(searchBookShow.render(foundBooks));
 	}
 
 	
