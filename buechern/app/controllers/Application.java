@@ -33,7 +33,6 @@ import akka.actor.Props;
 public class Application extends Controller implements Observer {
 	
 	public static Application app = new Application();
-	public static Writer writer;
 
 	/**
 	 * Get the active User from session
