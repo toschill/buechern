@@ -1,22 +1,40 @@
 package controllers;
 
 import java.util.ArrayList;
-
-import org.h2.constant.SysProperties;
-import org.mindrot.jbcrypt.*;
+import java.util.Collection;
+import java.util.Observable;
+import java.util.Observer;
 
 import models.Book;
 import models.Model;
 import models.User;
-import play.*;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 import play.data.DynamicForm;
 import play.data.Form;
-import play.mvc.*;
-import views.html.*;
+import play.libs.Akka;
+import play.libs.F.Callback0;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.WebSocket;
+import scala.concurrent.duration.Duration;
+import views.html.einkaufen;
+import views.html.index;
+import views.html.profile;
+import views.html.registrierung;
+import views.html.userDatenAendern;
+import views.html.verkaufen;
+import akka.actor.ActorRef;
+import akka.actor.Cancellable;
+import akka.actor.Props;
 
 
-public class Application extends Controller {
+public class Application extends Controller implements Observer {
 	
+	public static Application app = new Application();
+	public static Writer writer;
+
 	/**
 	 * Get the active User from session
 	 * @return User active User			
@@ -62,6 +80,8 @@ public class Application extends Controller {
 	 * @return Index Page
 	 */
 	public static Result index() {
+		Model.addObserver(Application.app);
+		statusWs();
 		return ok(index.render());
 	}
 	
@@ -307,6 +327,48 @@ public class Application extends Controller {
 		}
 		
 		return ok(einkaufen.render(foundBooks));
+	}
+
+	
+
+
+	public static WebSocket<String> statusWs() {
+	    return new WebSocket<String>() {
+	        public void onReady(WebSocket.In<String> in, WebSocket.Out<String> out) {
+	            final ActorRef pingActor = Akka.system().actorOf(Props.create(StatusWS.class, in, out));
+	            final Cancellable cancellable = Akka.system().scheduler().schedule(Duration.create(1, "seconds"),
+	                                               Duration.create(1, "seconds"),
+	                                               pingActor,
+	                                               "Status",
+	                                               Akka.system().dispatcher(),
+	                                               null
+	                                               );
+
+	            in.onClose(new Callback0() {
+	                @Override
+	                public void invoke() throws Throwable {
+	                    cancellable.cancel();
+	                }
+	            });
+	        }
+
+	    };
+	}
+
+	
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		if(arg instanceof User){
+			User user = (User) arg;
+			Model.schreibeStatus("Wir haben einen neuen Benutzer: " +user.getFirstName());
+			System.out.println("Wir haben einen neuen Benutzer: " +user.getFirstName());
+		}
+		if(arg instanceof Book){
+			Book book = (Book) arg;
+			Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
+			System.out.println("Es wurde ein neues Buch erstellt: " +book.getBookName());
+		}
 	}
 }
 

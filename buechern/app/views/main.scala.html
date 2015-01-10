@@ -13,6 +13,7 @@
 <meta name="author" content="Gruppe 6">
 <meta name="keywords" content="WebtechWS14, Webtech, Büchern, Büchern Konstanz, Büchern HTWG, HTWG Konstanz, HTWG, Konstanz">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	
+
 <script>
 $(function() {
   var menuVisible = false;
@@ -29,6 +30,17 @@ $(function() {
     $(this).css({'display':'none'});
     menuVisible = false;
   });
+});
+
+$(function() {
+    var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket
+    var dateSocket = new WS("@routes.Application.statusWs().webSocketURL(request)")
+
+    var receiveEvent = function(event) {
+        $("#output").html("Status: "+event.data);
+    }
+
+    dateSocket.onmessage = receiveEvent
 });
 
 </script>
@@ -106,7 +118,7 @@ $(function() {
 			<div class="buttonspacer"></div>
 			<aside id="footer_container">
 				<div id="footer">
-					<span class="footerlink"><a href=mailto:bakopf@@htwg-konstanz.de>Support Anfrage per E-Mail</a> </span>
+					<span class="footerlink"><a href=mailto:bakopf@@htwg-konstanz.de>Support Anfrage per E-Mail</a> <span id="output"><a>kein Status vorhanden</a></span></span>
 				</div>
 			</aside>
 
