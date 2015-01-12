@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,7 +12,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import play.data.DynamicForm;
 import play.data.Form;
-
 import play.libs.Akka;
 import play.libs.F.Callback0;
 import play.mvc.Controller;
@@ -24,21 +22,21 @@ import views.html.einkaufen;
 import views.html.index;
 import views.html.profile;
 import views.html.registrierung;
+import views.html.searchBookShow;
 import views.html.userDatenAendern;
 import views.html.verkaufen;
-import views.html.searchBookShow;
 import akka.actor.ActorRef;
 import akka.actor.Cancellable;
 import akka.actor.Props;
-
-import views.html.play20.book;
 
 
 
 public class Application extends Controller implements Observer {
 	
-	public static Application app = new Application();
-
+	public Application(){
+		Model.addObserver(this);
+		statusWs();
+	}
 	/**
 	 * Get the active User from session
 	 * @return User active User			
@@ -84,8 +82,6 @@ public class Application extends Controller implements Observer {
 	 * @return Index Page
 	 */
 	public static Result index() {
-		Model.addObserver(Application.app);
-		statusWs();
 		return ok(index.render());
 	}
 	

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Observable;
 
 import play.db.DB;
 
@@ -126,7 +125,7 @@ public class Model extends StaticObservable{
 			pstmt.setString(3, user.getEmail());
 			pstmt.setString(4, user.getPassword());
 			pstmt.executeUpdate();
-			Model.schreibeStatus("Wir haben einen neuen Benutzer: " +user.getFirstName());
+		//	Model.schreibeStatus("Wir haben einen neuen Benutzer: " +user.getFirstName());
 			notifyObservers(user);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Users: "+ user.getFirstName());
@@ -155,7 +154,7 @@ public class Model extends StaticObservable{
 			//pstmt.setInt(10, book.getBuyer().getId());
 			pstmt.setInt(11, book.getUser().getId());
 			pstmt.executeUpdate();
-			Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
+	//		Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
 			notifyObservers(book);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Buches: "+ book.getBookName());
