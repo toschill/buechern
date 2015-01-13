@@ -33,10 +33,7 @@ import akka.actor.Props;
 
 public class Application extends Controller implements Observer {
 	
-	public Application(){
-		Model.addObserver(this);
-		statusWs();
-	}
+	
 	/**
 	 * Get the active User from session
 	 * @return User active User			
@@ -356,6 +353,8 @@ public class Application extends Controller implements Observer {
 	            in.onClose(new Callback0() {
 	                @Override
 	                public void invoke() throws Throwable {
+	                	Model.addObserver(new Application());
+	            		statusWs();
 	                    cancellable.cancel();
 	                }
 	            });
@@ -370,13 +369,13 @@ public class Application extends Controller implements Observer {
 	public void update(Observable o, Object arg) {
 		if(arg instanceof User){
 			User user = (User) arg;
-			Model.schreibeStatus("Wir haben einen neuen Benutzer: " +user.getFirstName());
-			System.out.println("Wir haben einen neuen Benutzer: " +user.getFirstName());
+			Model.schreibeStatus(" | Wir haben einen neuen Benutzer: " +user.getFirstName());
+			System.out.println(" | Wir haben einen neuen Benutzer: " +user.getFirstName());
 		}
 		if(arg instanceof Book){
 			Book book = (Book) arg;
-			Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
-			System.out.println("Es wurde ein neues Buch erstellt: " +book.getBookName());
+			Model.schreibeStatus(" | Es wurde ein neues Buch erstellt: " +book.getBookName());
+			System.out.println(" | Es wurde ein neues Buch erstellt: " +book.getBookName());
 		}
 	}
 }

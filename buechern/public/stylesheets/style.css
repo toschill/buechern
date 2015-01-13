@@ -102,7 +102,7 @@ h2 {
 	margin: 0 auto;
 	margin-top: -6px;
 	margin-bottom: 4px;
-	width: 525px;
+	width: 420px;
 }
 
 .linkboxlink {
@@ -292,7 +292,7 @@ a:link, a:visited {
 }
 
 .buchbild {
-	width: 80%;
+	width: 70%;
 }
 
 .buchtitel {
@@ -365,6 +365,11 @@ a:link, a:visited {
 	font-size: 15px;
 }
 
+#output {
+	color: #ffffff;
+	font-size: 15px;	
+}
+
 /* media query for viewsize check */
 
 /*Min Media Query for big Displays*/
@@ -429,16 +434,11 @@ a:link, a:visited {
 		margin-left: 3%;
 		margin-right: 60%;
 	}
-	.userData {
-		display: none;
-	}
+
 	.icon_tools {
 		width: 40%;
 		margin-left: 20%;
 		margin-top: 10%;
-	}
-	.linkSidebar {
-		display: none;
 	}
 }
 
@@ -457,7 +457,7 @@ a:link, a:visited {
 	.buchbox {
 		width: 94%;
 	}
-	
+		
 	.buchbild {
 		width:65%;
 	}
@@ -509,6 +509,10 @@ a:link, a:visited {
 	
 	.comic {
 		width: 100%;
+	}
+	
+	#output {
+		display:none;
 	}
 }
 

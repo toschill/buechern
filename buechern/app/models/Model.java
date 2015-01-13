@@ -18,11 +18,64 @@ public class Model extends StaticObservable{
 	
 	private static User activUser = new User();
 
-
+	public Model(){
+		boolean DBexists;
+		try {
+			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books");
+			PreparedStatement pstmt2 = connection.prepareStatement("SELECT * FROM Users");
+			PreparedStatement pstmt3 = connection.prepareStatement("SELECT * FROM Status");
+			pstmt.execute();
+			pstmt2.execute();
+			pstmt3.execute();
+			DBexists=true;
+		} catch (SQLException e) {
+			DBexists = false;
+			e.printStackTrace();
+		}
+		
+		if(!DBexists){
+			try {
+				PreparedStatement pstmt = connection.prepareStatement("CREATE TABLE Books("+
+						"BookId INTEGER PRIMARY KEY AUTOINCREMENT,"+ 
+						"BookName VARCHAR2(255) NOT NULL,"+
+						"Author VARCHAR2(255) NOT NULL,"+
+						"Prof VARCHAR2(255),"+
+					//	"RelDate DATE,"+
+						"Layer VARCHAR2(255),"+
+						"Condition  VARCHAR2(255) NOT NULL,"+
+						"ISBN  VARCHAR2(255),"+
+						"Price  VARCHAR2(255) NOT NULL,"+
+						"State INTEGER(10) NOT NULL,"+
+						"Buyer INTEGER(10),"+
+						"Seller INTEGER(10) NOT NULL,"+
+						"FOREIGN KEY (State) REFERENCES Sate(StateId),"+
+						"FOREIGN KEY (Buyer) REFERENCES User(UserId),"+
+						"FOREIGN KEY (Seller) REFERENCES Sate(UserId)");
+				PreparedStatement pstmt2 = connection.prepareStatement(
+						"CREATE TABLE Users("+
+						"UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+ 
+						"FirstName VARCHAR2(255) NOT NULL,"+ 
+						"SecondName VARCHAR2(255),"+ 
+						"Email VARCHAR2(255) NOT NULL,"+ 
+						"Password VARCHAR2(255) NOT NULL");
+				PreparedStatement pstmt3 = connection.prepareStatement(
+						"CREATE TABLE Status("+
+						"StateId INTEGER PRIMARY KEY AUTOINCREMENT,"+
+						"State VARCHAR2(255) NOT NULL");
+				pstmt.executeUpdate();
+				pstmt2.executeUpdate();
+				pstmt3.executeUpdate();
+				System.out.println("Model Konstruktor: DB wurde neu erzeugt");
+			} catch (SQLException e) {
+				System.out.println("Model Konstruktor: Fehler beim erzeugen der DB");
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	public static ArrayList <Book> getBookList() {
 		try {
-			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books");
+			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books ORDER BY BookId DESC");
 			BookList=doBookResult(pstmt.executeQuery());
 		}catch (SQLException e) {
 			System.out.println("Fehler beim holen der Bücher");
@@ -139,22 +192,23 @@ public class Model extends StaticObservable{
 		BookList.add(book);
 		//und in DB schreiben
 		try{
-			System.out.println("Schreibe Buch: "+book.getBookName());
-			PreparedStatement pstmt = connection.prepareStatement("INSERT INTO Books (BookName, Author, Prof , RelDate, Layer, Condition, ISBN, Price, State,Buyer,Seller)"
-			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+			PreparedStatement pstmt = connection.prepareStatement("INSERT INTO Books (BookName, Author, Prof, Layer, Condition, ISBN, Price, State,Seller)"
+			+"VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
 			pstmt.setString(1, book.getBookName());
 			pstmt.setString(2, book.getAuther());
 			pstmt.setString(3, book.getProf());
 			//pstmt.setDate(4, );
-			pstmt.setString(5, book.getLayer());
-			pstmt.setString(6, book.getCondition());
-			pstmt.setString(7, book.getISBN());
-			pstmt.setString(8, book.getPrice());
-			pstmt.setInt(9, book.getStatus());
+			pstmt.setString(4, book.getLayer());
+			pstmt.setString(5, book.getCondition());
+			pstmt.setString(6, book.getISBN());
+			pstmt.setString(7, book.getPrice());
+			pstmt.setInt(8, book.getStatus());
 			//pstmt.setInt(10, book.getBuyer().getId());
-			pstmt.setInt(11, book.getUser().getId());
+			pstmt.setInt(9, book.getUser().getId());
+			System.out.println("DAVOR");
 			pstmt.executeUpdate();
 	//		Model.schreibeStatus("Es wurde ein neues Buch erstellt: " +book.getBookName());
+			System.out.println("Model.addBook:Schreibe Buch: " + book.getBookName());
 			notifyObservers(book);
 		}catch(SQLException e){
 			System.out.println("Fehler beim schreiben des Buches: "+ book.getBookName());
@@ -218,7 +272,7 @@ public class Model extends StaticObservable{
 	}
 	public static void changePassword(String newPass, User user){
 		try{
-			PreparedStatement pstmt = connection.prepareStatement("UPDATE User SET Password=? WHERE UserId=?");
+			PreparedStatement pstmt = connection.prepareStatement("UPDATE Users SET Password=? WHERE UserId=?");
 			pstmt.setString(1, newPass);
 			pstmt.setInt(2, user.getId());
 			pstmt.executeUpdate();

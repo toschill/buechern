@@ -21,8 +21,9 @@ public class StaticObservable{
 	}
 
 	public static void notifyObservers(Object obj){
-		System.out.println("notify");
+		System.out.println("NOTIFY OBSERVERS");
 		for(Observer o : observers){
+			System.out.println("notify");
 			System.out.println("Observer notified");
 			o.update(new Observable(), obj);
 		}
