@@ -14,7 +14,7 @@
 			else{
 				document.getElementById("LastName").style = "border:1px solid green";
 			}
-			if(document.getElementById("Email").value===""){
+			if((document.getElementById("Email").value==="")||!(validateEmail(document.getElementById("EmailRep").value))){
 				document.getElementById("Email").style = "border:1px solid red";
 				fehler=true;
 			}
@@ -50,6 +50,11 @@
 				return true;
 			}
 			
+		}
+
+		function validateEmail(email) { 
+    		var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    		return re.test(email);
 		}
 
 		function resetAll(){
