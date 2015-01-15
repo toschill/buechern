@@ -61,8 +61,7 @@ Hierfür ist vorgesehen, dass Titel, Autor, Erscheinungsjahr, Auflage und Zustan
 Es soll die Möglichkeit geben, ein Buch einer Vorlesung (eine Vorlesung gehört zu einem Professor) zuzuweisen. Somit kann nicht nur nach dem Titel / Autor gesucht werden, sondern auch nach einzelnen Vorlesungen.
 Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor empfohlenen Bücher angezeigt werden. Hier kann der User in Erfahrung bringen, ob dieses Buch von einem anderen User angeboten wird. 
 
-####Planung des Portals büchern.de  
-
+###Planung des Portals büchern.de  
 
 ####MockUp des Portals  
 <img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG"/>
