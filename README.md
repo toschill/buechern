@@ -60,7 +60,7 @@ Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeit
 ![alt text](https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG "MockUp büchern.de")
 
 ####Responsive Design MockUp des Portals####
-![alt text](https://github.com/toschill/buechern/blob/master/Planung/mockup_responsive.JPG "Responsive MockUp büchern.de")
+<img height="500px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup_responsive.JPG"/>
 
 ###Architektur###
 
