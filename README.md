@@ -50,16 +50,24 @@ Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Them
 Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
-####Use-Case-Diagramm  
+####Use-Case-Diagramm    
 <img height="300px" src="https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png"/>
+
+#####Abläufe: (Aus der ersten Planung des Portals)  
+Nutzer des Portals müssen sich zunächst im Portal registrieren (Log-In).
+Anschließend kann der User nach den unterschiedlichen Kriterien suchen bzw. ein Buch zum Verkauf anbieten.
+Möchte der User ein Buch verkaufen, muss er zunächst Angaben zum Buch machen.
+Hierfür ist vorgesehen, dass Titel, Autor, Erscheinungsjahr, Auflage und Zustand (ISBN) und Preis eingetragen werden. 
+Es soll die Möglichkeit geben, ein Buch einer Vorlesung (eine Vorlesung gehört zu einem Professor) zuzuweisen. Somit kann nicht nur nach dem Titel / Autor gesucht werden, sondern auch nach einzelnen Vorlesungen.
+Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor empfohlenen Bücher angezeigt werden. Hier kann der User in Erfahrung bringen, ob dieses Buch von einem anderen User angeboten wird. 
 
 ####Planung des Portals büchern.de  
 
 
-####MockUp des Portals####
+####MockUp des Portals  
 <img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG"/>
 
-####Responsive Design MockUp des Portals####
+####Responsive Design MockUp des Portals  
 <img height="450px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup_responsive.JPG"/>
 
 ###Architektur###
@@ -92,13 +100,7 @@ Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeit
 
 
 
-###Abläufe:###
-Nutzer des Portals müssen sich zunächst im Portal registrieren (Log-In).
-Anschließend kann der User nach den unterschiedlichen Kriterien suchen bzw. ein Buch zum Verkauf anbieten.
-Möchte der User ein Buch verkaufen, muss er zunächst Angaben zum Buch machen.
-Hierfür ist vorgesehen, dass Titel, Autor, Erscheinungsjahr, Auflage und Zustand (ISBN) und Preis eingetragen werden. 
-Es soll die Möglichkeit geben, ein Buch einer Vorlesung (eine Vorlesung gehört zu einem Professor) zuzuweisen. Somit kann nicht nur nach dem Titel / Autor gesucht werden, sondern auch nach einzelnen Vorlesungen.
-Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor empfohlenen Bücher angezeigt werden. Hier kann der User in Erfahrung bringen, ob dieses Buch von einem anderen User angeboten wird. 
+
 
 ###Optional:###
 *	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. 
