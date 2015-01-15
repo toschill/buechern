@@ -35,12 +35,25 @@ Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Them
 ###Anforderungsanalyse###
 
 ####Funktionale Anforderungen####
+* Der User soll sich Registrieren können (Persönlichedaten - Benutzername - E-Mail-Adresse-Passwort)
+* Der User soll sich anschließend anmelden können (Benutzername und Passwort)
+* Der User soll eine Liste von bereits eingestellten Büchern auf der Einkaufenseite sehen
+* Der User soll selbst Bücher zum verkauf einstellen können
+* Der User soll in seinem Profil sehen wenn er ein Buch gekauft hat
+* Der User soll in seinem Profil sehen wenn eines seiner eingestellten Büchern verkauft wurde und an wen
+* Der User soll seine E-Mail-Adresse und sein Passwort ändern können
+* Der User soll auf der Einkaufen Seite nach Büchern suchen können
+* Der User soll über den Status (bsp. neues Buch wurde eingestellt) im Footer informiert werden
 
 ####Nichtfunktionale Anforderungen####
+* Versionalskontrolle über GitHub
+Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
+Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
 ####Use-Case-Diagramm####
 
 ####Planung des Portals büchern.de###
+
 
 ####MockUp des Portals####
 
