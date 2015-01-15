@@ -51,7 +51,7 @@ Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkt
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
 ####Use-Case-Diagramm  
-![alt text](https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png "Use-Case-Diagramm")
+![alt text](https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png =250x "Use-Case-Diagramm")
 
 ####Planung des Portals büchern.de  
 
