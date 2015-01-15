@@ -1,12 +1,12 @@
 buechern
 ========
 
-*Web Tech Projekt 2014 Buecher-Verkauf-Service*
+##Web Tech Projekt 2014 Buecher-Verkauf-Service##
 
 Webtech 			büchern			15.01.2015
 Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
-**Dokumentation zur Erstellung des Portals im Rahmen der Vorlesung Webtechnologien**
+###Dokumentation zur Erstellung des Portals im Rahmen der Vorlesung Webtechnologien###
 
 **Beschreibung:**
 Ein Portal um Bücher, welche gezielt für Vorlesungen (oftmals auf die Empfehlung von Professoren) gekauft wurden, sollen nach dem Semester für an andere Studenten weiterverkauft werden.
