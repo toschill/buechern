@@ -101,12 +101,19 @@ Die Datenbank, für die Userregistrierung bzw. Anmeldung, und auch für die Eins
 Ajax ist eine Technnologie zum asynchonen Nachladen von Inhalte einer Webseite. Dies bedeutet, dass auf einer bereits vollständig geladenen Webseite weitere Daten zusätzlich hinzugeladen werden. Ein bekanntes Beispiel hierfür ist es, wenn man auf einer Webseite verschiedene Einträge anzeigt bekommt (z.B. in einem Gäsebuch). Wenn man am Ende der Seite angelangt ist muss man auf die nächste Seite wechseln (Paginierung). Ajax ermöglicht es hierbei, einen Inhalt direkt unten auf der Seite anzuhängen und somit die Inhalte der Seite zu erweitern. Oftmals wird Ajax auch bei der Suche nach Inhalten verwendet. Auf büchern.de wurde Ajax für die Suche auf der Einkaufenseite verwendet. Sucht man hier nach einem Titel wird nach jedem Tastendruck (onkeyup-Event) in der Datenbank nach einem Treffer gesucht. Dieser wird dann sofort auf der Seite angezeigt. Drückt man also als erstes ein <strong>a</strong>, werden lediglich die Bücher angezeigt bei denen ein a in beispielsweise Titel, Autor oder ähnlichem enthalten ist. 
 
 ####Websockets und Observer-Pattern  
-Websockets wurden auf büchern.de dazu verwendet den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser stelle werden dem User die Updates angezeigt.  
-Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
+Websockets wurden auf büchern.de dazu verwendet den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser stelle werden dem User die Updates angezeigt. Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
 
 ###Ergebnis  
+Das Ergebnis dieses Projekts ist ein nahezu fertiges Portal Büchern.de. Für einen tatsächlichen Go-Live müssten jedoch zunächst weitere Funktionalitäten entwickelt und eingebaut werden, welche es den Usern erleichtern Büchern zu Verkaufen und zu Kaufen. Diese Können im letzten Punkt der Dokumentation eingesehen werden.
+
+Büchern.de bietet jedoch jetzt schon die Möglichkeiten und Funktionen, welche auch in der ersten Anforderungsanalyse aufgestellt wurden. Durch den Einsatz der verschiedenen Technologien, ist es Möglich, dass sich User zunächst registrieren, anschließend anmelden und dann direkt Bücher zum Verkauf anbieten oder bereits eingestelle Bücher kaufen können. Dieser Ablauf funktioniert sowohl auf einem stationären, als auch auf einem mobilen Endgerät ohne hierbei einen Verlust von Funktionalitäten zu erleiden. 
+
+Es wurden alle geforderten bzw. alle für das Portal relefanten Technologien eingesetzt und zusammen ergeben Sie das Portal büchern.de
 
 ###Fazit  
+Während der Umsetztung des Portals wurde schnell klar, dass im Team unterschiedliche Wissenstände zum Thema Webtechnologien herschen. Da sich das Projekt jedoch nicht nur auf die Webentwicklung bezieht, sondern gerade durch Play auch den kompletten funktionellen Teil mit sich bringt, konnten die Aufgaben sehr gut verteilt werden. Damit jedes Teammitglied vom Können und Wissen der anderen Profiert, wurde die Umsetzung zwar zunächst in einzelne Arbeitspackete aufgeteilt, beim wöchentlichen Meeting wurden die neusten Erkentnisse und persönlichen Erfolge dann aber mit dem gesamten Team geteilt. Somit sollte es möglich werden, dass jeder einzelne einen Einblick in alle Gebiete erhählt und es keine einzel Spezialisierung gibt. 
+
+Die Arbeit im Team gestaltete sich sehr gut. Die wöchentlichen Meetings wurden von allen eingehalten und jeder einzelne Trug dazu bei die Arbeitsatmosphäre oben zuhalten. Somit konnten die ersten Ergenisse sehr schnell erziehlt werden und die zwei wöchentlichen Abgabe Termine immer eingehalten werden. 
 
 ###Optionale Funktionen, welche geplant, aber noch nicht umgesetzt sind  
 *	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. 
