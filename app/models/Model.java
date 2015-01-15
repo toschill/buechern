@@ -18,7 +18,7 @@ public class Model extends StaticObservable{
 	
 	private static User activUser = new User();
 
-	public Model(){
+	public static void checkDB(){
 		boolean DBexists;
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Books");
@@ -48,20 +48,19 @@ public class Model extends StaticObservable{
 						"State INTEGER(10) NOT NULL,"+
 						"Buyer INTEGER(10),"+
 						"Seller INTEGER(10) NOT NULL,"+
-						"FOREIGN KEY (State) REFERENCES Sate(StateId),"+
 						"FOREIGN KEY (Buyer) REFERENCES User(UserId),"+
-						"FOREIGN KEY (Seller) REFERENCES Sate(UserId)");
+						"FOREIGN KEY (Seller) REFERENCES Sate(UserId))");
 				PreparedStatement pstmt2 = connection.prepareStatement(
 						"CREATE TABLE Users("+
 						"UserId INTEGER PRIMARY KEY AUTOINCREMENT,"+ 
 						"FirstName VARCHAR2(255) NOT NULL,"+ 
 						"SecondName VARCHAR2(255),"+ 
 						"Email VARCHAR2(255) NOT NULL,"+ 
-						"Password VARCHAR2(255) NOT NULL");
+						"Password VARCHAR2(255) NOT NULL)");
 				PreparedStatement pstmt3 = connection.prepareStatement(
 						"CREATE TABLE Status("+
-						"StateId INTEGER PRIMARY KEY AUTOINCREMENT,"+
-						"State VARCHAR2(255) NOT NULL");
+						"StateId INTEGER PRIMARY KEY,"+
+						"State VARCHAR2(255))");
 				pstmt.executeUpdate();
 				pstmt2.executeUpdate();
 				pstmt3.executeUpdate();
@@ -70,8 +69,22 @@ public class Model extends StaticObservable{
 				System.out.println("Model Konstruktor: Fehler beim erzeugen der DB");
 				e.printStackTrace();
 			}
+			 initStatus();
 		}
 	}
+
+	   public static void initStatus(){
+               try{
+                               PreparedStatement pstmt4 = connection.prepareStatement("INSERT INTO Status VALUES (?, ?);");
+                               pstmt4.setInt(1,1);
+                               pstmt4.setString(2,"Initial");
+                               pstmt4.executeUpdate();
+                       } catch (SQLException e) {
+                               System.out.println("Init Status: Fehler beim befüllen der DB");
+                               e.printStackTrace();
+                       }
+
+       }
 	
 	public static ArrayList <Book> getBookList() {
 		try {
