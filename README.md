@@ -115,7 +115,7 @@ Während der Umsetztung des Portals wurde schnell klar, dass im Team unterschied
 
 Die Arbeit im Team gestaltete sich sehr gut. Die wöchentlichen Meetings wurden von allen eingehalten und jeder einzelne Trug dazu bei die Arbeitsatmosphäre oben zuhalten. Somit konnten die ersten Ergenisse sehr schnell erziehlt werden und die zwei wöchentlichen Abgabe Termine immer eingehalten werden. 
 
-###Optionale Funktionen, welche geplant, aber noch nicht umgesetzt sind  
+###Optionale Funktionen
 *	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. 
 *	Wird ein Buch von einem User angeboten, kann der Käufer in Kontakt mit dem Verkäufer treten.
 *	Daten zum Buch direkt nach der Eingabe der ISBN automatisch beziehen
