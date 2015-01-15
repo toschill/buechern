@@ -12,23 +12,25 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 <strong>Fabian Ambrosi:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Vertiefungsrichtung: SSE  
+Field of specialization : SSE  
 Fachsemester: 7
 
-<strong>Tobias Schiller:/<strong>  
+<strong>Tobias Schiller:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Vertiefungsrichtung: SSE  
+Field of specialization : SSE  
 Fachsemester: 7
 
-<strong>Bastian Kopf:/<strong>  
+<strong>Bastian Kopf:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Vertiefungsrichtung: SSE  
+Field of specialization : SSE  
 Fachsemester: 7
 
-###Beschreibung der Idee###
-Ein Portal um Bücher, welche gezielt für Vorlesungen (oftmals auf die Empfehlung von Professoren) gekauft wurden, sollen nach dem Semester für an andere Studenten weiterverkauft werden.
-Hierfür soll ein Portal erstellt werden, auf welchem Bücher zum Verkauf angeboten werden können. 
-Interessenten sollen dabei die Möglichkeit haben nach einzelnen Titeln / Autoren bzw. nach Vorlesungen bzw. Professoren suchen zu können.
+###Motivation###  
+Im Rahmen der Vorlesung Webtechnologien im Wintersemester 14/15, soll von den Studenten eine Webseite bzw. ein Portal erstellt werden. Hierfür bilden die Studenten jeweils Gruppen zu zwei bzw. drei Personen. Um dieses Portal zu erstellen haben sich Fabian Ambrosi, Tobias Schiller und Bastian Kopf als Gruppe zusammen gefunden. Das Thema der Webseite oder des Portals wurde den Studenten freie Wahl gelassen. Somit konnten hierbei die unterschiedlichsten Interessen mit eingebunden werden. 
+
+
+###Beschreibung der Idee###  
+Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Thema gefunden werden. Wichtig war es dabei auch darauf zu achten, das Thema nicht zu groß zu Wählen, da die gesamte Umsetzung im Rahmen der Vorlesung bzw. der dazugeöhrigen Übung durchgeführt werden sollte. Während es Studiums werden oftmals Bücher passend zu Vorlesungen gekauft. Meist werden diese Bücher von Professoeren für eine gewisse Vorlesung empfohlen. Nach dem Semester werden diese Bücher dann häufig an Studenten aus tieferen Semestern weiterverkauft, da diese die Bücher für die Vorlesung erneut verwenden können. Diesen Sachverhalt greift büchern.de auf und bietet eine Plattform Bücher, passend zu Vorlesungen, an andere Studenten weiterzuverkaufen.
 
 ###Anforderungsanalyse###
 
