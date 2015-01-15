@@ -51,13 +51,13 @@ Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkt
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
 ####Use-Case-Diagramm  
-![alt text](https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png "Use-Case-Diagramm")
+<img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png"/>
 
 ####Planung des Portals büchern.de  
 
 
 ####MockUp des Portals####
-![alt text](https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG "MockUp büchern.de")
+<img height="500px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG"/>
 
 ####Responsive Design MockUp des Portals####
 <img height="500px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup_responsive.JPG"/>
