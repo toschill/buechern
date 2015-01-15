@@ -10,6 +10,21 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 ###Das Team###
 
+<strong>Fabian Ambrosi:</strong>
+Studiengang: Wirtschaftsinformatik
+Vertiefungsrichtung: SSE
+Fachsemester: 7
+
+Tobias Schiller:
+Studiengang: Wirtschaftsinformatik
+Vertiefungsrichtung: SSE
+Fachsemester: 7
+
+Bastian Kopf: 
+Studiengang: Wirtschaftsinformatik
+Vertiefungsrichtung: SSE
+Fachsemester: 7
+
 ###Beschreibung der Idee###
 Ein Portal um Bücher, welche gezielt für Vorlesungen (oftmals auf die Empfehlung von Professoren) gekauft wurden, sollen nach dem Semester für an andere Studenten weiterverkauft werden.
 Hierfür soll ein Portal erstellt werden, auf welchem Bücher zum Verkauf angeboten werden können. 
