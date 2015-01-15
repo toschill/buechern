@@ -1,7 +1,7 @@
 buechern
 ========
 
-**Web Tech Projekt 2014 Buecher-Verkauf-Service**
+*Web Tech Projekt 2014 Buecher-Verkauf-Service*
 
 Webtech 			büchern			15.01.2015
 Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
