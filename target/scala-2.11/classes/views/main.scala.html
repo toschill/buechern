@@ -1,0 +1,128 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Büchern - Webtech</title>
+<link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/style.css")>
+<meta name="description"
+	content="Büchern - Das Portal um gebrauchte Bücher zu Vorlesungen zu kaufen und zu verkaufen">
+<meta name="author" content="Gruppe 6">
+<meta name="keywords" content="WebtechWS14, Webtech, Büchern, Büchern Konstanz, Büchern HTWG, HTWG Konstanz, HTWG, Konstanz">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	
+
+<script>
+$(function() {
+  var menuVisible = false;
+  $('#menuBtn').click(function() {
+    if (menuVisible) {
+      $('#myMenu').css({'display':'none'});
+      menuVisible = false;
+      return;
+    }
+    $('#myMenu').css({'display':'block'});
+    menuVisible = true;
+  });
+  $('#myMenu').click(function() {
+    $(this).css({'display':'none'});
+    menuVisible = false;
+  });
+});
+
+$(function() {
+    var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket
+    var dateSocket = new WS("@routes.Application.statusWs().webSocketURL(request)")
+
+    var receiveEvent = function(event) {
+        $("#output").html("Status: "+event.data);
+    }
+
+    dateSocket.onmessage = receiveEvent
+});
+
+</script>
+</head>
+<body>
+	<section id="homepage">
+		<div id="homepagecontent">
+			<header>
+				<div id="logo">
+					<a href=@routes.Application.index()><img id="logobild" src=@routes.Assets.at("images/logo.jpg") name="büchernlogo" /></a>
+				</div>
+
+				<div id="headerrechts">
+					<div class="loginform">
+						<div id="login">
+							<form action="logIn" method="Post">
+								<input name="benutzername" type="text" placeholder="benutzername"
+									size="30" maxlength="30"> <br> <input
+									name="passwort" type="password" placeholder="passwort" size="30"
+									maxlength="40">
+	
+								<input type="submit" value="Login" id="subButton"/>
+							</form>	
+					</div>
+
+					</div>
+				</div>
+
+			<div class="clear"></div>
+			<div id="slider">
+				<div id="bilderslider">
+					<img id="bildinslider" src=@routes.Assets.at("images/slider2.jpg") />
+				</div>
+			</div>
+			
+			</header>
+			
+			<nav id="navigation">		
+					<div id="respnav">
+						<div id="wrapper">
+							<div id="menuBtn"><img src=@routes.Assets.at("images/navi.png")/></div>
+							<nav id="myMenu">
+								<ul>
+									<li><p><a class="respnavlink" href=@routes.Application.index()>Startseite</a></li>
+									<li><p><a class="respnavlink" href=@routes.Application.einkaufen()>Einkaufen</a></p></li>
+									<li><p><a class="respnavlink" href=@routes.Application.verkaufen()>Verkaufen</a></p></li>
+									<!--  <li><p><a class="respnavlink" href=@routes.Application.index()>Bestseller</a></p></li>-->
+									<li><p><a class="respnavlink" href=@routes.Application.profile()>Profil</a></p></li>
+								</ul>
+							</nav>
+						</div>	
+					</div>
+					<div class="navlinks">
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href=@routes.Application.index()>Startseite</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href=@routes.Application.einkaufen()>Einkaufen</a></div>
+						</div> 
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href=@routes.Application.verkaufen()>Verkaufen</a></div>
+						</div> 
+						<!--<div class="linkbox link">
+							<div class="linkboxlink"><a href=@routes.Application.index()>Bestseller</a></div>
+						</div> -->
+						<div class="linkbox link">
+							<div class="linkboxlink"><a href=@routes.Application.profile()>Profil</a></div>
+						</div> 
+					</div>
+			</nav>
+			<article>
+			@content
+			<div style="clear:both"></div>
+			</article>
+			<div class="buttonspacer"></div>
+			<aside id="footer_container">
+				<div id="footer">
+					<span class="footerlink"><a href=mailto:bakopf@@htwg-konstanz.de>Support Anfrage per E-Mail</a>  <span id="output">  </span></span>
+				</div>
+			</aside>
+
+		</div>
+	</section>
+</body>
+</html>

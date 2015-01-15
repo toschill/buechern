@@ -1,0 +1,299 @@
+body {
+	background-color: #FAF3D9;
+}
+
+h1 {
+	margin-left: 3%;
+	font-size: 120%;
+}
+
+#clear {
+	clear: both;
+}
+
+#homepage {
+	width: 100%;
+}
+
+@media only screen and ( min-width: 1150px ) {
+	#homepagecontent {
+		width:1100px;
+		margin: 0 auto;
+		border: 1px solid black;
+		background-color: #ffffff;
+		height: 1600px;
+	}
+}
+
+@media only screen and ( max-width: 1150px ) {
+	#homepagecontent {
+		width: 99%;
+		margin: 0 auto;
+		border: 1px solid black;
+		background-color: #ffffff;
+		height: 1600px;
+	}
+}
+
+#head {
+	position: relative;
+	height: auto;
+}
+
+#logo {
+	float: left;
+	padding-right:42%;
+}
+
+#logobild {
+	width: 100%;
+}
+
+#login {
+	float: right;
+}
+
+#registerlink {
+	float: left;
+	padding-top:24px;
+}
+
+#headerrechts {
+	padding-top:22px;
+	padding-right: 2px;
+}
+
+#slider {
+	height: auto;
+	position: relative;
+	margin: 0 auto;
+}
+
+#bildinslider {
+	width: 100%;
+}
+
+#bilderslider{
+	margin-top:50px;
+}
+
+#content {
+	border-top: 1px solid black;
+	position: relative;
+}
+
+#register {
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+#persInfo {
+	text-align: left;
+	margin-left: 10px;
+	width: 80%;	
+}
+
+#landing {
+	width: 80%;
+	margin: 10px auto;
+}
+
+#landingHead {
+	text-align: center;
+}
+
+#comix{
+	text-align: center;
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 70%;
+}
+
+.subtitle {
+	text-align: center;
+}
+
+
+#leftSidebar{
+	float:left;
+	width:20%;
+	
+}
+
+#rightSidebar{
+	float:right;
+	width:20%;
+}
+
+
+.userImage{
+	margin-left: 3%;
+	width:80%;
+}
+
+.linkSidebar {
+		margin-left: 3%;
+	}
+
+.userData{
+	margin-left: 3%;
+	font-size: 100%;
+}
+
+#userBooks{
+	width: 60%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+.deleteBook{
+	width:10%;
+	float:right;
+}
+.buchbild {
+	width: 100%;
+}
+
+.buchtitel {
+	font-size: 120%;
+}
+
+#changeUserData{
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: center;
+	height: 800px;
+}
+
+#addBook{
+	width: 80%;
+	border: 1px solid black;
+	margin: 10px auto;
+	text-align: left;
+	height: 800px;
+
+}
+
+.addForm{
+	margin-left: 3%;
+
+}
+
+.box {
+	width: 45%;
+	margin-left: 3%;
+	margin-top: 10px;
+	border: 1px solid black;
+	float: left;
+	border: 1px solid black;
+}
+
+#footer_container {
+	border: 1px solid black;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	margin: 0 auto;
+	height: 20px;
+	z-index: 3;
+}
+
+#footer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: #efefef;
+	z-index: 3;
+}
+
+@media only screen and ( min-width: 950px ) {
+	#navigation {
+		height: 25px;
+		border-top: 1px solid black;
+		position: relative;
+		text-align: center;
+	}
+	.link {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	#respnav {
+		display: none;
+	}
+}
+
+@media only screen and ( min-width:1100px){
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}
+	
+	
+	.linkSidebar {
+		margin-left: 3%;
+	}
+
+	.userData{
+		margin-left: 3%;
+		font-size: 100%;
+	}
+	
+	#userDataNotShown{
+		display:none;
+	}
+}
+
+@media only screen and ( max-width: 1100px) {
+	
+	#userProfile{
+		width: 100%;
+		margin-left: 3%;
+		margin-right: 60%;
+	}	
+
+	.userData{
+		display:none;
+	}
+	.icon_tools{
+		width: 40%;
+		margin-left: 20%;
+		margin-top:10%;
+	}
+	.linkSidebar {
+		display: none;
+	}
+
+	#userDataNotShown{
+		heigh:5%;
+	}
+
+}
+
+.linkSidebarPic{
+	margin-left: 3%;
+}
+
+@media only screen and ( max-width: 950px) {
+	.link {
+		display: none;
+	}
+	.linktrenner {
+		display: none;
+	}
+	#respnav {
+		height: 55px;
+		text-align: center;
+		margin-top: 10px;
+	}
+}

@@ -1,0 +1,5 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Fabian\Documents\WebTech\buechern\conf\application.conf,C:\Users\Fabian\Documents\WebTech\buechern\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Fabian\Documents\WebTech\buechern\conf\dependencies.yml,C:\Users\Fabian\Documents\WebTech\buechern\target\scala-2.11\classes\dependencies.yml)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Fabian\Documents\WebTech\buechern\conf\logger.xml,C:\Users\Fabian\Documents\WebTech\buechern\target\scala-2.11\classes\logger.xml)[0m
+[0m[[0mdebug[0m] [0m	(C:\Users\Fabian\Documents\WebTech\buechern\conf\routes,C:\Users\Fabian\Documents\WebTech\buechern\target\scala-2.11\classes\routes)[0m

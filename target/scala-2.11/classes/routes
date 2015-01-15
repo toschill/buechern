@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+GET		/profile					controllers.Application.profile()
+GET		/userDatenAendern			controllers.Application.changeUserData()
+GET		/verkaufen					controllers.Application.verkaufen()
+GET		/einkaufen					controllers.Application.einkaufen()
+GET		/einkaufen					controllers.Application.einkaufen()
+GET		/registrierung				controllers.Application.registrierung()
+
+GET 	/logOut						controllers.Application.logOut()
+POST	/logIn						controllers.Application.logIn()
+POST	/addBook					controllers.Application.addBook()
+GET		/deleteBook					controllers.Application.deleteBook(id:Integer)
+GET		/buyBook/					controllers.Application.buyBook(id:Integer)
+GET 	/addUser					controllers.Application.addUser(FirstName,LastName,Email,EmailRep,Passwort,PasswortRep)
+GET     /changePass					controllers.Application.changePass(oldPasswort,newPasswort) 
+GET		/changeEmail				controllers.Application.changeEmail(oldEmail,newEmail)
+GET     /statusWs                     controllers.Application.statusWs()
+GET		/searchBook					controllers.Application.searchBook(sucheBook)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#GET 	/assets/WebSocket			controllers.Assets.at(path="/public", ws)
+
+ 	
