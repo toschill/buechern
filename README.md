@@ -32,9 +32,9 @@ Im Rahmen der Vorlesung Webtechnologien im Wintersemester 14/15, soll von den St
 ###Beschreibung der Idee 
 Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Thema gefunden werden. Wichtig war es dabei auch darauf zu achten, das Thema nicht zu groß zu Wählen, da die gesamte Umsetzung im Rahmen der Vorlesung bzw. der dazugeöhrigen Übung durchgeführt werden sollte. Während es Studiums werden oftmals Bücher passend zu Vorlesungen gekauft. Meist werden diese Bücher von Professoeren für eine gewisse Vorlesung empfohlen. Nach dem Semester werden diese Bücher dann häufig an Studenten aus tieferen Semestern weiterverkauft, da diese die Bücher für die Vorlesung erneut verwenden können. Diesen Sachverhalt greift büchern.de auf und bietet eine Plattform Bücher, passend zu Vorlesungen, an andere Studenten weiterzuverkaufen.
 
-###Anforderungsanalyse###  
+###Anforderungsanalyse  
 
-####Funktionale Anforderungen####  
+####Funktionale Anforderungen  
 * Der User soll sich Registrieren können (Persönlichedaten - Benutzername - E-Mail-Adresse-Passwort)
 * Der User soll sich anschließend anmelden können (Benutzername und Passwort)
 * Der User soll eine Liste von bereits eingestellten Büchern auf der Einkaufenseite sehen
@@ -45,15 +45,15 @@ Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Them
 * Der User soll auf der Einkaufen Seite nach Büchern suchen können
 * Der User soll über den Status (bsp. neues Buch wurde eingestellt) im Footer informiert werden
 
-####Nichtfunktionale Anforderungen####  
+####Nichtfunktionale Anforderungen    
 * Versionalskontrolle über GitHub
 Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
-####Use-Case-Diagramm####   
+####Use-Case-Diagramm  
 ![alt text](https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png "Use-Case-Diagramm")
 
-####Planung des Portals büchern.de###
+####Planung des Portals büchern.de  
 
 
 ####MockUp des Portals####
