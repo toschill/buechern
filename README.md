@@ -69,46 +69,49 @@ Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor em
 ####Responsive Design MockUp des Portals  
 <img height="450px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup_responsive.JPG"/>
 
-###Architektur###
+###Architektur  
 
-####Komponenten Diagramm####
+####Komponenten Diagramm  
 
-####Klassendiagramm####
+####Klassendiagramm  
 
-####Sequenzdiagramm####
+####Sequenzdiagramm  
 
-###Eingesetzte Technologien###
+###Eingesetzte Technologien  
 
-####HTML5####
+####HTML5  
+HTML5 ist die aktuelle Version von HTML (Hypertext Markup Language)  
+Diese Sprache wird primär dazu verwendet Inhalte von Webseiten zu im Browser darstellung zu lassen.
+Diese Technologie wurde im Rahmen des Portals dazu verwendet die Seite aufzubauen und die Inhalte im Browser für den User verständlich auszuspielen. Beispiele: http://www.w3schools.com/htmL/html5_intro.asp
 
-####CSS3####
+####CSS3  
+Bei CSS3 handelt es sich um die aktuelle Version von CSS (Cascading Style Sheets).  
+In der neusten Version wurden viele neue Regeln für das Styling von Webseiten mit eingebracht. Zusätzlich werden mit der neuen Version neue Selektorien und Stylting Möglichkeiten bereitgestellt. Somit kann effektiver am Aufbau von Webseiten gearbeitet werden.  Beispiele: http://www.w3schools.com/htmL/html_css.asp
 
-####Responsive Design von Hand####
+####Responsive Design von Hand  
+Responsive Design bedeutet, das sich eine Webseite sowohl auf stationären als auch auf mobilen Endgeräten ohne Einschänkungen darstellen lässt. Hierbei können unterschiedliche Ansätze verfolgt werden. Das repnsive Design von büchern.de wurde von Hand umgesetzt. Dabei wurde darauf geachtet einzelne Boxen nicht statisch (durch Angabe von Pixeln) sondern Dynamisch (durch %-Angaben) zu erstellen. Dies ermöglicht es, dass eine Box sich prozentual der Größe des Displays eines Gerätes Anpasst. Ebenso wurde dieser Ansatz für Bilder verfolgt. Bei der Anordnung der einzelnen Boxen, beispielsweise auf der Einkaufen Seite, auf welcher bereits eingestelle Bücher dargestellt werden. Wurde zusätlich mit Media Queries gearbeitet. Diese ermöglichen es, eine Seite nicht nur prozentual anzupassen. Sondern auch, eine gesamte Webseite bei einer bestimmten Display Größe auf eine bestimmte Art darzustellen. Ein bekanntes Beispiel hierfür ist die Navigation einer Webseite. Stationär werden oftmals ganze Leisten für die Navigation angezeigt, wogegen bei kleineren mobilen Endgeräten oftmals lediglich ein Symbol dargestellt wird, über welches eine DropDown Navigation eingelendet werden kann. Dieser Ansatz des Menüs wurde bei büchern.de unteranderem auch verwendet. 
 
-####PlayFramework####
+####PlayFramework  
+Play ist ein OpenSource Web Application Framework, welches in Scale und Java geschrieben wurde. Das Framework unterstützt die Programmiersprache Scala. Das Framework ermöglicht es innerhalb einer Entwicklungsumgebung, alle funktionalitäten der Webseite in Java zu entwickeln. Es unterstützt außerdem das einbinden einer SQLite Datenbank und kann hierbei die dementsprechenenden Abfragen verstehen und anwenden. Das gesamte Portal Büchern.de wurde unter Play entwickelt. Aus diesem Grund findet man auch beispielsweise auf den einzelnen Seiten die jeweiligen Scala Annotationen. Ein Bespiel hierfür sind die @main Annotationen, welche auf jeder Unterseite (im HTML Code) im oberen Bereich gefunden werden können. Diese Annotationen sind das gegenstück zu einem PHP-Include. 
 
-####Datenbank####
+####Datenbank  
+Die Datenbank, für die Userregistrierung bzw. Anmeldung, und auch für die Einstellung und den Verkauf von Büchern, wurde über SQLite realisiert. SQLite ist eine lightweight Lösung zu SQL Datenbanken. Hierbei wird keine Installation von beispielsweise MySQL benötigt. Über diese Technologie kann eine Datenbank dabei erzeugt werden, in welcher anschließend die Datenbank angelegt werden kann. Diese Datei wird dann im dementsprechenenden Ordner (im Dateisystem) der Webseite untergebracht. Die Webseite kann nun auf die Datenbank zugreifen und es können Inhalte gelesen und geschrieben werden. 
 
-####Ajax####
+####Ajax  
+Ajax ist eine Technnologie zum asynchonen Nachladen von Inhalte einer Webseite. Dies bedeutet, dass auf einer bereits vollständig geladenen Webseite weitere Daten zusätzlich hinzugeladen werden. Ein bekanntes Beispiel hierfür ist es, wenn man auf einer Webseite verschiedene Einträge anzeigt bekommt (z.B. in einem Gäsebuch). Wenn man am Ende der Seite angelangt ist muss man auf die nächste Seite wechseln (Paginierung). Ajax ermöglicht es hierbei, einen Inhalt direkt unten auf der Seite anzuhängen und somit die Inhalte der Seite zu erweitern. Oftmals wird Ajax auch bei der Suche nach Inhalten verwendet. Auf büchern.de wurde Ajax für die Suche auf der Einkaufenseite verwendet. Sucht man hier nach einem Titel wird nach jedem Tastendruck (onkeyup-Event) in der Datenbank nach einem Treffer gesucht. Dieser wird dann sofort auf der Seite angezeigt. Drückt man also als erstes ein <strong>a</strong>, werden lediglich die Bücher angezeigt bei denen ein a in beispielsweise Titel, Autor oder ähnlichem enthalten ist. 
 
-####Websockets####
+####Websockets und Observer-Pattern  
+Websockets wurden auf büchern.de dazu verwendet den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser stelle werden dem User die Updates angezeigt.  
+Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
 
-###Ergebnis###
+###Ergebnis  
 
-###Fazit###
+###Fazit  
 
-
-
-
-
-###Optional:###
+###Optionale Funktionen, welche geplant, aber noch nicht umgesetzt sind  
 *	Die beiden User können sich dann über portalinterne Nachrichten absprechen und einen Ort / Zeitpunkt ausmachen, an welchem Sie sich zur Übergabe treffen können. 
 *	Wird ein Buch von einem User angeboten, kann der Käufer in Kontakt mit dem Verkäufer treten.
 *	Daten zum Buch direkt nach der Eingabe der ISBN automatisch beziehen
 *	Bewertungssystem für Verkäufer
 *	Von Usern empfohlene Bücher zu Vorlesungen mit Anzeigen und anbieten
 *	Suchanfrage von Usern die auf der Suche nach einem bestimmten Buch sind
-
-###Eingesetzte Technologien:###
-ALLE (folgt ...)
- 
