@@ -10,19 +10,19 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 ###Das Team###
 
-<strong>Fabian Ambrosi:</strong>
-Studiengang: Wirtschaftsinformatik
-Vertiefungsrichtung: SSE
+<strong>Fabian Ambrosi:</strong>  
+Studiengang: Wirtschaftsinformatik  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
-Tobias Schiller:
-Studiengang: Wirtschaftsinformatik
-Vertiefungsrichtung: SSE
+<strong>Tobias Schiller:/<strong>  
+Studiengang: Wirtschaftsinformatik  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
-Bastian Kopf: 
-Studiengang: Wirtschaftsinformatik
-Vertiefungsrichtung: SSE
+<strong>Bastian Kopf:/<strong>  
+Studiengang: Wirtschaftsinformatik  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
 ###Beschreibung der Idee###
