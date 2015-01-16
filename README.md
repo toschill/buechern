@@ -112,6 +112,16 @@ Büchern.de bietet jedoch jetzt schon die Möglichkeiten und Funktionen, welche 
 
 Es wurden alle geforderten bzw. alle für das Portal relefanten Technologien eingesetzt und zusammen ergeben Sie das Portal büchern.de
 
+####Startseite büchern.de
+<img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/Startseite.jpg"/>
+
+####Login-Seite büchern.de
+<img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/LoginSeite.jpg"/>
+
+####Responsive Startseite mit Menü und Login-Seite
+<img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/Resposinve.jpg"/>
+
+
 ###Fazit  
 Während der Umsetztung des Portals wurde schnell klar, dass im Team unterschiedliche Wissenstände zum Thema Webtechnologien herschen. Da sich das Projekt jedoch nicht nur auf die Webentwicklung bezieht, sondern gerade durch Play auch den kompletten funktionellen Teil mit sich bringt, konnten die Aufgaben sehr gut verteilt werden. Damit jedes Teammitglied vom Können und Wissen der anderen Profiert, wurde die Umsetzung zwar zunächst in einzelne Arbeitspackete aufgeteilt, beim wöchentlichen Meeting wurden die neusten Erkentnisse und persönlichen Erfolge dann aber mit dem gesamten Team geteilt. Somit sollte es möglich werden, dass jeder einzelne einen Einblick in alle Gebiete erhählt und es keine einzel Spezialisierung gibt. 
 
