@@ -26,27 +26,27 @@ Vertiefungsrichtung: SSE
 Fachsemester: 7
 
 ###Motivation
-Im Rahmen der Vorlesung Webtechnologien im Wintersemester 14/15, soll von den Studenten eine Webseite bzw. ein Portal erstellt werden. Hierfür bilden die Studenten jeweils Gruppen zu zwei bzw. drei Personen. Um dieses Portal zu erstellen haben sich Fabian Ambrosi, Tobias Schiller und Bastian Kopf als Gruppe zusammen gefunden. Das Thema der Webseite oder des Portals wurde den Studenten freie Wahl gelassen. Somit konnten hierbei die unterschiedlichsten Interessen mit eingebunden werden. 
+Im Rahmen der Vorlesung Webtechnologien im Wintersemester 14/15, soll von den Studenten eine Webseite bzw. ein Portal erstellt werden. Hierfür bilden die Studenten jeweils Gruppen zu zwei bzw. drei Personen. Um dieses Portal zu erstellen haben sich Fabian Ambrosi, Tobias Schiller und Bastian Kopf als Gruppe zusammen gefunden. Für das Thema der Webseite (des Portals) wurde den Studenten freie Wahl gelassen. Somit konnten die unterschiedlichsten Interessen mit eingebunden werden. 
 
 
 ###Beschreibung der Idee 
-Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Thema gefunden werden. Wichtig war es dabei auch darauf zu achten, das Thema nicht zu groß zu Wählen, da die gesamte Umsetzung im Rahmen der Vorlesung bzw. der dazugeöhrigen Übung durchgeführt werden sollte. Während es Studiums werden oftmals Bücher passend zu Vorlesungen gekauft. Meist werden diese Bücher von Professoeren für eine gewisse Vorlesung empfohlen. Nach dem Semester werden diese Bücher dann häufig an Studenten aus tieferen Semestern weiterverkauft, da diese die Bücher für die Vorlesung erneut verwenden können. Diesen Sachverhalt greift büchern.de auf und bietet eine Plattform Bücher, passend zu Vorlesungen, an andere Studenten weiterzuverkaufen.
+Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Thema gefunden werden. Wichtig war es dabei auch darauf zu achten, das Thema nicht zu groß zu wählen, da die gesamte Umsetzung im Rahmen der Vorlesung bzw. der dazugehörigen Übung durchgeführt werden sollte. Während des Studiums werden oftmals Bücher passend zu Vorlesungen gekauft. Meist werden diese Bücher von Professoren für eine gewisse Vorlesung empfohlen. Nach dem Semester werden diese Bücher dann häufig an Studenten aus tieferen Semestern weiterverkauft, da diese die Bücher für die Vorlesung erneut verwenden können. Diesen Sachverhalt greift büchern.de auf und bietet eine Plattform Bücher, passend zu Vorlesungen, an andere Studenten weiterzuverkaufen.
 
 ###Anforderungsanalyse  
 
 ####Funktionale Anforderungen  
-* Der User soll sich Registrieren können (Persönlichedaten - Benutzername - E-Mail-Adresse-Passwort)
+* Der User soll sich Registrieren können (Persönliche Daten - Benutzername - E-Mail-Adresse-Passwort)
 * Der User soll sich anschließend anmelden können (Benutzername und Passwort)
-* Der User soll eine Liste von bereits eingestellten Büchern auf der Einkaufenseite sehen
+* Der User soll eine Liste von bereits eingestellten Büchern auf der Einkaufen-Seite sehen
 * Der User soll selbst Bücher zum verkauf einstellen können
 * Der User soll in seinem Profil sehen wenn er ein Buch gekauft hat
-* Der User soll in seinem Profil sehen wenn eines seiner eingestellten Büchern verkauft wurde und an wen
+* Der User soll in seinem Profil sehen wenn eines seiner eingestellten Büchern Verkauft wurde und an wen
 * Der User soll seine E-Mail-Adresse und sein Passwort ändern können
 * Der User soll auf der Einkaufen Seite nach Büchern suchen können
-* Der User soll über den Status (bsp. neues Buch wurde eingestellt) im Footer informiert werden
+* Der User soll über den Status (Bsp. neues Buch wurde eingestellt) im Footer informiert werden
 
 ####Nichtfunktionale Anforderungen    
-* Versionalskontrolle über GitHub
+* •	Versionskontrolle  über GitHub  
 Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
 
