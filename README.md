@@ -12,17 +12,17 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 <strong>Fabian Ambrosi:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Field of specialization : SSE  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
 <strong>Tobias Schiller:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Field of specialization : SSE  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
 <strong>Bastian Kopf:</strong>  
 Studiengang: Wirtschaftsinformatik  
-Field of specialization : SSE  
+Vertiefungsrichtung: SSE  
 Fachsemester: 7
 
 ###Motivation
