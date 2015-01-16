@@ -62,6 +62,7 @@ Es soll die Möglichkeit geben, ein Buch einer Vorlesung (eine Vorlesung gehört
 Bei der Suche nach einer Vorlesung soll dem User eine Liste der vom Professor empfohlenen Bücher angezeigt werden. Hier kann der User in Erfahrung bringen, ob dieses Buch von einem anderen User angeboten wird. 
 
 ###Planung des Portals büchern.de  
+Die MockUps wurden jeweils mit Photoshop erstellt
 
 ####MockUp des Portals  
 <img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/mockup.JPG"/>
@@ -111,6 +112,9 @@ Das Ergebnis dieses Projekts ist ein nahezu fertiges Portal Büchern.de. Für ei
 Büchern.de bietet jedoch jetzt schon die Möglichkeiten und Funktionen, welche auch in der ersten Anforderungsanalyse aufgestellt wurden. Durch den Einsatz der verschiedenen Technologien, ist es Möglich, dass sich User zunächst registrieren, anschließend anmelden und dann direkt Bücher zum Verkauf anbieten oder bereits eingestelle Bücher kaufen können. Dieser Ablauf funktioniert sowohl auf einem stationären, als auch auf einem mobilen Endgerät ohne hierbei einen Verlust von Funktionalitäten zu erleiden. 
 
 Es wurden alle geforderten bzw. alle für das Portal relefanten Technologien eingesetzt und zusammen ergeben Sie das Portal büchern.de
+
+###Screenshots  
+Die Screenshots wurden am 16.01 direkt von der Seite erstellt.
 
 ####Startseite büchern.de
 <img height="400px" src="https://github.com/toschill/buechern/blob/master/Planung/Startseite.jpg"/>
