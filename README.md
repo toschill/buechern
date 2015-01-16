@@ -103,6 +103,8 @@ Ajax ist eine Technnologie zum asynchonen Nachladen von Inhalte einer Webseite. 
 ####Websockets und Observer-Pattern  
 Websockets wurden auf büchern.de dazu verwendet den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser stelle werden dem User die Updates angezeigt. Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
 
+###Deployment Herokuapp
+
 ###Ergebnis  
 Das Ergebnis dieses Projekts ist ein nahezu fertiges Portal Büchern.de. Für einen tatsächlichen Go-Live müssten jedoch zunächst weitere Funktionalitäten entwickelt und eingebaut werden, welche es den Usern erleichtern Büchern zu Verkaufen und zu Kaufen. Diese Können im letzten Punkt der Dokumentation eingesehen werden.
 
