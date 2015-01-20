@@ -31,3 +31,13 @@ server.pid
 /dist/
 .cache
 .DS_Store
+.history
+dist
+.idea
+out
+.idea_modules
+.classpath
+.project
+RUNNING_PID
+.settings
+.metadata
