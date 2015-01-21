@@ -8,6 +8,10 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 ##Dokumentation zur des Portals büchern.de##
 
+http://buechern.herokuapp.com/
+
+Um büchern.de auf Herok bzw. lokal testen vollständig testen zu können ist es wichtig sich zunächst zu registrieren. Das Registrierungsformular kann über die Profil-Seite abgerufen werden. Zum Anmelden wird der Vorname und das Passwort benötigt. Anschließend können Bücher über die Verkaufen-Seite eingestellt und bereits eingestelle Bücher über die Einkaufen Seite gekauft werden. Um den Kaufprozess zu testen empfiehlt es sich zunächst zu registrieren und ein oder mehrere Bücher anzulogen. Mit einer zweiten Registrierung kann dann beispielsweise ein Buch gekauft werden.
+
 ###Das Team###
 
 <strong>Fabian Ambrosi:</strong>  
