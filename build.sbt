@@ -9,7 +9,7 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "org.xerial" % "sqlite-jdbc" % "3.7.15-M1",
+  "postgresql" % "postgresql" % "9.0-801.jdb",
   "org.mindrot" % "jbcrypt" % "0.3m"
 )
 
