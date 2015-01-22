@@ -32,7 +32,7 @@ server.pid
 .cache
 .DS_Store
 .history
-dist
+ dist
 .idea
 out
 .idea_modules
