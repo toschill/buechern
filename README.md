@@ -50,9 +50,16 @@ Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Them
 * Der User soll über den Status (Bsp. neues Buch wurde eingestellt) im Footer informiert werden
 
 ####Nichtfunktionale Anforderungen    
-* •	Versionskontrolle  über GitHub  
+* Versionskontrolle  über GitHub  
 Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
+
+* Die Webseite soll im Responsive Design umgsetzt werden  
+Die Umsetzung soll ohne ein FrameWork wie z.B. BootStrap umgesetzt werden.
+Die Webseite soll ich Fluide auf die Größe des Endgerätes anpassen
+
+* Die Seite soll in einem dezenten und angenehmen Farbschema gestellt werden  
+http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF
 
 ####Use-Case-Diagramm    
 <img height="300px" src="https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png"/>
