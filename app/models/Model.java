@@ -78,12 +78,12 @@ public class Model extends StaticObservable{
 				
 				addUser(dummyUser);
 				Book dummyBook = new Book();
-				dummyBook.setAuther("");
-				dummyBook.setBookName("");
-				dummyBook.setCondition("");
-				dummyBook.setISBN("");
-				dummyBook.setPrice("");
-				dummyBook.setLayer("");
+				dummyBook.setAuther("Ulrich Hedtstück");
+				dummyBook.setBookName("Einführung in die Teoretische Informatik");
+				dummyBook.setCondition("Sehr gut");
+				dummyBook.setISBN("978-3-486-71404-3");
+				dummyBook.setPrice("50€");
+				dummyBook.setLayer("5");
 				dummyBook.setId(getBookNumber());
 				setBookNumber(+1);
 				dummyBook.setUser(dummyUser);
