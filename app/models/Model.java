@@ -71,25 +71,15 @@ public class Model extends StaticObservable{
 				
 				//Add Dummy User and Book
 				
-//				User dummyUser = new User();
-//				dummyUser.setEmail("dummy@dummy.de");
-//				dummyUser.setFirstName("Dummy");
-//				dummyUser.setPassword(BCrypt.hashpw("dummy", BCrypt.gensalt()));
-//				
-//				addUser(dummyUser);
-//				Book dummyBook = new Book();
-//				dummyBook.setAuther("Ulrich Hedtstück");
-//				dummyBook.setBookName("Einführung in die Teoretische Informatik");
-//				dummyBook.setCondition("Sehr gut");
-//				dummyBook.setISBN("978-3-486-71404-3");
-//				dummyBook.setPrice("50€");
-//				dummyBook.setLayer("5");
-//				dummyBook.setId(getBookNumber());
-//				setBookNumber(+1);
-//				dummyBook.setUser(dummyUser);
-//				
-//				addBook(dummyBook);
-//				System.out.println("Model Konstruktor: DummyDaten wurde neu erzeugt");
+				User dummyUser = new User();
+				dummyUser.setEmail("dummy@dummy.de");
+				dummyUser.setFirstName("Dummy");
+				dummyUser.setPassword(BCrypt.hashpw("dummy", BCrypt.gensalt()));
+				
+				addUser(dummyUser);
+				
+				addDummyBook();
+
 				
 			} catch (SQLException e) {
 				System.out.println("Model Konstruktor: Fehler beim erzeugen der DB");
@@ -97,6 +87,26 @@ public class Model extends StaticObservable{
 			}
 			initStatus();
 		}
+	}
+	
+	public static void addDummyBook(){
+		
+		Book dummyBook = new Book();
+		dummyBook.setAuther("Ulrich Hedtstück");
+		dummyBook.setBookName("Einführung in die Teoretische Informatik");
+		dummyBook.setCondition("Sehr gut");
+		dummyBook.setISBN("978-3-486-71404-3");
+		dummyBook.setPrice("50€");
+		dummyBook.setLayer("5");
+		dummyBook.setId(getBookNumber());
+		setBookNumber(+1);
+		ArrayList<User> ul = new ArrayList<User>();
+		ul = getUserList();
+		dummyBook.setUser(ul.get(0));
+		
+		addBook(dummyBook);
+		System.out.println("Model Konstruktor: DummyDaten wurde neu erzeugt");
+		
 	}
 	
 	 public static void initStatus(){
