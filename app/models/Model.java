@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import play.db.DB;
 
 public class Model extends StaticObservable{
@@ -66,6 +68,29 @@ public class Model extends StaticObservable{
 				pstmt2.executeUpdate();
 				pstmt3.executeUpdate();
 				System.out.println("Model Konstruktor: DB wurde neu erzeugt");
+				
+				//Add Dummy User and Book
+				
+				User dummyUser = new User();
+				dummyUser.setEmail("dummy@dummy.de");
+				dummyUser.setFirstName("Dummy");
+				dummyUser.setPassword(BCrypt.hashpw("dummy", BCrypt.gensalt()));
+				
+				addUser(dummyUser);
+				Book dummyBook = new Book();
+				dummyBook.setAuther("");
+				dummyBook.setBookName("");
+				dummyBook.setCondition("");
+				dummyBook.setISBN("");
+				dummyBook.setPrice("");
+				dummyBook.setLayer("");
+				dummyBook.setId(getBookNumber());
+				setBookNumber(+1);
+				dummyBook.setUser(dummyUser);
+				
+				addBook(dummyBook);
+				System.out.println("Model Konstruktor: DummyDaten wurde neu erzeugt");
+				
 			} catch (SQLException e) {
 				System.out.println("Model Konstruktor: Fehler beim erzeugen der DB");
 				e.printStackTrace();
