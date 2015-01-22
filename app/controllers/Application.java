@@ -79,6 +79,7 @@ public class Application extends Controller implements Observer {
 	 * @return Index Page
 	 */
 	public static Result index() {
+		Model.checkDB();
 		return ok(index.render());
 	}
 	
