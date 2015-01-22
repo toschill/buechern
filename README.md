@@ -119,6 +119,9 @@ Bei JSON handelt es sich um ein kompaktes Datenformat, in einer einfach lesbaren
 Websockets wurden auf büchern.de dazu verwendet, den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser Stelle werden dem User die Updates angezeigt. Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
 
 ###Deployment Herokuapp
+Heroku ist eine Plattform, auf welcher beispielsweise Webseiten-Projekte veröffentlicht werden können. 
+Nachdem die Webseite lokal (github) erstellt wurde, sollte diese komplett auf Heroku deployed werden.
+Bei der Veröffentlichung von büchern.de gab es unterschiedliche Probleme. Ein Hauptproblem war es, dass wärend der Umsetzung eine SQL-Light Datenbank eingesetzt wurde, dies allerdings von Heroku nur minimal unterstützt wird. Aus diesem Grund kommt es hierbei sehr häufig zu Fehlern und die Datenbank wurde immer wieder gelöscht bzw. nicht mehr korrekt erkannt und somit skriptseitig neu Erstellt. Ein weiteres Problem ist es, dass Heroku Bilder nicht korrekt erkennt und beispielsweise hinter *.png Bilder oftmals ein "/" setzt und deshalb der Bildpfad nicht mehr stimmt. Bildern können dann nicht mehr gefunden / dargestellt werden. Allerdings kann der Code auf Heroku nicht eingesehen werden (bearbeitet) werden und man kann das falsche Zeichen nicht entfernen. Ansonsten können aber alle Funktionen von büchern.de (buechern.herokuapp.com) genutzt werden. 
 
 ###Ergebnis  
 Das Ergebnis dieses Projekts ist ein nahezu fertiges Portal Büchern.de. Für einen tatsächlichen Go-Live müssten jedoch zunächst weitere Funktionalitäten entwickelt und eingebaut werden, welche es den Usern erleichtern Büchern zu Verkaufen und zu Kaufen. Diese Können im letzten Punkt der Dokumentation eingesehen werden.
