@@ -77,10 +77,10 @@ Die MockUps wurden jeweils mit Photoshop erstellt
 ###Architektur  
 
 ####Komponenten Diagramm  
+<img height="450px" src="https://github.com/toschill/buechern/blob/documentation/Planung/kompo.png"/>
 
 ####Klassendiagramm  
-
-####Sequenzdiagramm  
+<img height="450px" src="https://github.com/toschill/buechern/blob/documentation/Planung/klassen.png"/>
 
 ###Eingesetzte Technologien  
 
