@@ -50,9 +50,16 @@ Um ein solches Portal aufzubauen zu können, musste zunächst ein passendes Them
 * Der User soll über den Status (Bsp. neues Buch wurde eingestellt) im Footer informiert werden
 
 ####Nichtfunktionale Anforderungen    
-* •	Versionskontrolle  über GitHub  
+* Versionskontrolle  über GitHub  
 Dies soll auch gleichzeitig die Möglichkeit bieten unter "realen" Gesichtspunkten zu entwickeln.
 Hierbei sollen Branches verwendet werden und somit Verteilt an dem Portal arbeiten zu können.
+
+* Die Webseite soll im Responsive Design umgsetzt werden  
+Die Umsetzung soll ohne ein FrameWork wie z.B. BootStrap umgesetzt werden.
+Die Webseite soll ich Fluide auf die Größe des Endgerätes anpassen
+
+* Die Seite soll in einem dezenten und angenehmen Farbschema gestellt werden  
+http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF
 
 ####Use-Case-Diagramm    
 <img height="300px" src="https://github.com/toschill/buechern/blob/master/Planung/usecase_v2.png"/>
@@ -77,10 +84,10 @@ Die MockUps wurden jeweils mit Photoshop erstellt
 ###Architektur  
 
 ####Komponenten Diagramm  
+<img height="450px" src="https://github.com/toschill/buechern/blob/documentation/Planung/kompo.png"/>
 
 ####Klassendiagramm  
-
-####Sequenzdiagramm  
+<img height="450px" src="https://github.com/toschill/buechern/blob/documentation/Planung/klassen.png"/>
 
 ###Eingesetzte Technologien  
 
@@ -105,10 +112,16 @@ Die Datenbank, für die Userregistrierung bzw. Anmeldung, und auch für die Eins
 ####Ajax  
 Ajax ist eine Technologie zum Asynchronen Nachladen von Inhalte einer Webseite. Dies bedeutet, dass auf einer bereits vollständig geladenen Webseite weitere Daten zusätzlich hinzugeladen werden. Man spricht dabei auch von einer DOM-Manipulation. Ein bekanntes Beispiel hierfür ist es, wenn man auf einer Webseite verschiedene Einträge anzeigt bekommt (z.B. in einem Gästebuch). Wenn man am Ende der Seite angelangt ist muss man auf die nächste Seite wechseln (Paginierung). Ajax ermöglicht es hierbei, einen Inhalt direkt unten auf der Seite anzuhängen und somit die Inhalte der Seite zu erweitern. Oftmals wird Ajax auch bei der Suche nach Inhalten verwendet. Auf büchern.de wurde Ajax für die Suche auf der Einkaufen-Seite verwendet. Sucht man hier nach einem Titel wird nach jedem Tastendruck (onkeyup-Event) in der Datenbank nach einem Treffer gesucht. Dieser wird dann sofort auf der Seite angezeigt. Drückt man also als erstes ein <strong>a</strong>, werden lediglich die Bücher angezeigt bei denen ein a in beispielsweise Titel, Autor oder ähnlichem enthalten ist.
 
+####JSON  
+Bei JSON handelt es sich um ein kompaktes Datenformat, in einer einfach lesbaren Textform, zum Zweck des Datenaustauschs zwischen Anwendungen. Mit Hilfe von JSON können beispielsweise Daten die aus der Datenbank abgefragt werden "eingepackt" und anschließend am Ziel "entpackt" und ausgespielt werden. Bisher hat sich allerdings auf büchern.de kein sinnvoller Einsatzort gefunden. Diese Technologie kann jedoch in den weiteren Funktionen (Optionale Funktionen) sehr gut eingesetzt werden. Beispielsweise für den Informationsaustausch zwischen Verkäufer und Käufer. Hierbei werden die Daten eines Käufers aus der Datenbank abgerufen (eingepackt) und anschließend an den Verkäufer übermittelt und dargestellt (entpackt).
+
 ####Websockets und Observer-Pattern  
 Websockets wurden auf büchern.de dazu verwendet, den aktuellen Status der Webseite an den Besucher weiterzugeben. Hierfür wurde ein Platzhalter im Footer definiert. An dieser Stelle werden dem User die Updates angezeigt. Es wird hierbei immer das letzte Ereignis darstellt. Ein Beispiel hierfür ist "Neues Buch wurde eingestellt".
 
 ###Deployment Herokuapp
+Heroku ist eine Plattform, auf welcher beispielsweise Webseiten-Projekte veröffentlicht werden können. 
+Nachdem die Webseite lokal (github) erstellt wurde, sollte diese komplett auf Heroku deployed werden.
+Bei der Veröffentlichung von büchern.de gab es unterschiedliche Probleme. Ein Hauptproblem war es, dass wärend der Umsetzung eine SQL-Light Datenbank eingesetzt wurde, dies allerdings von Heroku nur minimal unterstützt wird. Aus diesem Grund kommt es hierbei sehr häufig zu Fehlern und die Datenbank wurde immer wieder gelöscht bzw. nicht mehr korrekt erkannt und somit skriptseitig neu Erstellt. Ein weiteres Problem ist es, dass Heroku Bilder nicht korrekt erkennt und beispielsweise hinter *.png Bilder oftmals ein "/" setzt und deshalb der Bildpfad nicht mehr stimmt. Bildern können dann nicht mehr gefunden / dargestellt werden. Allerdings kann der Code auf Heroku nicht eingesehen werden (bearbeitet) werden und man kann das falsche Zeichen nicht entfernen. Ansonsten können aber alle Funktionen von büchern.de (buechern.herokuapp.com) genutzt werden. 
 
 ###Ergebnis  
 Das Ergebnis dieses Projekts ist ein nahezu fertiges Portal Büchern.de. Für einen tatsächlichen Go-Live müssten jedoch zunächst weitere Funktionalitäten entwickelt und eingebaut werden, welche es den Usern erleichtern Büchern zu Verkaufen und zu Kaufen. Diese Können im letzten Punkt der Dokumentation eingesehen werden.
