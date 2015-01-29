@@ -10,6 +10,8 @@ Team 6: Bastian Kopf, Fabian Ambrosi, Tobias Schiller
 
 http://buechern.herokuapp.com/
 
+<p style="font-size:20px;">Test</p>
+
 Um büchern.de auf Heroku bzw. lokal vollständig testen zu können, ist es wichtig sich zunächst zu registrieren. Das Registrierungsformular kann über die Profil-Seite aufgerufen werden. Zum Anmelden wird der Vorname und das Passwort benötigt. Anschließend können Bücher über die Verkaufen-Seite eingestellt und bereits eingestelle Bücher über die Einkaufen Seite gekauft werden. Um den Kaufprozess zu testen, empfiehlt es sich zunächst zu registrieren und ein oder mehrere Bücher anzulegen. Mit einer zweiten Registrierung kann dann beispielsweise ein Buch gekauft werden. Diese Transaktionen werden anschließend auf der Profil-Seite des jeweiligen Accounts angezeigt.
 
 ###Das Team###
